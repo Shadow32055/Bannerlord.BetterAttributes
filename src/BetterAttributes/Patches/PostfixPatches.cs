@@ -72,7 +72,7 @@ namespace BetterAttributes.Patches {
 
                 __result = 1;
 
-                Helper.DisplayFriendlyMsg("Xp Muilti is :" + __result);
+                //Helper.DisplayFriendlyMsg("Xp Muilti is :" + __result);
 
 
             } catch (Exception e) {
