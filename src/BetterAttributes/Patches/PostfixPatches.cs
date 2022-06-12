@@ -2,12 +2,10 @@
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.GameComponents;
-using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
 using TaleWorlds.Localization;
-using static HarmonyLib.AccessTools;
 
 namespace BetterAttributes.Patches {
 
