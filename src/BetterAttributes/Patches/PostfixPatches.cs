@@ -90,6 +90,12 @@ namespace BetterAttributes.Patches {
             __result = Helper.settings.focusPointsPerLevel;
         }
 
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), "MaxAttribute", MethodType.Getter)]
+        public static void MaxAttribute(ref int __result) {
+            __result = 11;
+        }
+
         /* For when I get more ambitious
         static FieldRef<Hero, SkillEffect> _effectOneHandedSpeed = AccessTools.FieldRefAccess<DefaultSkillEffects, SkillEffect>("_effectOneHandedSpeed");
 

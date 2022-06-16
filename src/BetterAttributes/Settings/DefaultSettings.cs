@@ -2,7 +2,7 @@
 namespace BetterAttributes.Settings {
     public class DefaultSettings : ISettings {
         public bool cutAllHeroes { get; set; } = true;
-        public float cutChancePerVigor { get; set; } = .01f;
+        public float cutChancePerVigor { get; set; } = 0.01f;
         public bool moralAllHeroes { get; set; } = true;
         public float moralBonusPerControl { get; set; } = 0.02f;
         public bool healthIncAllHeroes { get; set; } = true;
@@ -10,7 +10,7 @@ namespace BetterAttributes.Settings {
         public float percentIncreasePerCunning { get; set; } = 0.02f;
         public bool cunningAllHeros { get; set; } = true;
         public bool wageAllHeroes { get; set; } = true;
-        public float wageDecreasePerSocial { get; set; } = .02f;
+        public float wageDecreasePerSocial { get; set; } = 0.02f;
         public bool xpAllHeroes { get; set; } = true;
         public float xpBonusPerIntelligence { get; set; } = 0.02f;
         public int levelsPerAttributePoint { get; set; } = 3;
