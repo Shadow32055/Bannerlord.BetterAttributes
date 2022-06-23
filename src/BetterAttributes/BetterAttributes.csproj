@@ -80,11 +80,13 @@
     <Compile Include="Utils\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="_Module\ModuleData\Languages\std_ba_strings_xml.xml" />
     <Content Include="_Module\SubModule.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>DEL /Q "S:\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\$(ProjectName)\bin\Win64_Shipping_Client\*"

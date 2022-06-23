@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+	<tags>
+		<tag language="English" />
+	</tags>
+	<strings>	
+		<!-- MCM Settings HEADERS -->
+		<string id="BA_oPw9hh" text="Bonuses" />
+		<string id="BA_V8krxN" text="Enabled?"/>
+		<string id="BA_sVRwEA" text="Should bonuses be applied."/>
+		<string id="BA_vBH4P5" text="Player Only"/>
+		<string id="BA_5AKRK0" text="Determines if this bonus applies to all heroes, not just the player."/>
+		<string id="BA_8g0U40" text="Bonus Percent"/>
+		<string id="BA_3F0Jal" text="A percent increase multiplied by attribute level. (For example, a .02 bonus will be 20% at attribute level 10)"/>
+		<string id="BA_OUkZom" text="Attribute"/>
+		<string id="BA_N7DNB0" text="Select the attribute that this bonus should use"/>
+    
+		<string id="BA_Mf0D9r" text="Vigor"/>
+		<string id="BA_yXzbqm" text="Control"/>
+		<string id="BA_3xcrKW" text="Endurance"/>
+		<string id="BA_v92Ex5" text="Cunning"/>
+		<string id="BA_YtXewV" text="Social"/>
+		<string id="BA_i0FVps" text="Intelligence"/>
+
+		<!-- MCM Settings Presets -->
+		<string id="BC_LpHW65" text="Vanilla Settings"/>
+
+
+		<string id="BA_YdzGi4" text="Melee Damage Bonus"/>
+		<string id="BA_qDobnE" text="Range Damage Bonus"/>
+		<string id="BA_naGmUB" text="Health Bonus"/>
+		<string id="BA_ZYM5T1" text="Stagger Interrupt Bonus"/>
+		<string id="BA_7yzj1P" text="Simulation Bonus"/>
+		<string id="BA_zH5MWH" text="Persuasion Bonus"/>
+		<string id="BA_z99bZB" text="Renown Bonus From Victories"/>
+		<string id="BA_GaAeaG" text="Morale Bonus From Victories"/>
+		<string id="BA_WODJA5" text="Party Morale Bonus"/>
+		<string id="BA_6Eyxyw" text="Party Wage Reduction Bonus"/>
+		<string id="BA_dka4CP" text="Party Size Bonus"/>
+		<string id="BA_GINfAP" text="Clan Income Bonus"/>
+		<string id="BA_5bULNj" text="Influence Bonus From Victories"/>
+		<string id="BA_35dS0f" text="XP Bonus"/>
+    
+    
+    
+		<string id="BA_GU6Ibm" text="Levels Per Attribute Points"/>
+		<string id="BA_VhEAx3" text="How many levels you need to gain to get an attribute point."/>
+    
+		<string id="BA_KAggxW" text="Max Attribute Level"/>
+		<string id="BA_TAtfSS" text="Maximum level for attributes."/>
+		
+		<string id="BA_S7nfeK" text="Focus Points Per Level"/>
+		<string id="BA_GtIuji" text="How many focus points per level."/>
+		
+	</strings>
+</base>
