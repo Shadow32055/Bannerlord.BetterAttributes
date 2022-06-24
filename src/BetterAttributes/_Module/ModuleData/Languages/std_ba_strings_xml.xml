@@ -40,8 +40,8 @@
 		<string id="BA_GINfAP" text="Clan Income Bonus"/>
 		<string id="BA_5bULNj" text="Influence Bonus From Victories"/>
 		<string id="BA_35dS0f" text="XP Bonus"/>
-    
-    
+
+    <string id="BA_McqePD" text="Attribute Bonus"/>
     
 		<string id="BA_GU6Ibm" text="Levels Per Attribute Points"/>
 		<string id="BA_VhEAx3" text="How many levels you need to gain to get an attribute point."/>
@@ -51,6 +51,5 @@
 		
 		<string id="BA_S7nfeK" text="Focus Points Per Level"/>
 		<string id="BA_GtIuji" text="How many focus points per level."/>
-		
-	</strings>
+  </strings>
 </base>

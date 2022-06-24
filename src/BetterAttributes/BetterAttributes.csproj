@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Patches\PostfixPatches.cs" />
-    <Compile Include="Patches\PrefixPatches.cs" />
     <Compile Include="Settings\DefaultSettings.cs" />
     <Compile Include="Settings\ISettings.cs" />
     <Compile Include="Settings\MCMSettings.cs" />
