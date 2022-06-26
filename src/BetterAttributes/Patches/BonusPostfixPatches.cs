@@ -186,10 +186,11 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncomeInternal")]
-        public static void CalculateClanIncomeInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) {
+        public static void CalculateClanIncomeInternal(DefaultClanFinanceModel __instance, Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) {
 
             try {
-                //goldChange.Add(1000, new TextObject("More Money!", null));
+                if (clan.IsEliminated)
+                    return;
 
                 if (clan.Leader is null)
                     return;
@@ -197,8 +198,7 @@ namespace BetterAttributes.Patches {
                 if (!clan.Leader.IsHumanPlayerCharacter && Helper.settings.incomeBonusPlayerOnly)
                     return;
 
-                if (goldChange.ResultNumber > 0) 
-                    goldChange.AddFactor(Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
+                goldChange.Add(goldChange.ResultNumber * Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateClanIncomeInternal Postfix. Exception output: " + e);
