@@ -59,7 +59,7 @@ namespace BetterAttributes.Patches {
                 if (!character.IsPlayerCharacter && Helper.settings.healthBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthBonus, Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute), character), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthBonus, Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute), character), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with MaxHitpoints Postfix. Exception output: " + e);
@@ -124,7 +124,7 @@ namespace BetterAttributes.Patches {
                 if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.renownBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.renownBonus, Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.renownBonus, Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateRenownGain Postfix. Exception output: " + e);
@@ -142,7 +142,7 @@ namespace BetterAttributes.Patches {
                 if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.moraleBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.moraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.moraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateMoraleGainVictory Postfix. Exception output: " + e);
@@ -159,7 +159,7 @@ namespace BetterAttributes.Patches {
                 if (!mobileParty.LeaderHero.IsHumanPlayerCharacter && Helper.settings.partyMoraleBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partyMoraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.partyMoraleBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partyMoraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.partyMoraleBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.partyMoraleBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with GetEffectivePartyMorale Postfix. Exception output: " + e);
@@ -177,7 +177,7 @@ namespace BetterAttributes.Patches {
                 if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.partySizeBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partySizeBonus, Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partySizeBonus, Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with GetPartyMemberSizeLimit Postfix. Exception output: " + e);
@@ -195,7 +195,7 @@ namespace BetterAttributes.Patches {
                 if (!clan.Leader.IsHumanPlayerCharacter && Helper.settings.incomeBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateClanIncome Postfix. Exception output: " + e);
@@ -214,7 +214,7 @@ namespace BetterAttributes.Patches {
                 if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.influenceBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.influenceBonus, Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.influenceBonus, Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateInfluenceGain Postfix. Exception output: " + e);
