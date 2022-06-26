@@ -43,6 +43,8 @@ namespace BetterAttributes.Utils {
                 attributeLvl = character.HeroObject.GetAttributeValue(DefaultCharacterAttributes.Control);
             } else if (attrbiute == DefaultCharacterAttributes.Endurance) {
                 attributeLvl = character.HeroObject.GetAttributeValue(DefaultCharacterAttributes.Endurance);
+            } else if (attrbiute == DefaultCharacterAttributes.Cunning) {
+                attributeLvl = character.HeroObject.GetAttributeValue(DefaultCharacterAttributes.Cunning);
             } else if (attrbiute == DefaultCharacterAttributes.Social) {
                 attributeLvl = character.HeroObject.GetAttributeValue(DefaultCharacterAttributes.Social);
             } else if (attrbiute == DefaultCharacterAttributes.Intelligence) {
