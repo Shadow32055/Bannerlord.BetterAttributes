@@ -183,30 +183,27 @@ namespace BetterAttributes.Patches {
                 Helper.WriteToLog("Issue with GetPartyMemberSizeLimit Postfix. Exception output: " + e);
             }
         }
-        /*
+
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncome")]
-        public static void CalculateClanIncome(ref ExplainedNumber __result, Clan clan, bool applyWithdrawals = false) =>
-            __result.Add(100, new TextObject("Additional income for Leaders' INT"));
-        */
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncome")]
-        public static void CalculateClanIncome(ref ExplainedNumber __result, Clan clan, bool applyWithdrawals = false) {
+        [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncomeInternal")]
+        public static void CalculateClanIncomeInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) {
+
             try {
+                //goldChange.Add(1000, new TextObject("More Money!", null));
 
                 if (clan.Leader is null)
                     return;
 
                 if (!clan.Leader.IsHumanPlayerCharacter && Helper.settings.incomeBonusPlayerOnly)
                     return;
-                //__result.Add(1000, new TextObject("More Money!", null));
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
+
+                if (goldChange.ResultNumber > 0) 
+                    goldChange.AddFactor(Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with CalculateClanIncome Postfix. Exception output: " + e);
+                Helper.WriteToLog("Issue with CalculateClanIncomeInternal Postfix. Exception output: " + e);
             }
         }
-
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultBattleRewardModel), "CalculateInfluenceGain")]
