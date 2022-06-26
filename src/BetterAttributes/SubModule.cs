@@ -2,6 +2,10 @@
 using BetterAttributes.Utils;
 using BetterAttributes.Settings;
 using TaleWorlds.MountAndBlade;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using BetterAttributes.Patches;
+using BetterAttributes.Custom;
 
 namespace BetterAttributes {
 	public class SubModule : MBSubModuleBase {
@@ -12,14 +16,22 @@ namespace BetterAttributes {
 			new Harmony("Bannerlord.Shadow.BetterAttributes").PatchAll();
 		}
 
-		/*protected override void OnGameStart(Game g, IGameStarter ig) {
-			base.OnGameStart(g, ig);
+		protected override void OnGameStart(Game game, IGameStarter gameStarter) {
+			base.OnGameStart(game, gameStarter);
+
 			//new Harmony("Bannerlord.Shadow.BetterAttributes").PatchAll();
-			Helper.DisplayFriendlyMsg("Game Start");
-			if (g.GameType is Campaign) {
-				//ig.AddModel(new CustomDefaultCharacterDevelopmentModel());
+			//Helper.DisplayFriendlyMsg("Game Start");
+			if (game.GameType is Campaign) {
+				CampaignGameStarter campaignGameStarter = gameStarter as CampaignGameStarter;
+
+				if (campaignGameStarter != null) {
+					campaignGameStarter.AddModel(new CustomDefaultPartyWageModel());
+					campaignGameStarter.AddModel(new CustomDefaultCharacterDevelopmentModel());
+
+					//ig.AddModel(new CustomDefaultCharacterDevelopmentModel());
+				}
 			}
-		}*/
+		}
 
 		protected override void OnBeforeInitialModuleScreenSetAsRoot() {
 			base.OnBeforeInitialModuleScreenSetAsRoot();
@@ -29,12 +41,5 @@ namespace BetterAttributes {
 			Helper.SetModName(modName);
 			Helper.settings = SettingsManager.Instance;
 		}
-
-		/*public override void OnGameEnd(Game g) {
-		  	Helper.DisplayFriendlyMsg("Game End");
-			var original = typeof(DefaultCharacterStatsModel).GetMethod("MaxHitpoints");
-
-			//new Harmony("Bannerlord.Shadow.BetterAttributes").Unpatch(original, HarmonyPatchType.Postfix);
-		}*/
 	}
 }

@@ -16,7 +16,7 @@ using TaleWorlds.CampaignSystem.Conversation.Persuasion;
 namespace BetterAttributes.Patches {
 
     [HarmonyPatch]
-    class PostfixPatches {
+    class BonusPostfixPatches {
 
         // Vigor/Control melee/range dmg boost
         [HarmonyPostfix]
@@ -59,7 +59,7 @@ namespace BetterAttributes.Patches {
                 if (!character.IsPlayerCharacter && Helper.settings.healthBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthBonus, Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute), character), new TextObject("{=BA_McqePD}Attribute Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthBonus, Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute), character), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with MaxHitpoints Postfix. Exception output: " + e);
@@ -124,7 +124,7 @@ namespace BetterAttributes.Patches {
                 if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.renownBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.renownBonus, Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject("{=BA_McqePD}Attribute Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.renownBonus, Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateRenownGain Postfix. Exception output: " + e);
@@ -142,7 +142,7 @@ namespace BetterAttributes.Patches {
                 if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.moraleBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.moraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject("{=BA_McqePD}Attribute Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.moraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateMoraleGainVictory Postfix. Exception output: " + e);
@@ -159,27 +159,10 @@ namespace BetterAttributes.Patches {
                 if (!mobileParty.LeaderHero.IsHumanPlayerCharacter && Helper.settings.partyMoraleBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partyMoraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.partyMoraleBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject("{=BA_McqePD}Attribute Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partyMoraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.partyMoraleBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with GetEffectivePartyMorale Postfix. Exception output: " + e);
-            }
-        }
-
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculatePartyWage")]
-        public static void CalculatePartyWage(ref int __result, MobileParty mobileParty, int budget, bool applyWithdrawals) {
-            try {
-                if (mobileParty.LeaderHero is null)
-                    return;
-
-                if (!mobileParty.LeaderHero.IsHumanPlayerCharacter && Helper.settings.wageBonusPlayerOnly)
-                    return;
-
-                __result = (int)(__result * (1 - Helper.GetAttributeEffect(Helper.settings.wageBonus, Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute), mobileParty.LeaderHero.CharacterObject)));
-
-            } catch (Exception e) {
-                Helper.WriteToLog("Issue with CalculatePartyWage Postfix. Exception output: " + e);
             }
         }
 
@@ -194,7 +177,7 @@ namespace BetterAttributes.Patches {
                 if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.partySizeBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partySizeBonus, Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject("{=BA_McqePD}Attribute Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partySizeBonus, Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with GetPartyMemberSizeLimit Postfix. Exception output: " + e);
@@ -203,7 +186,7 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncome")]
-        public static void CalculateClanIncome(ref ExplainedNumber __result, Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false) {
+        public static void CalculateClanIncome(ref ExplainedNumber __result, Clan clan, bool applyWithdrawals = false) {
             try {
 
                 if (clan.Leader is null)
@@ -212,7 +195,7 @@ namespace BetterAttributes.Patches {
                 if (!clan.Leader.IsHumanPlayerCharacter && Helper.settings.incomeBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject("{=BA_McqePD}Attribute Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateClanIncome Postfix. Exception output: " + e);
@@ -231,7 +214,7 @@ namespace BetterAttributes.Patches {
                 if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.influenceBonusPlayerOnly)
                     return;
 
-                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.influenceBonus, Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject("{=BA_McqePD}Attribute Bonus", null));
+                __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.influenceBonus, Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with CalculateInfluenceGain Postfix. Exception output: " + e);
@@ -253,27 +236,6 @@ namespace BetterAttributes.Patches {
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with GetXpMultiplier Postfix. Exception output: " + e);
             }
-        }
-
-
-
-
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), "LevelsPerAttributePoint", MethodType.Getter)]
-        public static void LevelsPerAttributePoint(ref int __result) {
-            __result = Helper.settings.levelsPerAttributePoint;
-        }
-
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), "FocusPointsPerLevel", MethodType.Getter)]
-        public static void FocusPointsPerLevel(ref int __result) {
-            __result = Helper.settings.focusPointsPerLevel;
-        }
-
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), "MaxAttribute", MethodType.Getter)]
-        public static void MaxAttribute(ref int __result) {
-            __result = Helper.settings.maxAttributeLevel;
         }
     }
 }

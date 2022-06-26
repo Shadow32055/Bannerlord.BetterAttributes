@@ -2,6 +2,7 @@
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 
 namespace BetterAttributes.Utils {
     public class Helper {
@@ -33,7 +34,7 @@ namespace BetterAttributes.Utils {
             Debug.Print(modName + ": " + text);
         }
 
-        public static float GetAttributeEffect(float effect, CharacterAttribute attrbiute, CharacterObject character) {
+        public static float GetAttributeEffect(float bonus, CharacterAttribute attrbiute, CharacterObject character) {
             int attributeLvl = 1;
 
             if (attrbiute == DefaultCharacterAttributes.Vigor) {
@@ -48,10 +49,13 @@ namespace BetterAttributes.Utils {
                 attributeLvl = character.HeroObject.GetAttributeValue(DefaultCharacterAttributes.Intelligence);
             }
 
-            return effect * attributeLvl;
+            return bonus * attributeLvl;
         }
 
         public static CharacterAttribute GetAttributeTypeFromText(string text) {
+            TextObject to = new TextObject(text, null);
+
+            text = to.ToString();
 
             if (text == "Vigor") {
                 return DefaultCharacterAttributes.Vigor;

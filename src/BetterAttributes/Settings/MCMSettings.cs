@@ -32,7 +32,7 @@ namespace BetterAttributes.Settings {
         const string meleeText = "{=BA_YdzGi4}Melee Damage Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + meleeText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool melDmgBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + meleeText)]
@@ -58,7 +58,7 @@ namespace BetterAttributes.Settings {
         const string rangeText = "{=BA_qDobnE}Range Damage Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + rangeText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool rngDmgBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + rangeText)]
@@ -84,7 +84,7 @@ namespace BetterAttributes.Settings {
         const string healthText = "{=BA_naGmUB}Health Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + healthText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool healthBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + healthText)]
@@ -110,7 +110,7 @@ namespace BetterAttributes.Settings {
         const string staggerText = "{=BA_ZYM5T1}Stagger Interrupt Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + staggerText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool staggerBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + staggerText)]
@@ -136,7 +136,7 @@ namespace BetterAttributes.Settings {
         const string simText = "{=BA_7yzj1P}Simulation Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + simText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool simBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + simText)]
@@ -162,7 +162,7 @@ namespace BetterAttributes.Settings {
         const string persuasionText = "{=BA_zH5MWH}Persuasion Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool persuasionBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
@@ -184,7 +184,7 @@ namespace BetterAttributes.Settings {
         const string renownText = "{=BA_z99bZB}Renown Bonus From Victories";
 
         [SettingPropertyGroup(bonusesText + "/" + renownText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool renownBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + renownText)]
@@ -210,7 +210,7 @@ namespace BetterAttributes.Settings {
         const string moralText = "{=BA_GaAeaG}Morale Bonus From Victories";
 
         [SettingPropertyGroup(bonusesText + "/" + moralText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool moraleBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + moralText)]
@@ -236,7 +236,7 @@ namespace BetterAttributes.Settings {
         const string partyMoralText = "{=BA_WODJA5}Party Morale Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool partyMoraleBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
@@ -262,7 +262,7 @@ namespace BetterAttributes.Settings {
         const string wageText = "{=BA_6Eyxyw}Party Wage Reduction Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + wageText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool wageBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + wageText)]
@@ -288,7 +288,7 @@ namespace BetterAttributes.Settings {
         const string sizeText = "{=BA_dka4CP}Party Size Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + sizeText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool partySizeBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + sizeText)]
@@ -315,7 +315,7 @@ namespace BetterAttributes.Settings {
         const string incomeText = "{=BA_GINfAP}Clan Income Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + incomeText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool incomeBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + incomeText)]
@@ -341,7 +341,7 @@ namespace BetterAttributes.Settings {
         const string influenceText = "{=BA_5bULNj}Influence Bonus From Victories";
 
         [SettingPropertyGroup(bonusesText + "/" + influenceText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool influenceBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + influenceText)]
@@ -367,7 +367,7 @@ namespace BetterAttributes.Settings {
         const string xpText = "{=BA_35dS0f}XP Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + xpText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
         public bool xpBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + xpText)]
