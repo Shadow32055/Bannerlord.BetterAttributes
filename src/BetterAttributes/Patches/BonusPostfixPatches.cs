@@ -151,7 +151,7 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultPartyMoraleModel), "GetEffectivePartyMorale")]
-        public static void GetEffectivePartyMorale(ref ExplainedNumber __result, MobileParty mobileParty, bool includeDescription = false) {
+        public static void GetEffectivePartyMorale(ref ExplainedNumber __result, MobileParty mobileParty) {
             try {
                 if (mobileParty.LeaderHero is null)
                     return;
@@ -168,7 +168,7 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultPartySizeLimitModel), "GetPartyMemberSizeLimit")]
-        public static void GetPartyMemberSizeLimit(ref ExplainedNumber __result, PartyBase party, bool includeDescriptions = false) {
+        public static void GetPartyMemberSizeLimit(ref ExplainedNumber __result, PartyBase party) {
             try {
 
                 if (party.LeaderHero is null)
@@ -183,7 +183,12 @@ namespace BetterAttributes.Patches {
                 Helper.WriteToLog("Issue with GetPartyMemberSizeLimit Postfix. Exception output: " + e);
             }
         }
-
+        /*
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncome")]
+        public static void CalculateClanIncome(ref ExplainedNumber __result, Clan clan, bool applyWithdrawals = false) =>
+            __result.Add(100, new TextObject("Additional income for Leaders' INT"));
+        */
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncome")]
         public static void CalculateClanIncome(ref ExplainedNumber __result, Clan clan, bool applyWithdrawals = false) {
@@ -194,7 +199,7 @@ namespace BetterAttributes.Patches {
 
                 if (!clan.Leader.IsHumanPlayerCharacter && Helper.settings.incomeBonusPlayerOnly)
                     return;
-
+                //__result.Add(1000, new TextObject("More Money!", null));
                 __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
@@ -235,6 +240,22 @@ namespace BetterAttributes.Patches {
 
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with GetXpMultiplier Postfix. Exception output: " + e);
+            }
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(DefaultPartyHealingModel), "GetDailyHealingHpForHeroes")]
+        public static void GetDailyHealingHpForHeroes(ref ExplainedNumber __result, MobileParty party, bool includeDescriptions = false) {
+            try {
+                if (party.LeaderHero is null)
+                    return;
+
+                if (Helper.settings.healthBonusEnabled) {
+                    float healthboost = party.LeaderHero.CharacterObject.MaxHitPoints() - 100;
+                    __result.Add(healthboost / 10, new TextObject("Healing Boost", null));
+                }
+            } catch (Exception e) {
+                Helper.WriteToLog("Issue with GetDailyHealingHpForHeroes Postfix. Exception output: " + e);
             }
         }
     }
