@@ -15,8 +15,8 @@ namespace BetterAttributes.Settings {
         const string playerOnlyText = "{=BA_vBH4P5}Player Only";
         const string playerOnlyDesText = "{=BA_5AKRK0}Determines if this bonus applies to all heroes, not just the player.";
 
-        const string bonusText = "{=BA_8g0U40}Bonus Percent";
-        const string genericBonusText = "{=BA_3F0Jal}A percent increase multiplied by attribute level. (For example, a .02 bonus will be 20% at attribute level 10)";
+        const string bonusText = "{=BA_8g0U40}Bonus";
+        const string genericBonusText = "{=BA_3F0Jal}An increase multiplied by attribute level. (For example, a 2% (.02) bonus will be 20% at attribute level 10)";
 
         const string attributeText = "{BA_OUkZom}Attribute";
         const string genericAtrSelectText = "{=BA_N7DNB0}Select the attribute that this bonus should use";
@@ -40,7 +40,7 @@ namespace BetterAttributes.Settings {
         public bool melDmgBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + meleeText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float melDmgBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + meleeText)]
@@ -66,7 +66,7 @@ namespace BetterAttributes.Settings {
         public bool rngDmgBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + rangeText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float rngDmgBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + rangeText)]
@@ -92,7 +92,7 @@ namespace BetterAttributes.Settings {
         public bool healthBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + healthText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float healthBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + healthText)]
@@ -118,7 +118,7 @@ namespace BetterAttributes.Settings {
         public bool staggerBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + staggerText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float staggerBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + staggerText)]
@@ -144,7 +144,7 @@ namespace BetterAttributes.Settings {
         public bool simBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + simText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float simBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + simText)]
@@ -166,7 +166,7 @@ namespace BetterAttributes.Settings {
         public bool persuasionBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float persuasionBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
@@ -192,7 +192,7 @@ namespace BetterAttributes.Settings {
         public bool renownBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + renownText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float renownBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + renownText)]
@@ -218,7 +218,7 @@ namespace BetterAttributes.Settings {
         public bool moraleBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + moralText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float moraleBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + moralText)]
@@ -244,7 +244,7 @@ namespace BetterAttributes.Settings {
         public bool partyMoraleBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float partyMoraleBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
@@ -270,7 +270,7 @@ namespace BetterAttributes.Settings {
         public bool wageBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + wageText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float wageBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + wageText)]
@@ -296,7 +296,7 @@ namespace BetterAttributes.Settings {
         public bool partySizeBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + sizeText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float partySizeBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + sizeText)]
@@ -323,7 +323,7 @@ namespace BetterAttributes.Settings {
         public bool incomeBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + incomeText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float incomeBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + incomeText)]
@@ -349,7 +349,7 @@ namespace BetterAttributes.Settings {
         public bool influenceBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + influenceText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float influenceBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + influenceText)]
@@ -375,7 +375,7 @@ namespace BetterAttributes.Settings {
         public bool xpBonusPlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + xpText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
         public float xpBonus { get; set; } = .02f;
 
         [SettingPropertyGroup(bonusesText + "/" + xpText)]
@@ -390,23 +390,41 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 5);
 
 
-        const string partyLeaderXPText = "{=BA_354j0f}Party Leader XP Bonus";
+        const string partyLeaderXPText = "{=BA_354j0f}Party Leader XP From Party Roles";
 
         [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = "Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader.")]
         public bool partyLeaderXPBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool partyLeaderXPBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float partyLeaderXPBonus { get; set; } = .25f;
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float partyLeaderXPBonus { get; set; } = .025f;
 
         [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
         public DropdownDefault<string> partyLeaderXPBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 5);
+
+
+        const string companionText = "{=BA_354j0f}Companion Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + companionText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool companionBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + companionText)]
+        [SettingPropertyInteger(bonusText, 0, 100, "0", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public int companionBonus { get; set; } = 1;
+
+        [SettingPropertyGroup(bonusesText + "/" + companionText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public DropdownDefault<string> companionBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -570,6 +588,16 @@ namespace BetterAttributes.Settings {
                 this.partyLeaderXPBonusAttributeDropdown.SelectedValue = value;
             }
         }
+
+        public string companionBonusAttribute {
+            get {
+                return this.companionBonusAttributeDropdown.SelectedValue;
+            }
+            set {
+                this.companionBonusAttributeDropdown.SelectedValue = value;
+            }
+        }
+
 
 
         public override string Id { get { return base.GetType().Assembly.GetName().Name; } }

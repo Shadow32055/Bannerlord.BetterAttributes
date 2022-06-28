@@ -100,6 +100,7 @@
     <Compile Include="Patches\BonusPostfixPatches.cs" />
     <Compile Include="Custom\CustomDefaultPartyWageModel.cs" />
     <Compile Include="Patches\DefaultCharacterDevelopmentModelPatch.cs" />
+    <Compile Include="Patches\DefaultClanTierModelPatch.cs" />
     <Compile Include="Patches\XPPatch.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

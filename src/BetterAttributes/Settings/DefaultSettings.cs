@@ -71,9 +71,12 @@ namespace BetterAttributes.Settings {
         public string xpBonusAttribute { get; set; } = "Intelligence";
 
         public bool partyLeaderXPBonusEnabled { get; set; } = true;
-        public bool partyLeaderXPBonusPlayerOnly { get; set; } = true;
-        public float partyLeaderXPBonus { get; set; } = 0.25f;
+        public float partyLeaderXPBonus { get; set; } = 0.025f;
         public string partyLeaderXPBonusAttribute { get; set; } = "Intelligence";
+
+        public bool companionBonusEnabled { get; set; } = true;
+        public int companionBonus { get; set; } = 1;
+        public string companionBonusAttribute { get; set; } = "Social";
 
         public int levelsPerAttributePoint { get; set; } = 3;
         public int focusPointsPerLevel { get; set; } = 1;

@@ -6,7 +6,6 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
 using TaleWorlds.Core;
 
-//TODO: Revisit, dosent work
 namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(CharacterAttributeItemVM), MethodType.Constructor)]
     [HarmonyPatch(new Type[] { typeof(Hero), typeof(CharacterAttribute), typeof(CharacterVM), typeof(Action<CharacterAttributeItemVM>), typeof(Action<CharacterAttributeItemVM>) })]
@@ -18,8 +17,13 @@ namespace BetterAttributes.Patches {
 
             List<CustomAtrObject> bonuses = getAllBonusForGivenAttribute(currAtt, hero.GetAttributeValue(currAtt));
 
+
             foreach (CustomAtrObject co in bonuses) {
-                text += co.text + (co.bonus * co.level).ToString("P") + "\n";
+
+                if (!hero.IsHumanPlayerCharacter && co.playerOnly)
+                    continue;
+
+                text += co.displayString + "\n";
             }
 
             __instance.IncreaseHelpText = text + "\n" + __instance.IncreaseHelpText;
@@ -30,66 +34,67 @@ namespace BetterAttributes.Patches {
             List<CustomAtrObject> aplicableBonuses = new List<CustomAtrObject>();
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.melDmgBonusAttribute) == ca && Helper.settings.melDmgBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.melDmgBonus, "Increases melee damage by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases melee damage by " + (Helper.settings.melDmgBonus * lvl).ToString("P") + "", Helper.settings.melDmgBonusPlayerOnly));
             
             if (Helper.GetAttributeTypeFromText(Helper.settings.rngDmgBonusAttribute) == ca && Helper.settings.rngDmgBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.rngDmgBonus, "Increases range damage by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases ranged damage by " + (Helper.settings.rngDmgBonus * lvl).ToString("P") + "", Helper.settings.rngDmgBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute) == ca && Helper.settings.healthBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.healthBonus, "Increases HP by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases HP by " + (Helper.settings.healthBonus * lvl).ToString("P") + "", Helper.settings.healthBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.staggerBonusAttribute) == ca && Helper.settings.staggerBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.staggerBonus, "Increases stagger interrupt by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases stagger interrupt by " + (Helper.settings.staggerBonus * lvl).ToString("P") + "", Helper.settings.staggerBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.simBonusAttribute) == ca && Helper.settings.simBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.simBonus, "Increases simulation by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases simulation by " + (Helper.settings.simBonus * lvl).ToString("P") + "", Helper.settings.simBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.persuasionBonusAttribute) == ca && Helper.settings.persuasionBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.persuasionBonus, "Increases persuasion by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases persuasion by " + (Helper.settings.persuasionBonus * lvl).ToString("P") + "", true));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute) == ca && Helper.settings.renownBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.renownBonus, "Increases renown earned from victories by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases renown earned from victories by " + (Helper.settings.renownBonus * lvl).ToString("P") + "", Helper.settings.renownBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute) == ca && Helper.settings.moraleBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.moraleBonus, "Increases moral earned from victories by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases moral earned from victories by " + (Helper.settings.moraleBonus * lvl).ToString("P") + "", Helper.settings.moraleBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.partyMoraleBonusAttribute) == ca && Helper.settings.partyMoraleBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.partyMoraleBonus, "Increases party moral by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases party moral by " + (Helper.settings.partyMoraleBonus * lvl).ToString("P") + "", Helper.settings.partyMoraleBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute) == ca && Helper.settings.wageBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.wageBonus, "Decreases party wages by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Decreases party wages by " + (Helper.settings.wageBonus * lvl).ToString("P") + "", Helper.settings.wageBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute) == ca && Helper.settings.partySizeBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.partySizeBonus, "Increases party size by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases party size by " + (Helper.settings.partySizeBonus * lvl).ToString("P") + "", Helper.settings.partySizeBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute) == ca && Helper.settings.incomeBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.incomeBonus, "Increases gross income by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases gross income by " + (Helper.settings.incomeBonus * lvl).ToString("P") + "", Helper.settings.incomeBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute) == ca && Helper.settings.influenceBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.influenceBonus, "Increases influence earned from victories by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases influence earned from victories by " + (Helper.settings.influenceBonus * lvl).ToString("P") + "", Helper.settings.influenceBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.xpBonusAttribute) == ca && Helper.settings.xpBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.xpBonus, "Increases experience gain by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases experience gain by " + (Helper.settings.xpBonus * lvl).ToString("P") + "", Helper.settings.xpBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.partyLeaderXPBonusAttribute) == ca && Helper.settings.partyLeaderXPBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, Helper.settings.partyLeaderXPBonus, "Increases party leader experience gain by ", lvl));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Party leader XP from assigned roles " + (Helper.settings.partyLeaderXPBonus * lvl).ToString("P") + "", true));
+
+            if (Helper.GetAttributeTypeFromText(Helper.settings.companionBonusAttribute) == ca && Helper.settings.companionBonusEnabled)
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases companion limit by +" + (Helper.settings.companionBonus * lvl) + "", true));
 
             return aplicableBonuses;
         }
     }
 
-
     internal class CustomAtrObject {
         public CharacterAttribute characterAttribute;
-        public float bonus;
-        public string text;
-        public int level;
 
-        public CustomAtrObject(CharacterAttribute ca, float b, string s, int lvl) {
+        public bool playerOnly;
+        public string displayString;
+
+        public CustomAtrObject(CharacterAttribute ca, string ds, bool po) {
             characterAttribute = ca;
-            bonus = b;
-            text = s;
-            level = lvl;
+            playerOnly = po;
+            displayString = ds;
         }
     }
 }

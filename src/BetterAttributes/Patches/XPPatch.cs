@@ -38,9 +38,9 @@ namespace BetterAttributes.Patches {
                         }
                     }
                 }
-                
-            } catch (Exception ex) {
-                InformationManager.DisplayMessage(new InformationMessage($"An exception occurred whilst trying to apply role xp to party leader: {ex}", TaleWorlds.Library.Color.Black));
+
+            } catch (Exception e) {
+                Helper.WriteToLog("Issue with CalculateStaggerThresholdMultiplier Postfix. Exception output: " + e);
             }
         }
 

@@ -73,9 +73,12 @@ namespace BetterAttributes.Settings {
 
 
         bool partyLeaderXPBonusEnabled { get; set; }
-        bool partyLeaderXPBonusPlayerOnly { get; set; }
         float partyLeaderXPBonus { get; set; }
         string partyLeaderXPBonusAttribute { get; set; }
+
+        bool companionBonusEnabled { get; set; }
+        int companionBonus { get; set; }
+        string companionBonusAttribute { get; set; }
 
 
         int levelsPerAttributePoint { get; set; }
