@@ -431,7 +431,7 @@ namespace BetterAttributes.Settings {
             cunningText,
             socialText,
             intelligenceText
-        }, selectedIndex: 5);
+        }, selectedIndex: 4);
 
 
         [SettingPropertyGroup(attributeText)]
