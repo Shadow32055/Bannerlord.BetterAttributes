@@ -390,17 +390,47 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 5);
 
 
+        const string partyLeaderXPText = "{=BA_354j0f}Party Leader XP Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool partyLeaderXPBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
+        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
+        public bool partyLeaderXPBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float partyLeaderXPBonus { get; set; } = .25f;
+
+        [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public DropdownDefault<string> partyLeaderXPBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 5);
+
+
         [SettingPropertyGroup(attributeText)]
         [SettingPropertyInteger("{=BA_GU6Ibm}Levels Per Attribute Points", 0, 10, "0", Order = 0, RequireRestart = false, HintText = "{=BA_VhEAx3}How many levels you need to gain to get an attribute point.")]
         public int levelsPerAttributePoint { get; set; } = 3;
 
         [SettingPropertyGroup(attributeText)]
         [SettingPropertyInteger("{=BA_KAggxW}Max Attribute Level", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_TAtfSS}Maximum level for attributes.")]
-        public int maxAttributeLevel { get; set; } = 11;
+        public int maxAttributeLevel { get; set; } = 10;
 
         [SettingPropertyGroup("Focus")]
-        [SettingPropertyInteger("{=BA_S7nfeK}Focus Points Per Level", 0, 10, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIuji}How many focus points per level.")]
+        [SettingPropertyInteger("{=BA_S7nfeK}Focus Points Per Level", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIuji}How many focus points per level.")]
         public int focusPointsPerLevel { get; set; } = 1;
+
+        [SettingPropertyGroup("Focus")]
+        [SettingPropertyInteger("{=BA_S7nfeK}Max Points Per Skill", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIutr}How many focus points that can be spent on a skill.")]
+        public int maxFocusPointsPerSkill { get; set; } = 5;
 
 
 
@@ -532,8 +562,14 @@ namespace BetterAttributes.Settings {
             }
         }
 
-
-
+        public string partyLeaderXPBonusAttribute {
+            get {
+                return this.partyLeaderXPBonusAttributeDropdown.SelectedValue;
+            }
+            set {
+                this.partyLeaderXPBonusAttributeDropdown.SelectedValue = value;
+            }
+        }
 
 
         public override string Id { get { return base.GetType().Assembly.GetName().Name; } }

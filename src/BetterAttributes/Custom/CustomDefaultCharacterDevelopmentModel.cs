@@ -17,10 +17,9 @@ namespace BetterAttributes.Custom {
             }
         }
 
-        //TODO: Allow user to configure
         public override int MaxFocusPerSkill {
             get {
-                return 5;
+                return Helper.settings.maxFocusPointsPerSkill;
             }
         }
 

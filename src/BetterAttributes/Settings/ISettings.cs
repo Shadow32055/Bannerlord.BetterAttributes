@@ -71,8 +71,16 @@ namespace BetterAttributes.Settings {
         float xpBonus { get; set; }
         string xpBonusAttribute { get; set; }
 
+
+        bool partyLeaderXPBonusEnabled { get; set; }
+        bool partyLeaderXPBonusPlayerOnly { get; set; }
+        float partyLeaderXPBonus { get; set; }
+        string partyLeaderXPBonusAttribute { get; set; }
+
+
         int levelsPerAttributePoint { get; set; }
         int focusPointsPerLevel { get; set; }
         int maxAttributeLevel { get; set; }
+        int maxFocusPointsPerSkill { get; set; }
     }
 }

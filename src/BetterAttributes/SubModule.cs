@@ -4,7 +4,6 @@ using BetterAttributes.Settings;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
-using BetterAttributes.Patches;
 using BetterAttributes.Custom;
 
 namespace BetterAttributes {
@@ -12,23 +11,28 @@ namespace BetterAttributes {
 
 		protected override void OnSubModuleLoad() {
 			base.OnSubModuleLoad();
-			
-			new Harmony("Bannerlord.Shadow.BetterAttributes").PatchAll();
+
+			Harmony h = new Harmony("Bannerlord.Shadow.BetterAttributes");
+
+			//*** Manual patching reference
+			//MethodInfo original = typeof(Hero).GetProperty("AddSkillXp").GetGetMethod();
+			//MethodInfo postfix = typeof(XPPatch).GetMethod("AddSkillXp");
+			//h.Patch(original, postfix: new HarmonyMethod(postfix));
+
+			h.PatchAll();
 		}
 
 		protected override void OnGameStart(Game game, IGameStarter gameStarter) {
 			base.OnGameStart(game, gameStarter);
 
-			//new Harmony("Bannerlord.Shadow.BetterAttributes").PatchAll();
-			//Helper.DisplayFriendlyMsg("Game Start");
 			if (game.GameType is Campaign) {
 				CampaignGameStarter campaignGameStarter = gameStarter as CampaignGameStarter;
 
 				if (campaignGameStarter != null) {
 					campaignGameStarter.AddModel(new CustomDefaultPartyWageModel());
-					campaignGameStarter.AddModel(new CustomDefaultCharacterDevelopmentModel());
+					//campaignGameStarter.AddModel(new CustomDefaultCharacterDevelopmentModel());
 
-					//ig.AddModel(new CustomDefaultCharacterDevelopmentModel());
+					//campaignGameStarter.AddModel(new CustomDefaultCharacterDevelopmentModel());
 				}
 			}
 		}
@@ -41,5 +45,5 @@ namespace BetterAttributes {
 			Helper.SetModName(modName);
 			Helper.settings = SettingsManager.Instance;
 		}
-	}
+    }
 }
