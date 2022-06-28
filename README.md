@@ -1,7 +1,9 @@
-Summary
+# Bannerlord.BetterAttributes
+
+## Summary
 This mod aims to improve attributes by giving them each unique bonuses that scale with the attribute level.
 
-Features
+## Features
 Provides bonuses from attributes (values customizable)
 Options for player only or all heroes.
 Configure focus points per level
