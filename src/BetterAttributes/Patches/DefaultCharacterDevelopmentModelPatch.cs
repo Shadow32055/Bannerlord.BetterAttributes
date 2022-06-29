@@ -1,10 +1,5 @@
 ﻿using BetterAttributes.Utils;
 using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem.GameComponents;
 
 namespace BetterAttributes.Patches {
@@ -34,9 +29,5 @@ namespace BetterAttributes.Patches {
         public static void MaxAttribute(ref int __result) {
             __result = Helper.settings.maxAttributeLevel;
         }
-
-
-
-
     }
 }

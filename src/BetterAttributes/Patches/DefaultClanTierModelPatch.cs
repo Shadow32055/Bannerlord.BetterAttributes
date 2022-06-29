@@ -1,10 +1,6 @@
 ﻿using BetterAttributes.Utils;
 using HarmonyLib;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 
@@ -20,7 +16,7 @@ namespace BetterAttributes.Patches {
                     __result = __result + (int)Helper.GetAttributeEffect(Helper.settings.companionBonus, Helper.GetAttributeTypeFromText(Helper.settings.companionBonusAttribute), Hero.MainHero.CharacterObject);
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with GetCompanionLimit Postfix. Exception output: " + e);
+                Helper.WriteToLog("Issue with DefaultClanTierModelPatch.GetCompanionLimit postfix. Exception output: " + e);
             }
         }
     }

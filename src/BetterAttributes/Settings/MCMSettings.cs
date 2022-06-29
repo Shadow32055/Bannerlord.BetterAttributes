@@ -107,6 +107,32 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 2);
 
 
+        const string healthRegenText = "{=BA_naGmUB}Health (HP) Regen Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool healthRegenBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
+        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
+        public bool healthRegenBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float healthRegenBonus { get; set; } = .05f;
+
+        [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public DropdownDefault<string> healthRegenBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 0);
+
+
         const string staggerText = "{=BA_ZYM5T1}Stagger Interrupt Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + staggerText)]
@@ -476,6 +502,15 @@ namespace BetterAttributes.Settings {
             }
             set {
                 this.healthBonusAttributeDropdown.SelectedValue = value;
+            }
+        }
+
+        public string healthRegenBonusAttribute {
+            get {
+                return this.healthRegenBonusAttributeDropdown.SelectedValue;
+            }
+            set {
+                this.healthRegenBonusAttributeDropdown.SelectedValue = value;
             }
         }
 

@@ -17,6 +17,11 @@ namespace BetterAttributes.Settings {
         float healthBonus { get; set; }
         string healthBonusAttribute { get; set; }
 
+        bool healthRegenBonusEnabled { get; set; }
+        bool healthRegenBonusPlayerOnly { get; set; }
+        float healthRegenBonus { get; set; }
+        string healthRegenBonusAttribute { get; set; }
+
         bool staggerBonusEnabled { get; set; }
         bool staggerBonusPlayerOnly { get; set; }
         float staggerBonus { get; set; }

@@ -95,13 +95,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Custom\CustomDefaultCharacterDevelopmentModel.cs" />
-    <Compile Include="Patches\AttributeVMPatches.cs" />
-    <Compile Include="Patches\BonusPostfixPatches.cs" />
     <Compile Include="Custom\CustomDefaultPartyWageModel.cs" />
+    <Compile Include="Patches\CharacterAttributeItemVMPatch.cs" />
+    <Compile Include="Patches\DefaultAgentApplyDamageModelPatch.cs" />
+    <Compile Include="Patches\DefaultBattleRewardModelPatch.cs" />
     <Compile Include="Patches\DefaultCharacterDevelopmentModelPatch.cs" />
+    <Compile Include="Patches\DefaultCharacterStatsModelPatch.cs" />
+    <Compile Include="Patches\DefaultClanFinanceModelPatch.cs" />
     <Compile Include="Patches\DefaultClanTierModelPatch.cs" />
-    <Compile Include="Patches\XPPatch.cs" />
+    <Compile Include="Patches\DefaultCombatSimulationModelPatch.cs" />
+    <Compile Include="Patches\DefaultGenericXpModelPatch.cs" />
+    <Compile Include="Patches\DefaultPartyHealingModelPatch.cs" />
+    <Compile Include="Patches\DefaultPartyMoraleModelPatch.cs" />
+    <Compile Include="Patches\DefaultPartySizeLimitModelPatch.cs" />
+    <Compile Include="Patches\DefaultPersuasionModelPatch.cs" />
+    <Compile Include="Patches\MissionCombatMechanicsHelperPatch.cs" />
+    <Compile Include="Patches\HeroPatch.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

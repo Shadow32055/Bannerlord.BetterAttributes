@@ -10,7 +10,6 @@ using TaleWorlds.Localization;
 namespace BetterAttributes.Custom {
 
     public class CustomDefaultPartyWageModel : DefaultPartyWageModel {
-
         public override ExplainedNumber GetTotalWage(MobileParty mobileParty, bool includeDescriptions = false) {
             ExplainedNumber totalWage = base.GetTotalWage(mobileParty, includeDescriptions);
             try {
@@ -24,7 +23,7 @@ namespace BetterAttributes.Custom {
                     }
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with GetTotalWage Postfix. Exception output: " + e);
+                Helper.WriteToLog("Issue with CustomDefaultPartyWageModel.GetTotalWage. Exception output: " + e);
             }
 
             return totalWage;

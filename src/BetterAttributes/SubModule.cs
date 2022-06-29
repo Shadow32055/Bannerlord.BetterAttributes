@@ -30,9 +30,6 @@ namespace BetterAttributes {
 
 				if (campaignGameStarter != null) {
 					campaignGameStarter.AddModel(new CustomDefaultPartyWageModel());
-					//campaignGameStarter.AddModel(new CustomDefaultCharacterDevelopmentModel());
-
-					//campaignGameStarter.AddModel(new CustomDefaultCharacterDevelopmentModel());
 				}
 			}
 		}

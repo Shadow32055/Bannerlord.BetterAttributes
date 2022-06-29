@@ -6,15 +6,16 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
 
 namespace BetterAttributes.Patches {
-    [HarmonyPatch(typeof(Hero), "AddSkillXp")]
-    class XPPatch {
+    [HarmonyPatch(typeof(Hero))]
+    class HeroPatch {
         
         private static FieldInfo hdFieldInfo = null;
 
-        public static void Postfix(ref Hero __instance, SkillObject skill, float xpAmount) {
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(Hero), "AddSkillXp")]
+        public static void AddSkillXp(ref Hero __instance, SkillObject skill, float xpAmount) {
             try {
 
                 if (xpAmount > 0 && __instance.PartyBelongedTo != null && !__instance.IsPartyLeader) {
@@ -34,13 +35,12 @@ namespace BetterAttributes.Patches {
                             HeroDeveloper plhd = (HeroDeveloper)hdFieldInfo.GetValue(partyLeader);
                             float newXpAmount = (float)(xpAmount * Helper.GetAttributeEffect(Helper.settings.partyLeaderXPBonus, Helper.GetAttributeTypeFromText(Helper.settings.partyLeaderXPBonusAttribute), (CharacterObject)partyLeader.CharacterObject));
                             plhd.AddSkillXp(skill, newXpAmount, true, true);
-                            //InformationManager.DisplayMessage(new InformationMessage($"{skill.Name} Role xp: {xpAmount} Leader xp: {newXpAmount}. Percentage: .25", TaleWorlds.Library.Color.Black));
                         }
                     }
                 }
 
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with CalculateStaggerThresholdMultiplier Postfix. Exception output: " + e);
+                Helper.WriteToLog("Issue with HeroPatch.AddSkillXp postfix. Exception output: " + e);
             }
         }
 
