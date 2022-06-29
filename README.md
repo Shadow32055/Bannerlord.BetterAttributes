@@ -18,9 +18,9 @@
 
 ## Bonuses (Default Attribute)
 - Melee damage increase (Vigor)
+- Health regen increase (Vigor)
 - Ranged damage increase (Control)
 - Max health increase (Endurance)
-- Health regen increase (Endurance)
 - Increase stagger interrupt (Endurance)
 - Simulation advantage (Cunning)
 - Persuasion  chance (Cunning)
