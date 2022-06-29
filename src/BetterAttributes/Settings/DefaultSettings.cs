@@ -13,7 +13,7 @@ namespace BetterAttributes.Settings {
 
         public bool healthBonusEnabled { get; set; } = true;
         public bool healthBonusPlayerOnly { get; set; } = true;
-        public float healthBonus { get; set; } = 0.02f;
+        public float healthBonus { get; set; } = 0.05f;
         public string healthBonusAttribute { get; set; } = "Endurance";
 
         public bool staggerBonusEnabled { get; set; } = true;
@@ -67,7 +67,7 @@ namespace BetterAttributes.Settings {
 
         public bool xpBonusEnabled { get; set; } = true;
         public bool xpBonusPlayerOnly { get; set; } = true;
-        public float xpBonus { get; set; } = 0.02f;
+        public float xpBonus { get; set; } = 0.05f;
         public string xpBonusAttribute { get; set; } = "Intelligence";
 
         public bool partyLeaderXPBonusEnabled { get; set; } = true;

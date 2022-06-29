@@ -46,19 +46,19 @@ namespace BetterAttributes.Patches {
                 aplicableBonuses.Add(new CustomAtrObject(ca, "Increases stagger interrupt by " + (Helper.settings.staggerBonus * lvl).ToString("P") + "", Helper.settings.staggerBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.simBonusAttribute) == ca && Helper.settings.simBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases simulation by " + (Helper.settings.simBonus * lvl).ToString("P") + "", Helper.settings.simBonusPlayerOnly));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases simulation advantage by " + (Helper.settings.simBonus * lvl).ToString("P") + "", Helper.settings.simBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.persuasionBonusAttribute) == ca && Helper.settings.persuasionBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases persuasion by " + (Helper.settings.persuasionBonus * lvl).ToString("P") + "", true));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases persuasion chance by " + (Helper.settings.persuasionBonus * lvl).ToString("P") + "", true));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute) == ca && Helper.settings.renownBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, "Increases renown earned from victories by " + (Helper.settings.renownBonus * lvl).ToString("P") + "", Helper.settings.renownBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute) == ca && Helper.settings.moraleBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases moral earned from victories by " + (Helper.settings.moraleBonus * lvl).ToString("P") + "", Helper.settings.moraleBonusPlayerOnly));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases morale earned from victories by " + (Helper.settings.moraleBonus * lvl).ToString("P") + "", Helper.settings.moraleBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.partyMoraleBonusAttribute) == ca && Helper.settings.partyMoraleBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases party moral by " + (Helper.settings.partyMoraleBonus * lvl).ToString("P") + "", Helper.settings.partyMoraleBonusPlayerOnly));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases party morale by " + (Helper.settings.partyMoraleBonus * lvl).ToString("P") + "", Helper.settings.partyMoraleBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute) == ca && Helper.settings.wageBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, "Decreases party wages by " + (Helper.settings.wageBonus * lvl).ToString("P") + "", Helper.settings.wageBonusPlayerOnly));
@@ -67,7 +67,7 @@ namespace BetterAttributes.Patches {
                 aplicableBonuses.Add(new CustomAtrObject(ca, "Increases party size by " + (Helper.settings.partySizeBonus * lvl).ToString("P") + "", Helper.settings.partySizeBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute) == ca && Helper.settings.incomeBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases gross income by " + (Helper.settings.incomeBonus * lvl).ToString("P") + "", Helper.settings.incomeBonusPlayerOnly));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases gross clan income by " + (Helper.settings.incomeBonus * lvl).ToString("P") + "", Helper.settings.incomeBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute) == ca && Helper.settings.influenceBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, "Increases influence earned from victories by " + (Helper.settings.influenceBonus * lvl).ToString("P") + "", Helper.settings.influenceBonusPlayerOnly));

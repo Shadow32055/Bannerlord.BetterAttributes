@@ -13,7 +13,7 @@ namespace BetterAttributes.Settings {
         const string enabledDesText = "{=BA_sVRwEA}Should bonuses be applied.";
 
         const string playerOnlyText = "{=BA_vBH4P5}Player Only";
-        const string playerOnlyDesText = "{=BA_5AKRK0}Determines if this bonus applies to all heroes, not just the player.";
+        const string playerOnlyDesText = "{=BA_5AKRK0}Should this bonus apply to all heroes, not just the player.";
 
         const string bonusText = "{=BA_8g0U40}Bonus";
         const string genericBonusText = "{=BA_3F0Jal}An increase multiplied by attribute level. (For example, a 2% (.02) bonus will be 20% at attribute level 10)";
@@ -55,7 +55,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 0);
 
 
-        const string rangeText = "{=BA_qDobnE}Range Damage Bonus";
+        const string rangeText = "{=BA_qDobnE}Ranged Damage Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + rangeText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
@@ -81,7 +81,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 1);
 
 
-        const string healthText = "{=BA_naGmUB}Health Bonus";
+        const string healthText = "{=BA_naGmUB}Health (HP) Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + healthText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
@@ -133,7 +133,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 2);
 
 
-        const string simText = "{=BA_7yzj1P}Simulation Bonus";
+        const string simText = "{=BA_7yzj1P}Simulation Advantage Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + simText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
@@ -159,7 +159,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 3);
 
 
-        const string persuasionText = "{=BA_zH5MWH}Persuasion Bonus";
+        const string persuasionText = "{=BA_zH5MWH}Persuasion Chance Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
@@ -312,7 +312,7 @@ namespace BetterAttributes.Settings {
 
 
 
-        const string incomeText = "{=BA_GINfAP}Clan Income Bonus";
+        const string incomeText = "{=BA_GINfAP}Gross Clan Income Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + incomeText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
@@ -390,7 +390,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 5);
 
 
-        const string partyLeaderXPText = "{=BA_354j0f}Party Leader XP From Party Roles";
+        const string partyLeaderXPText = "{=BA_354j0f}Party Leader XP From Assigned Party Roles";
 
         [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = "Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader.")]
@@ -412,7 +412,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 5);
 
 
-        const string companionText = "{=BA_354j0f}Companion Bonus";
+        const string companionText = "{=BA_354j0f}Companion Limit Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + companionText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
@@ -435,7 +435,7 @@ namespace BetterAttributes.Settings {
 
 
         [SettingPropertyGroup(attributeText)]
-        [SettingPropertyInteger("{=BA_GU6Ibm}Levels Per Attribute Points", 0, 10, "0", Order = 0, RequireRestart = false, HintText = "{=BA_VhEAx3}How many levels you need to gain to get an attribute point.")]
+        [SettingPropertyInteger("{=BA_GU6Ibm}Levels Per Attribute Point", 0, 10, "0", Order = 0, RequireRestart = false, HintText = "{=BA_VhEAx3}How many levels you need to gain to get an attribute point.")]
         public int levelsPerAttributePoint { get; set; } = 3;
 
         [SettingPropertyGroup(attributeText)]
@@ -447,7 +447,7 @@ namespace BetterAttributes.Settings {
         public int focusPointsPerLevel { get; set; } = 1;
 
         [SettingPropertyGroup("Focus")]
-        [SettingPropertyInteger("{=BA_S7nfeK}Max Points Per Skill", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIutr}How many focus points that can be spent on a skill.")]
+        [SettingPropertyInteger("{=BA_S7nfeK}Max Focus Points Per Skill", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIutr}How many focus points that can be spent on a skill.")]
         public int maxFocusPointsPerSkill { get; set; } = 5;
 
 
