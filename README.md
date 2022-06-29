@@ -1,49 +1,70 @@
 # Bannerlord.BetterAttributes
 
+
 ## Summary
-This mod aims to improve attributes by giving them each unique bonuses that scale with the attribute level.
+BetterAttributes aims to improve attributes by giving them bonuses that scale with their level. You can pick which bonuses are tied to whatever attribute you would like along with whatever you want the bonus to be.
 
 ## Features
-Provides bonuses from attributes (values customizable)
-Options for player only or all heroes.
-Configure focus points per level
-Configure how many levels for each attribute point.
+Bonuses can be enabled or disabled
+Bonus values can be customized
+Applicable bonuses can be enabled for all heroes or player only
+Bonues will be displayed in approprite tooltips, no more hidden modifieres
+Bonues and there effects will be displayed in the attribute information window tooltip (helpful if you forget which bonus is enabled or tied to which attribute)
+Can adjust the max attribute level
+Configure how many levels before you gain an attribute point (max is 1 attribute point per level)
 
-Bonuses
-Vigor - Cut Through (Slice Through)
-Control - Morale Increase
-Endurance - Health Increase
-Cunning - Increase effectiveness of other bonuses
-Social - Party wage decrease
-Intelligence - XP rate increase
+### Bonus Features
+Can adjust the max amount of focus points spent on a skill
+Configure how many focus points per level
 
+## Bonuses (Default Attribute)
+Melee damage increase (Vigor)
+Ranged damage increase (Control)
+Max health increase (Endurance)
+Health regen increase (Endurance)
+Increase stagger inturrpet (Endurace)
+Simulation (Cunning)
+Pursuasion (Cunning)
+Morale increase from victories (Cunning)
+Renown increase from victories (Cunning)
+Increase party size (Social)
+Party morale increase (Social)
+Companion Limit increase (Social)
+Party wage reduction (Social)
+Influence increase from victories (Intelligence)
+Increase gross income (Intelligence)
+xp rate increase (Intelligence)
+Party leader xp percent from assigned roles (Intelligence)
 
-Calculations
-Total Effect Percent Increase = (Attribute Level * Attribute Effect) * ((Cunning Level * Cunning Effect) + 1)
-*Bolded part is removed if cunning effect is disabled.
-
-Installation & Updating
-Download the mod
-Copy the mod folder into your Bannerlord Modules folder.
-Unblock all dll’s under mod folder.
-(Optional) If not using MCM, configure the mod via the config.xml.
+## Installation & Updating
+1. Download the mod
+2. Copy the mod folder into your Bannerlord Modules folder, generally located at C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules.
+3. Unblock all dll’s under mod folder.
+4. (Optional) If not using MCM, configure the mod via the config.xml located in the mod folder (after launching the game once).
 
 For updating please delete the mod folder and follow the installation process again.
 
-Configuration
-Configuration is done in game via Mod Configuration Menu or via config.xml to keep requirements down. Make sure to adjust your config, all values are disabled by default (vanilla settings).
+## Configuration
+### Mod Configuration Menu
+Configuration is done in game via Mod Configuration Menu(MCM) or via config.xml to keep requirements down. Make sure to adjust your config, all values are generally disabled by default or set to vanilla settings.
 
+### Non Mod Configuration Menu
 If not using MCM the config.xml is located in the mod folder. It will be automatically created after the first run, then you can configure.
 
-FAQ
+## FAQs
 Is it save game compatible?
-Should be free to add or remove (or change configs) at any time during a save.
-Always backup your saves before attempting just in case.
+Can be added or removed from any save game but always backup your saves before attempting any game/save modification.
 
-Future Plans
-None, feel free to make suggestions.
+Im not using Mod Configuration Menu(MCM) where is the config.xml?
+Due to constinate changes the config.xml is created at runtime. Thus, you will need to launcht the game once after installing the mod for the config.xml to generate. The config.xml will then be located in the root of the mod folder, generally located at C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\BetterAttributes.
 
-My Other Mods
+I found a bug/issue what should I do?
+Please post an issue on GitHub
+
+## Future Plans
+Add more bonuses, if you have ideas for bonuses please post them.
+
+## My Other Mods
 Better Combat
 Better Prisoners
 Better Marriage
@@ -52,5 +73,9 @@ Better HUD
 Better Skills
 Better Attributes
 
-Discord
-I started a discord server for my mods. Feel free to join if you have questions, problems, and/or suggestions. Click here to join.
+## Discord
+Join my discord if you have questions, problems, or suggestions. I take breaks from modding every now and then so this is the best way to contact me.
+
+
+## Source
+Full source is located on GitHub
