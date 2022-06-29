@@ -7,7 +7,7 @@
 - Bonuses can be individually enabled or disabled
 - Bonus values can be customized per attribute point
 - Applicable bonuses can be set to player only or apply to all heroes
-- Bonuses are displayed in corresponding tooltips, no more hidden modifiers
+- Most bonuses are displayed in corresponding tooltips, no more hidden modifiers
 - Bonuses and their effects will be displayed in the attribute information tooltip on the character screen (a helpful reminder of which bonuses are enabled and which attribute they are tied to)
 - Configure the max attribute level
 - Configure the required levels per attribute point (max 1 attribute point per level)
