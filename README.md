@@ -5,13 +5,13 @@
 BetterAttributes aims to improve attributes by giving them bonuses that scale with their level. You can pick which bonuses are tied to whatever attribute you would like along with whatever you want the bonus to be.
 
 ## Features
-Bonuses can be enabled or disabled
-Bonus values can be customized
-Applicable bonuses can be enabled for all heroes or player only
-Bonues will be displayed in approprite tooltips, no more hidden modifieres
-Bonues and there effects will be displayed in the attribute information window tooltip (helpful if you forget which bonus is enabled or tied to which attribute)
-Can adjust the max attribute level
-Configure how many levels before you gain an attribute point (max is 1 attribute point per level)
+..*Bonuses can be enabled or disabled
+..*Bonus values can be customized
+..*Applicable bonuses can be enabled for all heroes or player only
+..*Bonues will be displayed in approprite tooltips, no more hidden modifieres
+..*Bonues and there effects will be displayed in the attribute information window tooltip (helpful if you forget which bonus is enabled or tied to which attribute)
+..*Can adjust the max attribute level
+..*Configure how many levels before you gain an attribute point (max is 1 attribute point per level)
 
 ### Bonus Features
 Can adjust the max amount of focus points spent on a skill
