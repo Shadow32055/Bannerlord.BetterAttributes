@@ -23,7 +23,7 @@
 - Health regen increase (Endurance)
 - Increase stagger interrupt (Endurance)
 - Simulation advantage (Cunning)
-- Pursuasion chance (Cunning)
+- Persuasion  chance (Cunning)
 - Morale increase from victories (Cunning)
 - Renown increase from victories (Cunning)
 - Increase party size (Social)
@@ -38,7 +38,7 @@
 ## Installation & Updating
 1. Download the mod.
 2. Copy the mod folder into your Bannerlord Modules folder, generally located at _C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules_.
-3. Unblock all dll’s under mod folder.
+3. Unblock all dll’s under the mod folder.
 4. (Optional) If not using MCM, configure the mod via the config.xml located in the mod folder (after launching the game once).
 
 For updating please delete the mod folder and follow the installation process again.
@@ -80,9 +80,9 @@ Add more bonuses. If you have any ideas, please post them.
 [Better Prisoners](https://www.nexusmods.com/mountandblade2bannerlord/mods/3192)  
 
 ##	Credits
-[EvilTactician](https://www.nexusmods.com/mountandblade2bannerlord/users/1096062) for their amazing ideas and their contributions in testing/readbility! Serisouly, Better Attributes 2.X would not be what it is without them  
+[EvilTactician](https://www.nexusmods.com/mountandblade2bannerlord/users/1096062) for their amazing ideas and their contributions in testing/readability! Seriously, Better Attributes 2.X would not be what it is without them  
 [CptBoma](https://www.nexusmods.com/mountandblade2bannerlord/users/48999173) for their [Party Leader Role XP](https://www.nexusmods.com/mountandblade2bannerlord/mods/3279) mod  
-Insperation from [Attributes Reloaded](https://www.nexusmods.com/mountandblade2bannerlord/mods/1543) and [Attributes Matter](https://www.nexusmods.com/mountandblade2bannerlord/mods/1374)  
+Inspiration  from [Attributes Reloaded](https://www.nexusmods.com/mountandblade2bannerlord/mods/1543) and [Attributes Matter](https://www.nexusmods.com/mountandblade2bannerlord/mods/1374)  
 
 ## Discord
 Please join my [Discord](https://discord.gg/yMAVqcwcZQ) if you have any questions, problems, or suggestions. I take breaks from modding every now and then so this is the best way to contact me.
