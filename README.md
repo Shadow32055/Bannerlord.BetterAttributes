@@ -56,7 +56,7 @@ If you're not using MCM, the config.xml file is located in the mod folder. It wi
 **Is Better Attributes save game compatible?**
 
 Better Attributes can safely be added to an ongoing save game.
-It should be save to remove from a save, but you should always backup your save before attempting any game/save modification.
+It should be safe to remove from a save, but you should always backup your save before attempting any game/save modification.
 
 **I'm not using Mod Configuration Menu (MCM), where is the config.xml?**
 
@@ -71,6 +71,7 @@ If you don't know how, please visit my Discord
 Add more bonuses. If you have any ideas, please post them.
 
 ## My Other Mods
+[I'm an inline-style link with title](https://www.nexusmods.com/mountandblade2bannerlord/mods/3234 "Better HUD")
 Better Combat
 Better Prisoners
 Better Marriage
