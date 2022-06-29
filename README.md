@@ -1,7 +1,7 @@
 # Bannerlord.BetterAttributes
 
 ## Summary
-BetterAttributes aims to improve attributes by giving them bonuses that scale with their level. You can pick which bonuses are tied to what attribute as well as what you'd like the bonus to be.
+**Better Attributes** aims to improve attributes by giving them bonuses that scale with their level. You can pick which bonuses are tied to what attribute as well as what you'd like the bonus to be.
 
 ## Features
 - Bonuses can be individually enabled or disabled
@@ -36,8 +36,8 @@ BetterAttributes aims to improve attributes by giving them bonuses that scale wi
 - Party leader XP percent from assigned roles (Intelligence)
 
 ## Installation & Updating
-1. Download the mod
-2. Copy the mod folder into your Bannerlord Modules folder, generally located at C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules.
+1. Download the mod.
+2. Copy the mod folder into your Bannerlord Modules folder, generally located at _C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules_.
 3. Unblock all dll’s under mod folder.
 4. (Optional) If not using MCM, configure the mod via the config.xml located in the mod folder (after launching the game once).
 
@@ -54,13 +54,16 @@ If you're not using MCM, the config.xml file is located in the mod folder. It wi
 
 ## FAQs
 **Is Better Attributes save game compatible?**
-Can safely be added to an ongoing save game.
+
+Better Attributes can safely be added to an ongoing save game.
 It should be save to remove from a save, but you should always backup your save before attempting any game/save modification.
 
 **I'm not using Mod Configuration Menu (MCM), where is the config.xml?**
+
 The config.xml file is created at runtime. Thus, you will need to launch the game once after installing the mod for the config.xml to generate. The config.xml will then be located in the root of the mod folder, generally located at _C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\BetterAttributes_.
 
 **I found a bug/issue, what should I do?**
+
 Ideally, please post an issue on GitHub
 If you don't know how, please visit my Discord
 
