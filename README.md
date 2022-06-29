@@ -7,7 +7,7 @@
 - Bonuses can be individually enabled or disabled
 - Bonus values can be customized per attribute point
 - Applicable bonuses can be set to player only or apply to all heroes
-- Bonuses are displayed in corresponding tooltips, no more hidden modifiers
+- Most bonuses are displayed in corresponding tooltips, no more hidden modifiers
 - Bonuses and their effects will be displayed in the attribute information tooltip on the character screen (a helpful reminder of which bonuses are enabled and which attribute they are tied to)
 - Configure the max attribute level
 - Configure the required levels per attribute point (max 1 attribute point per level)
@@ -23,7 +23,7 @@
 - Health regen increase (Endurance)
 - Increase stagger interrupt (Endurance)
 - Simulation advantage (Cunning)
-- Pursuasion chance (Cunning)
+- Persuasion  chance (Cunning)
 - Morale increase from victories (Cunning)
 - Renown increase from victories (Cunning)
 - Increase party size (Social)
@@ -38,7 +38,7 @@
 ## Installation & Updating
 1. Download the mod.
 2. Copy the mod folder into your Bannerlord Modules folder, generally located at _C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules_.
-3. Unblock all dll’s under mod folder.
+3. Unblock all dll’s under the mod folder.
 4. (Optional) If not using MCM, configure the mod via the config.xml located in the mod folder (after launching the game once).
 
 For updating please delete the mod folder and follow the installation process again.
@@ -56,7 +56,7 @@ If you're not using MCM, the config.xml file is located in the mod folder. It wi
 **Is Better Attributes save game compatible?**
 
 Better Attributes can safely be added to an ongoing save game.
-It should be save to remove from a save, but you should always backup your save before attempting any game/save modification.
+It should be safe to remove from a save, but you should always backup your save before attempting any game/save modification.
 
 **I'm not using Mod Configuration Menu (MCM), where is the config.xml?**
 
@@ -65,22 +65,27 @@ The config.xml file is created at runtime. Thus, you will need to launch the gam
 **I found a bug/issue, what should I do?**
 
 Ideally, please post an issue on GitHub
-If you don't know how, please visit my Discord
+If you don't know how, please visit my [Discord](https://discord.gg/yMAVqcwcZQ)
 
 ## Future Plans
 Add more bonuses. If you have any ideas, please post them.
 
 ## My Other Mods
-Better Combat
-Better Prisoners
-Better Marriage
-Better Horses
-Better HUD
-Better Skills
-Better Attributes
+[Better HUD](https://www.nexusmods.com/mountandblade2bannerlord/mods/3234)  
+[Better Combat](https://www.nexusmods.com/mountandblade2bannerlord/mods/3188)  
+[Better Attributes](https://www.nexusmods.com/mountandblade2bannerlord/mods/3434)  
+[Better Marriage](https://www.nexusmods.com/mountandblade2bannerlord/mods/3202)  
+[Better Horses](https://www.nexusmods.com/mountandblade2bannerlord/mods/3205)  
+[Better Skills](https://www.nexusmods.com/mountandblade2bannerlord/mods/3433)  
+[Better Prisoners](https://www.nexusmods.com/mountandblade2bannerlord/mods/3192)  
+
+##	Credits
+[EvilTactician](https://www.nexusmods.com/mountandblade2bannerlord/users/1096062) for their amazing ideas and their contributions in testing/readability! Seriously, Better Attributes 2.X would not be what it is without them  
+[CptBoma](https://www.nexusmods.com/mountandblade2bannerlord/users/48999173) for their [Party Leader Role XP](https://www.nexusmods.com/mountandblade2bannerlord/mods/3279) mod  
+Inspiration  from [Attributes Reloaded](https://www.nexusmods.com/mountandblade2bannerlord/mods/1543) and [Attributes Matter](https://www.nexusmods.com/mountandblade2bannerlord/mods/1374)  
 
 ## Discord
-Please join my discord if you have any questions, problems, or suggestions. I take breaks from modding every now and then so this is the best way to contact me.
+Please join my [Discord](https://discord.gg/yMAVqcwcZQ) if you have any questions, problems, or suggestions. I take breaks from modding every now and then so this is the best way to contact me.
 
 ## Source
-Full source is located on GitHub
+Full source is located on [GitHub](https://github.com/Shadow32055/Bannerlord.BetterAttributes)
