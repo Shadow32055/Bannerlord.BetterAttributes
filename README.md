@@ -65,23 +65,27 @@ The config.xml file is created at runtime. Thus, you will need to launch the gam
 **I found a bug/issue, what should I do?**
 
 Ideally, please post an issue on GitHub
-If you don't know how, please visit my Discord
+If you don't know how, please visit my [Discord](https://discord.gg/yMAVqcwcZQ)
 
 ## Future Plans
 Add more bonuses. If you have any ideas, please post them.
 
 ## My Other Mods
-[I'm an inline-style link with title](https://www.nexusmods.com/mountandblade2bannerlord/mods/3234 "Better HUD")
-Better Combat
-Better Prisoners
-Better Marriage
-Better Horses
-Better HUD
-Better Skills
-Better Attributes
+[Better HUD](https://www.nexusmods.com/mountandblade2bannerlord/mods/3234)
+[Better Combat](https://www.nexusmods.com/mountandblade2bannerlord/mods/3188)
+[Better Attributes](https://www.nexusmods.com/mountandblade2bannerlord/mods/3434)
+[Better Marriage](https://www.nexusmods.com/mountandblade2bannerlord/mods/3202)
+[Better Horses](https://www.nexusmods.com/mountandblade2bannerlord/mods/3205)
+[Better Skills](https://www.nexusmods.com/mountandblade2bannerlord/mods/3433)
+[Better Prisoners](https://www.nexusmods.com/mountandblade2bannerlord/mods/3192)
+
+##	Credits
+[EvilTactician](https://www.nexusmods.com/mountandblade2bannerlord/users/1096062) for their tireless work in testing, ideas and contributions! Serisouly, Better Attributes 2.X would not be what it is without them
+[CptBoma](https://www.nexusmods.com/mountandblade2bannerlord/users/48999173) for their [Party Leader Role XP](https://www.nexusmods.com/mountandblade2bannerlord/mods/3279) mod
+Insperation from [Attributes Reloaded](https://www.nexusmods.com/mountandblade2bannerlord/mods/1543) and [Attributes Matter](https://www.nexusmods.com/mountandblade2bannerlord/mods/1374)
 
 ## Discord
-Please join my discord if you have any questions, problems, or suggestions. I take breaks from modding every now and then so this is the best way to contact me.
+Please join my [Discord](https://discord.gg/yMAVqcwcZQ) if you have any questions, problems, or suggestions. I take breaks from modding every now and then so this is the best way to contact me.
 
 ## Source
-Full source is located on GitHub
+Full source is located on [GitHub](https://github.com/Shadow32055/Bannerlord.BetterAttributes)
