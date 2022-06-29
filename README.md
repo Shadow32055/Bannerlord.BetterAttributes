@@ -80,7 +80,7 @@ Add more bonuses. If you have any ideas, please post them.
 [Better Prisoners](https://www.nexusmods.com/mountandblade2bannerlord/mods/3192)  
 
 ##	Credits
-[EvilTactician](https://www.nexusmods.com/mountandblade2bannerlord/users/1096062) for their tireless work in testing, ideas and contributions! Serisouly, Better Attributes 2.X would not be what it is without them  
+[EvilTactician](https://www.nexusmods.com/mountandblade2bannerlord/users/1096062) for their amazing ideas and their contributions in testing/readbility! Serisouly, Better Attributes 2.X would not be what it is without them  
 [CptBoma](https://www.nexusmods.com/mountandblade2bannerlord/users/48999173) for their [Party Leader Role XP](https://www.nexusmods.com/mountandblade2bannerlord/mods/3279) mod  
 Insperation from [Attributes Reloaded](https://www.nexusmods.com/mountandblade2bannerlord/mods/1543) and [Attributes Matter](https://www.nexusmods.com/mountandblade2bannerlord/mods/1374)  
 
