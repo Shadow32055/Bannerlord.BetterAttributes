@@ -19,8 +19,12 @@ namespace BetterAttributes.Patches {
                     if (party.LeaderHero is null)
                         return;
 
-                    float healthboost = party.LeaderHero.CharacterObject.MaxHitPoints() - 100;
-                    __result.Add(healthboost / 12 * (1 + (Helper.GetAttributeEffect(Helper.settings.healthRegenBonus, Helper.GetAttributeTypeFromText(Helper.settings.healthRegenBonusAttribute), party.LeaderHero.CharacterObject))), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.healthRegenBonusAttribute).Name + " Bonus", null));
+                    float healthRegen = __result.ResultNumber;
+					if (healthRegen <= 0)
+						return;
+					
+					__result.Add(healthRegen * (Helper.GetAttributeEffect(Helper.settings.healthRegenBonus, Helper.GetAttributeTypeFromText(Helper.settings.healthRegenBonusAttribute), party.LeaderHero.CharacterObject))), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.healthRegenBonusAttribute).Name + " Bonus", null));
+					
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultPartyHealingModelPatch.GetDailyHealingHpForHeroes postfix. Exception output: " + e);
