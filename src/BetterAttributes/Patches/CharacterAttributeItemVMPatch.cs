@@ -87,6 +87,15 @@ namespace BetterAttributes.Patches {
             if (Helper.GetAttributeTypeFromText(Helper.settings.companionBonusAttribute) == ca && Helper.settings.companionBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, "Increases companion limit by +" + (Helper.settings.companionBonus * lvl) + "", true));
 
+            if (Helper.GetAttributeTypeFromText(Helper.settings.reloadBonusAttribute) == ca && Helper.settings.reloadBonusEnabled)
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases reload speed by " + (Helper.settings.reloadBonus * lvl).ToString("P") + "", Helper.settings.reloadBonusPlayerOnly));
+
+            if (Helper.GetAttributeTypeFromText(Helper.settings.handlingBonusAttribute) == ca && Helper.settings.handlingBonusEnabled)
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases weapon handling by " + (Helper.settings.handlingBonus * lvl).ToString("P") + "", Helper.settings.handlingBonusPlayerOnly));
+
+            if (Helper.GetAttributeTypeFromText(Helper.settings.movementBonusAttribute) == ca && Helper.settings.movementBonusEnabled)
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases movement speed by " + (Helper.settings.movementBonus * lvl).ToString("P") + "", Helper.settings.movementBonusPlayerOnly));
+
             return aplicableBonuses;
         }
     }

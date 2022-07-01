@@ -76,7 +76,6 @@ namespace BetterAttributes.Settings {
         float xpBonus { get; set; }
         string xpBonusAttribute { get; set; }
 
-
         bool partyLeaderXPBonusEnabled { get; set; }
         float partyLeaderXPBonus { get; set; }
         string partyLeaderXPBonusAttribute { get; set; }
@@ -85,6 +84,20 @@ namespace BetterAttributes.Settings {
         int companionBonus { get; set; }
         string companionBonusAttribute { get; set; }
 
+        bool reloadBonusEnabled { get; set; }
+        bool reloadBonusPlayerOnly { get; set; }
+        float reloadBonus { get; set; }
+        string reloadBonusAttribute { get; set; }
+
+        bool handlingBonusEnabled { get; set; }
+        bool handlingBonusPlayerOnly { get; set; }
+        float handlingBonus { get; set; }
+        string handlingBonusAttribute { get; set; }
+
+        bool movementBonusEnabled { get; set; }
+        bool movementBonusPlayerOnly { get; set; }
+        float movementBonus { get; set; }
+        string movementBonusAttribute { get; set; }
 
         int levelsPerAttributePoint { get; set; }
         int focusPointsPerLevel { get; set; }

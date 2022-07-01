@@ -21,7 +21,6 @@ namespace BetterAttributes.Settings {
         public float healthRegenBonus { get; set; } = 0.05f;
         public string healthRegenBonusAttribute { get; set; } = "Vigor";
 
-
         public bool staggerBonusEnabled { get; set; } = true;
         public bool staggerBonusPlayerOnly { get; set; } = true;
         public float staggerBonus { get; set; } = 0.02f;
@@ -83,6 +82,21 @@ namespace BetterAttributes.Settings {
         public bool companionBonusEnabled { get; set; } = true;
         public int companionBonus { get; set; } = 1;
         public string companionBonusAttribute { get; set; } = "Social";
+
+        public bool reloadBonusEnabled { get; set; } = true;
+        public bool reloadBonusPlayerOnly { get; set; } = true;
+        public float reloadBonus { get; set; } = 0.02f;
+        public string reloadBonusAttribute { get; set; } = "Vigor";
+
+        public bool handlingBonusEnabled { get; set; } = true;
+        public bool handlingBonusPlayerOnly { get; set; } = true;
+        public float handlingBonus { get; set; } = 0.02f;
+        public string handlingBonusAttribute { get; set; } = "Control";
+
+        public bool movementBonusEnabled { get; set; } = true;
+        public bool movementBonusPlayerOnly { get; set; } = true;
+        public float movementBonus { get; set; } = 0.02f;
+        public string movementBonusAttribute { get; set; } = "Control";
 
         public int levelsPerAttributePoint { get; set; } = 3;
         public int focusPointsPerLevel { get; set; } = 1;

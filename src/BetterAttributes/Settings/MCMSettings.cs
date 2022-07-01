@@ -460,6 +460,84 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 4);
 
 
+        const string reloadText = "{=BA_35dS0f}Reload Speed Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + reloadText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool reloadBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + reloadText)]
+        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
+        public bool reloadBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + reloadText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float reloadBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(bonusesText + "/" + reloadText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public DropdownDefault<string> reloadBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 0);
+
+
+        const string handlingText = "{=BA_35d5rt}Weapon Handling Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + handlingText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool handlingBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + handlingText)]
+        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
+        public bool handlingBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + handlingText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float handlingBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(bonusesText + "/" + handlingText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public DropdownDefault<string> handlingBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 1);
+
+
+        const string movementText = "{=BA_hetS0f}Movement Speed Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + movementText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool movementBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + movementText)]
+        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
+        public bool movementBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + movementText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float movementBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(bonusesText + "/" + movementText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public DropdownDefault<string> movementBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 1);
+
+
         [SettingPropertyGroup(attributeText)]
         [SettingPropertyInteger("{=BA_GU6Ibm}Levels Per Attribute Point", 0, 10, "0", Order = 0, RequireRestart = false, HintText = "{=BA_VhEAx3}How many levels you need to gain to get an attribute point.")]
         public int levelsPerAttributePoint { get; set; } = 3;
@@ -475,8 +553,6 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup("Focus")]
         [SettingPropertyInteger("{=BA_S7nfeK}Max Focus Points Per Skill", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIutr}How many focus points that can be spent on a skill.")]
         public int maxFocusPointsPerSkill { get; set; } = 5;
-
-
 
         public string melDmgBonusAttribute {
             get {
@@ -630,6 +706,33 @@ namespace BetterAttributes.Settings {
             }
             set {
                 this.companionBonusAttributeDropdown.SelectedValue = value;
+            }
+        }
+
+        public string reloadBonusAttribute {
+            get {
+                return this.reloadBonusAttributeDropdown.SelectedValue;
+            }
+            set {
+                this.reloadBonusAttributeDropdown.SelectedValue = value;
+            }
+        }
+
+        public string handlingBonusAttribute {
+            get {
+                return this.handlingBonusAttributeDropdown.SelectedValue;
+            }
+            set {
+                this.handlingBonusAttributeDropdown.SelectedValue = value;
+            }
+        }
+
+        public string movementBonusAttribute {
+            get {
+                return this.movementBonusAttributeDropdown.SelectedValue;
+            }
+            set {
+                this.movementBonusAttributeDropdown.SelectedValue = value;
             }
         }
 
