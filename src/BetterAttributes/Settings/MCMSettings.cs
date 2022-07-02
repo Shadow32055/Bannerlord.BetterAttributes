@@ -9,8 +9,8 @@ namespace BetterAttributes.Settings {
 
         const string bonusesText = "{=BA_oPw9hh}Bonuses";
 
-        const string enabledText = "{=BA_V8krxN}Enabled?";
-        const string enabledDesText = "{=BA_sVRwEA}Should bonuses be applied.";
+        const string enabledText = "{=BA_V8krxN}Enable";
+        const string enabledDesText = "{=BA_sVRwEA}Should this bonus be applied.";
 
         const string playerOnlyText = "{=BA_vBH4P5}Player Only";
         const string playerOnlyDesText = "{=BA_5AKRK0}Should this bonus apply to all heroes, not just the player.";
@@ -107,7 +107,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 2);
 
 
-        const string healthRegenText = "{=BA_naGmUB}Health (HP) Regen Bonus";
+        const string healthRegenText = "{=BA_naGmUB}Healing Rate Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
