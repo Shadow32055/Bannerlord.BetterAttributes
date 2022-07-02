@@ -46,7 +46,7 @@ namespace BetterAttributes.Patches {
                 aplicableBonuses.Add(new CustomAtrObject(ca, "Increases max hit points by " + (Helper.settings.healthBonus * lvl).ToString("P") + "", Helper.settings.healthBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.healthRegenBonusAttribute) == ca && Helper.settings.healthRegenBonusEnabled)
-                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases health regen by " + (Helper.settings.healthRegenBonus * lvl).ToString("P") + "", Helper.settings.healthRegenBonusPlayerOnly));
+                aplicableBonuses.Add(new CustomAtrObject(ca, "Increases healing rate by " + (Helper.settings.healthRegenBonus * lvl).ToString("P") + "", Helper.settings.healthRegenBonusPlayerOnly));
 
             if (Helper.GetAttributeTypeFromText(Helper.settings.staggerBonusAttribute) == ca && Helper.settings.staggerBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, "Increases stagger interrupt by " + (Helper.settings.staggerBonus * lvl).ToString("P") + "", Helper.settings.staggerBonusPlayerOnly));
