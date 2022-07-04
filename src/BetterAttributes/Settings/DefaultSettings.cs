@@ -19,12 +19,12 @@ namespace BetterAttributes.Settings {
         public bool healthRegenBonusEnabled { get; set; } = true;
         public bool healthRegenBonusPlayerOnly { get; set; } = true;
         public float healthRegenBonus { get; set; } = 0.05f;
-        public string healthRegenBonusAttribute { get; set; } = "Vigor";
+        public string healthRegenBonusAttribute { get; set; } = "Endurance";
 
         public bool staggerBonusEnabled { get; set; } = true;
         public bool staggerBonusPlayerOnly { get; set; } = true;
         public float staggerBonus { get; set; } = 0.02f;
-        public string staggerBonusAttribute { get; set; } = "Endurance";
+        public string staggerBonusAttribute { get; set; } = "Control";
 
         public bool simBonusEnabled { get; set; } = true;
         public bool simBonusPlayerOnly { get; set; } = true;
@@ -76,7 +76,7 @@ namespace BetterAttributes.Settings {
         public string xpBonusAttribute { get; set; } = "Intelligence";
 
         public bool partyLeaderXPBonusEnabled { get; set; } = true;
-        public float partyLeaderXPBonus { get; set; } = 0.025f;
+        public float partyLeaderXPBonus { get; set; } = 0.033f;
         public string partyLeaderXPBonusAttribute { get; set; } = "Intelligence";
 
         public bool companionBonusEnabled { get; set; } = true;
@@ -96,9 +96,9 @@ namespace BetterAttributes.Settings {
         public bool movementBonusEnabled { get; set; } = true;
         public bool movementBonusPlayerOnly { get; set; } = true;
         public float movementBonus { get; set; } = 0.02f;
-        public string movementBonusAttribute { get; set; } = "Control";
+        public string movementBonusAttribute { get; set; } = "Vigor";
 
-        public int levelsPerAttributePoint { get; set; } = 3;
+        public int levelsPerAttributePoint { get; set; } = 2;
         public int focusPointsPerLevel { get; set; } = 1;
         public int maxAttributeLevel { get; set; } = 10;
         public int maxFocusPointsPerSkill { get; set; } = 5; 
