@@ -6,6 +6,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
+using TaleWorlds.Localization;
 
 namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(Hero))]
@@ -22,10 +23,10 @@ namespace BetterAttributes.Patches {
 
                     MobileParty party = __instance.PartyBelongedTo;
 
-                    if (party.EffectiveScout == __instance && skill.Name.ToString() == "Scouting"
-                        || party.EffectiveEngineer == __instance && skill.Name.ToString() == "Engineering"
-                        || party.EffectiveSurgeon == __instance && skill.Name.ToString() == "Medicine"
-                        || party.EffectiveQuartermaster == __instance && skill.Name.ToString() == "Steward") {
+                    if (party.EffectiveScout == __instance && skill.Name.ToString() == new TextObject("{=LJ6Krlbr}Scouting", null).ToString()
+                        || party.EffectiveEngineer == __instance && skill.Name.ToString() == new TextObject("{=engineeringskill}Engineering", null).ToString()
+                        || party.EffectiveSurgeon == __instance && skill.Name.ToString() == new TextObject("{=JKH59XNp}Medicine", null).ToString()
+                        || party.EffectiveQuartermaster == __instance && skill.Name.ToString() == new TextObject("{=stewardskill}Steward", null).ToString()) {
 
                         if (hdFieldInfo == null) GetFieldInfo();
 

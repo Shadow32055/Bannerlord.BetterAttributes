@@ -539,7 +539,7 @@ namespace BetterAttributes.Settings {
 
 
         [SettingPropertyGroup(attributeText)]
-        [SettingPropertyInteger("{=BA_GU6Ibm}Levels Per Attribute Point", 0, 10, "0", Order = 0, RequireRestart = false, HintText = "{=BA_VhEAx3}How many levels you need to gain to get an attribute point.")]
+        [SettingPropertyInteger("{=BA_GU6Ibm}Levels Per Attribute Point", 1, 10, "0", Order = 0, RequireRestart = false, HintText = "{=BA_VhEAx3}How many levels you need to gain to get an attribute point.")]
         public int levelsPerAttributePoint { get; set; } = 3;
 
         [SettingPropertyGroup(attributeText)]
