@@ -5,7 +5,7 @@ using System.Text;
 using TaleWorlds.Library;
 using BetterAttributes.Utils;
 using System.Xml.Serialization;
-using MCM.Abstractions.Settings.Base.Global;
+using MCM.Abstractions.Base.Global;
 
 namespace BetterAttributes.Settings {
 	public class SettingsManager {

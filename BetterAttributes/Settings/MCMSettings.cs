@@ -1,7 +1,7 @@
 ﻿using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
-using MCM.Abstractions.Dropdown;
-using MCM.Abstractions.Settings.Base.Global;
+using MCM.Abstractions.Base.Global;
+using MCM.Common;
 
 namespace BetterAttributes.Settings {
 
@@ -45,7 +45,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + meleeText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> melDmgBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> melDmgBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -71,7 +71,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + rangeText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> rngDmgBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> rngDmgBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -97,7 +97,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + healthText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> healthBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> healthBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -123,7 +123,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> healthRegenBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> healthRegenBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -149,7 +149,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + staggerText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> staggerBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> staggerBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -175,7 +175,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + simText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> simBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> simBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -197,7 +197,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> persuasionBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> persuasionBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -223,7 +223,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + renownText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> renownBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> renownBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -249,7 +249,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + moralText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> moraleBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> moraleBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -275,7 +275,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> partyMoraleBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> partyMoraleBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -301,7 +301,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + wageText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> wageBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> wageBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -327,7 +327,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + sizeText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> partySizeBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> partySizeBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -354,7 +354,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + incomeText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> incomeBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> incomeBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -380,7 +380,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + influenceText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> influenceBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> influenceBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -406,7 +406,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + xpText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> xpBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> xpBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -428,7 +428,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> partyLeaderXPBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> partyLeaderXPBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -450,7 +450,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + companionText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> companionBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> companionBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -476,7 +476,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + reloadText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> reloadBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> reloadBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -502,7 +502,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + handlingText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> handlingBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> handlingBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,
@@ -528,7 +528,7 @@ namespace BetterAttributes.Settings {
 
         [SettingPropertyGroup(bonusesText + "/" + movementText)]
         [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public DropdownDefault<string> movementBonusAttributeDropdown { get; set; } = new DropdownDefault<string>(new string[] {
+        public Dropdown<string> movementBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             vigorText,
             controlText,
             enduranceText,

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetterAttributes", "BetterAttributes\BetterAttributes.csproj", "{590CBC20-543B-46C1-8960-D34D7B795863}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{590CBC20-543B-46C1-8960-D34D7B795863}.Debug|x64.ActiveCfg = Debug|x64
+		{590CBC20-543B-46C1-8960-D34D7B795863}.Debug|x64.Build.0 = Debug|x64
+		{590CBC20-543B-46C1-8960-D34D7B795863}.Release|x64.ActiveCfg = Release|x64
+		{590CBC20-543B-46C1-8960-D34D7B795863}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5EBDE9B-4BA4-4628-B2BF-7B88F4C382B4}
+	EndGlobalSection
+EndGlobal
