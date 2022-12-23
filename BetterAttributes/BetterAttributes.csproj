@@ -33,11 +33,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Bannerlord.MCM" Version="5.4.5" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.0.2.7585" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.Core" Version="1.0.2.7585" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.Native" Version="1.0.2.7585" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.SandBox" Version="1.0.2.7585" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies.StoryMode" Version="1.0.2.7585" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.0.2.7919" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.Core" Version="1.0.2.7919" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.Native" Version="1.0.2.7919" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.SandBox" Version="1.0.2.7919" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.StoryMode" Version="1.0.2.7919" />
     <PackageReference Include="Bannerlord.UIExtenderEx" Version="2.4.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -45,7 +45,7 @@
     <PackageReference Include="Nullable" Version="1.3.1" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
     <PackageReference Include="IsExternalInit" Version="1.0.3" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
     <PackageReference Include="Lib.Harmony" Version="2.2.2" />
-    <PackageReference Include="Harmony.Extensions" Version="3.1.0.69" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+    <PackageReference Include="Harmony.Extensions" Version="3.2.0.72" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
     <PackageReference Include="BUTR.Harmony.Analyzer" Version="1.0.1.44" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" PrivateAssets="all" IncludeAssets="compile" />
   </ItemGroup>
@@ -55,7 +55,7 @@
   </Target>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="DEL /Q &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\*&quot;&#xD;&#xA;XCOPY /Y /E /H /C /I &quot;$(MSBuildProjectDirectory)_Module&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;&#xD;&#xA;XCOPY /Y &quot;$(MSBuildProjectDirectory)\bin\x64\Debug\net472\$(MSBuildProjectName).dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;C:\Users\Shadow\.nuget\packages\bannerlord.mcm\\5.4.5\lib\net472\MCMv5.dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;C:\Users\Shadow\.nuget\packages\lib.harmony\2.2.2\lib\net472\0Harmony.dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y /S &quot;$(MSBuildProjectDirectory)\_Module\*&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;" />
+    <Exec Command="DEL /Q &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\*&quot;&#xD;&#xA;XCOPY /Y /E /H /C /I &quot;$(MSBuildProjectDirectory)_Module&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;&#xD;&#xA;XCOPY /Y &quot;$(MSBuildProjectDirectory)\obj\x64\Debug\net472\$(MSBuildProjectName).dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;C:\Users\Shadow\.nuget\packages\bannerlord.mcm\\5.4.5\lib\net472\MCMv5.dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;C:\Users\Shadow\.nuget\packages\lib.harmony\2.2.2\lib\net472\0Harmony.dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y /S &quot;$(MSBuildProjectDirectory)\_Module\*&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;" />
   </Target>
 
 </Project>
