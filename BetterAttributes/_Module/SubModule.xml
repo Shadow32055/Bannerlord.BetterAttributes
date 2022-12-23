@@ -1,7 +1,7 @@
 <Module>
   <Name value="Better Attributes" />
   <Id value="BetterAttributes" />
-  <Version value="v1.0.0" />
+  <Version value="d0.0.1" />
   <SingleplayerModule value="true" />
   <MultiplayerModule value="false" />
   <DependedModules>
