@@ -11,7 +11,7 @@
     <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
     <NugetFolder>$(NUGET_PACKAGES_DIR)</NugetFolder>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <BaseOutputPath>$(GameFolder)\$(MSBuildProjectName)\bin\Win64_Shipping_Client</BaseOutputPath>
+    <BaseOutputPath>$(MSBuildProjectDirectory)\bin\</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -51,7 +51,7 @@
   </Target>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="DEL /Q &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\*&quot;&#xD;&#xA;XCOPY /Y /E /H /C /I &quot;$(MSBuildProjectDirectory)\_Module&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;&#xD;&#xA;XCOPY /Y &quot;$(MSBuildProjectDirectory)\obj\x64\Debug\net472\$(MSBuildProjectName).dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;C:\Users\Shadow\.nuget\packages\bannerlord.mcm\\5.4.5\lib\net472\MCMv5.dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;C:\Users\Shadow\.nuget\packages\lib.harmony\2.2.2\lib\net472\0Harmony.dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y /S &quot;$(MSBuildProjectDirectory)\_Module\*&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;" />
+    <Exec Command="XCOPY /Y /E /H /C /I &quot;$(MSBuildProjectDirectory)\_Module&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;&#xD;&#xA;XCOPY /Y &quot;$(MSBuildProjectDirectory)\bin\x64\Debug\net472\$(MSBuildProjectName).dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;C:\Users\Shadow\.nuget\packages\bannerlord.mcm\5.5.5\lib\net472\MCMv5.dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;C:\Users\Shadow\.nuget\packages\lib.harmony\2.2.2\lib\net472\0Harmony.dll&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y /S &quot;$(MSBuildProjectDirectory)\_Module\*&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;" />
   </Target>
 
 </Project>
