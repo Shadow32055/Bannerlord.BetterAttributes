@@ -1,10 +1,14 @@
 ﻿using HarmonyLib;
 using BetterAttributes.Utils;
 using BetterAttributes.Settings;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.Core;
 using BetterAttributes.Custom;
+
+using TaleWorlds.Core;
+using TaleWorlds.Engine;
+using TaleWorlds.Library;
+using TaleWorlds.ModuleManager;
+using TaleWorlds.MountAndBlade;
 
 namespace BetterAttributes {
 	public class SubModule : MBSubModuleBase {
@@ -14,19 +18,19 @@ namespace BetterAttributes {
 
 			Harmony h = new Harmony("Bannerlord.Shadow.BetterAttributes");
 
-			//*** Manual patching reference
-			//MethodInfo original = typeof(Hero).GetProperty("AddSkillXp").GetGetMethod();
-			//MethodInfo postfix = typeof(XPPatch).GetMethod("AddSkillXp");
-			//h.Patch(original, postfix: new HarmonyMethod(postfix));
+            //*** Manual patching reference
+            //MethodInfo original = typeof(Hero).GetProperty("AddSkillXp").GetGetMethod();
+            //MethodInfo postfix = typeof(XPPatch).GetMethod("AddSkillXp");
+            //h.Patch(original, postfix: new HarmonyMethod(postfix));
 
-			h.PatchAll();
+            h.PatchAll();
 		}
 
 		protected override void OnGameStart(Game game, IGameStarter gameStarter) {
 			base.OnGameStart(game, gameStarter);
 
 			if (game.GameType is Campaign) {
-				CampaignGameStarter campaignGameStarter = gameStarter as CampaignGameStarter;
+				CampaignGameStarter? campaignGameStarter = gameStarter as CampaignGameStarter;
 
 				if (campaignGameStarter != null) {
 					campaignGameStarter.AddModel(new CustomDefaultPartyWageModel());

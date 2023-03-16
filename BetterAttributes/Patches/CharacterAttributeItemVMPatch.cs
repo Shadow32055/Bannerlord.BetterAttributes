@@ -1,10 +1,13 @@
-﻿using BetterAttributes.Utils;
-using HarmonyLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
+using HarmonyLib;
+
+using BetterAttributes.Utils;
+
+using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
-using TaleWorlds.Core;
 
 namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(CharacterAttributeItemVM), MethodType.Constructor)]

@@ -1,15 +1,16 @@
-﻿using BetterAttributes.Utils;
+﻿using System;
 using HarmonyLib;
-using System;
-using TaleWorlds.CampaignSystem;
+using SandBox.GameComponents;
+using BetterAttributes.Utils;
 using TaleWorlds.MountAndBlade;
+using TaleWorlds.CampaignSystem;
 
 namespace BetterAttributes.Patches {
-    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel))]
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel))]
     class DefaultAgentApplyDamageModelPatch {
 
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.CalculateStaggerThresholdMultiplier))]
+        [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateStaggerThresholdMultiplier))]
         public static void CalculateStaggerThresholdMultiplier(Agent defenderAgent, ref float __result) {
             try {
                 if (Helper.settings.staggerBonusEnabled) {
