@@ -32,16 +32,20 @@ namespace BetterAttributes.Patches {
         [HarmonyPostfix]
         [HarmonyPatch(typeof(MissionCombatMechanicsHelper), "ComputeBlowMagnitude")]
         public static void ComputeBlowMagnitude(ref AttackCollisionData acd, ref AttackInformation attackInformation, MissionWeapon weapon, float momentumRemaining, bool cancelDamage, bool hitWithAnotherBone, Vec2 attackerVelocity, Vec2 victimVelocity, ref float baseMagnitude, ref float specialMagnitude, ref float movementSpeedDamageModifier, ref int speedBonusInt) {
-            if (!attackInformation.AttackerAgentCharacter.IsHero)
-                return;
-
-            if (Helper.settings.rngDmgBonusEnabled) {
-
-                if (attackInformation.IsAttackerAIControlled && Helper.settings.rngDmgBonusPlayerOnly)
+            try {
+                if (!attackInformation.AttackerAgentCharacter.IsHero)
                     return;
 
-                float val = Helper.GetAttributeEffect(Helper.settings.rngDmgBonus, Helper.GetAttributeTypeFromText(Helper.settings.rngDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1;
-                specialMagnitude *= val;
+                if (Helper.settings.rngDmgBonusEnabled) {
+
+                    if (attackInformation.IsAttackerAIControlled && Helper.settings.rngDmgBonusPlayerOnly)
+                        return;
+
+                    float val = Helper.GetAttributeEffect(Helper.settings.rngDmgBonus, Helper.GetAttributeTypeFromText(Helper.settings.rngDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1;
+                    specialMagnitude *= val;
+                }
+            } catch (Exception e) {
+                Helper.WriteToLog("Issue with MissionCombatMechanicsHelperPatch.ComputeBlowMagnitude postfix. Exception output: " + e);
             }
         }
     }
