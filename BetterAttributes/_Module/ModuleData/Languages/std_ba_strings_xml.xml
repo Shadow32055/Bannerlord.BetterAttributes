@@ -38,8 +38,9 @@
 		<string id="BA_WODJA5" text="Party Morale Bonus"/>
 		<string id="BA_6Eyxyw" text="Party Wage Reduction Bonus"/>
 		<string id="BA_dka4CP" text="Party Size Bonus"/>
-		<string id="BA_GINfAP" text="Clan Income Bonus"/>
+		<string id="BA_GINfAP" text="Gross Clan Income Bonus"/>
 		<string id="BA_5bULNj" text="Influence Bonus From Victories"/>
+		<string id="BA_35dS78" text="Reload Speed Bonus"/>
 		<string id="BA_35dS0f" text="XP Bonus"/>
 
 		<string id="BA_McqePD" text="Attribute Bonus"/>

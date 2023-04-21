@@ -460,7 +460,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 4);
 
 
-        const string reloadText = "{=BA_35dS0f}Reload Speed Bonus";
+        const string reloadText = "{=BA_35dS78}Reload Speed Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + reloadText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
