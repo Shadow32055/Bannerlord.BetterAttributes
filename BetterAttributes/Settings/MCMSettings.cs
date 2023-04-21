@@ -107,7 +107,7 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 2);
 
 
-        const string healthRegenText = "{=BA_naGmUB}Healing Rate Bonus";
+        const string healthRegenText = "{=BA_naGmUg}Healing Rate Bonus";
 
         [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
         [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]

@@ -10,7 +10,7 @@
 		<string id="BA_sVRwEA" text="Should bonuses be applied."/>
 		<string id="BA_vBH4P5" text="Player Only"/>
 		<string id="BA_5AKRK0" text="Determines if this bonus applies to all heroes, not just the player."/>
-		<string id="BA_8g0U40" text="Bonus Percent"/>
+		<string id="BA_8g0U40" text="Bonus"/>
 		<string id="BA_3F0Jal" text="A percent increase multiplied by attribute level. (For example, a .02 bonus will be 20% at attribute level 10)"/>
 		<string id="BA_OUkZom" text="Attribute"/>
 		<string id="BA_N7DNB0" text="Select the attribute that this bonus should use"/>
@@ -28,7 +28,8 @@
 
 		<string id="BA_YdzGi4" text="Melee Damage Bonus"/>
 		<string id="BA_qDobnE" text="Range Damage Bonus"/>
-		<string id="BA_naGmUB" text="Health Bonus"/>
+		<string id="BA_naGmUB" text="Health (HP) Bonus"/>
+        <string id="BA_naGmUg" text="Healing Rate Bonus"/>
 		<string id="BA_ZYM5T1" text="Stagger Interrupt Bonus"/>
 		<string id="BA_7yzj1P" text="Simulation Bonus"/>
 		<string id="BA_zH5MWH" text="Persuasion Bonus"/>
