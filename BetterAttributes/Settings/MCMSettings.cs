@@ -419,7 +419,7 @@ namespace BetterAttributes.Settings {
         const string partyLeaderXPText = "{=BA_354j0g}Party Leader XP From Assigned Party Roles";
 
         [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = "Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader.")]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = "{=BA_354j0g}Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader.")]
         public bool partyLeaderXPBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]

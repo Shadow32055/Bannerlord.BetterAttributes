@@ -47,7 +47,7 @@
     
 		<string id="BA_GU6Ibm" text="Levels Per Attribute Points"/>
 		<string id="BA_VhEAx3" text="How many levels you need to gain to get an attribute point."/>
-    
+		<string id="BA_354j0g" text="Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader."/>
 		<string id="BA_KAggxW" text="Max Attribute Level"/>
 		<string id="BA_TAtfSS" text="Maximum level for attributes."/>
 		
@@ -59,6 +59,27 @@
         <string id="BA_354j0g" text="Party Leader XP From Assigned Party Roles"/>
         <string id="BA_35d5rt" text="Weapon Handling Bonus"/>
         <string id="BA_GtIutr" text="How many focus points that can be spent on a skill."/>
+
+        <string id="BA_OG9G6x" text="Increases melee damage by "/>
+        <string id="BA_K2bc20" text="Increases ranged damage by "/>
+        <string id="BA_AgQghj" text="Increases max hit points by "/>
+        <string id="BA_UnjNW8" text="Increases healing rate by "/>
+        <string id="BA_LMYUJp" text="Increases stagger interrupt by "/>
+        <string id="BA_Knsfw3" text="Increases simulation advantage by "/>
+        <string id="BA_wQN5KB" text="Increases persuasion chance by "/>
+        <string id="BA_kUIdS3" text="Increases renown earned from victories by "/>
+        <string id="BA_RVdiBF" text="Increases morale earned from victories by "/>
+        <string id="BA_DU8FPt" text="Increases party morale by "/>
+        <string id="BA_D0gVre" text="Decreases party wages by "/>
+        <string id="BA_EKroYs" text="Increases party size by "/>
+        <string id="BA_Kcbi3N" text="Increases gross clan income by "/>
+		<string id="BA_TB7JZ7" text="Increases influence earned from victories by "/>
+        <string id="BA_uMigtx" text="Increases experience gain by "/>
+        <string id="BA_MJrJJM" text="Party leader XP from assigned roles "/>
+        <string id="BA_14vFx6" text="Increases companion limit by +"/>
+        <string id="BA_jxqf6p" text="Increases reload speed by "/>
+        <string id="BA_203Gjf" text="Increases weapon handling by "/>
+        <string id="BA_c11mlx" text="Increases movement speed by "/>
         
   </strings>
 </base>
