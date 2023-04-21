@@ -41,7 +41,7 @@
 		<string id="BA_5bULNj" text="Influence Bonus From Victories"/>
 		<string id="BA_35dS0f" text="XP Bonus"/>
 
-    <string id="BA_McqePD" text="Attribute Bonus"/>
+		<string id="BA_McqePD" text="Attribute Bonus"/>
     
 		<string id="BA_GU6Ibm" text="Levels Per Attribute Points"/>
 		<string id="BA_VhEAx3" text="How many levels you need to gain to get an attribute point."/>
@@ -51,5 +51,12 @@
 		
 		<string id="BA_S7nfeK" text="Focus Points Per Level"/>
 		<string id="BA_GtIuji" text="How many focus points per level."/>
+
+        <string id="BA_354j0f" text="Companion Limit Bonus"/>
+        <string id="BA_hetS0f" text="Movement Speed Bonus"/>
+        <string id="BA_354j0g" text="Party Leader XP From Assigned Party Roles"/>
+        <string id="BA_35d5rt" text="Weapon Handling Bonus"/>
+        <string id="BA_GtIutr" text="How many focus points that can be spent on a skill."/>
+        
   </strings>
 </base>
