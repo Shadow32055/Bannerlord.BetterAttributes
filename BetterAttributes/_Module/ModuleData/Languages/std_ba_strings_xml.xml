@@ -24,8 +24,6 @@
 
 		<!-- MCM Settings Presets -->
 		<string id="BC_LpHW65" text="Vanilla Settings"/>
-
-
 		<string id="BA_YdzGi4" text="Melee Damage Bonus"/>
 		<string id="BA_qDobnE" text="Range Damage Bonus"/>
 		<string id="BA_naGmUB" text="Health (HP) Bonus"/>
@@ -42,24 +40,21 @@
 		<string id="BA_5bULNj" text="Influence Bonus From Victories"/>
 		<string id="BA_35dS78" text="Reload Speed Bonus"/>
 		<string id="BA_35dS0f" text="XP Bonus"/>
-
 		<string id="BA_McqePD" text="Attribute Bonus"/>
-    
 		<string id="BA_GU6Ibm" text="Levels Per Attribute Points"/>
 		<string id="BA_VhEAx3" text="How many levels you need to gain to get an attribute point."/>
-		<string id="BA_354j0g" text="Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader."/>
+		<string id="BA_346heg" text="Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader."/>
 		<string id="BA_KAggxW" text="Max Attribute Level"/>
 		<string id="BA_TAtfSS" text="Maximum level for attributes."/>
-		
 		<string id="BA_S7nfeK" text="Focus Points Per Level"/>
 		<string id="BA_GtIuji" text="How many focus points per level."/>
-
         <string id="BA_354j0f" text="Companion Limit Bonus"/>
         <string id="BA_hetS0f" text="Movement Speed Bonus"/>
         <string id="BA_354j0g" text="Party Leader XP From Assigned Party Roles"/>
         <string id="BA_35d5rt" text="Weapon Handling Bonus"/>
         <string id="BA_GtIutr" text="How many focus points that can be spent on a skill."/>
-
+        
+        <!-- In game attribute bonus displays -->
         <string id="BA_OG9G6x" text="Increases melee damage by "/>
         <string id="BA_K2bc20" text="Increases ranged damage by "/>
         <string id="BA_AgQghj" text="Increases max hit points by "/>
@@ -79,7 +74,6 @@
         <string id="BA_14vFx6" text="Increases companion limit by +"/>
         <string id="BA_jxqf6p" text="Increases reload speed by "/>
         <string id="BA_203Gjf" text="Increases weapon handling by "/>
-        <string id="BA_c11mlx" text="Increases movement speed by "/>
-        
+        <string id="BA_c11mlx" text="Increases movement speed by "/>  
   </strings>
 </base>
