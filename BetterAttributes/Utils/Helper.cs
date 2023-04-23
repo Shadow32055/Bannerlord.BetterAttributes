@@ -59,15 +59,15 @@ namespace BetterAttributes.Utils {
 
             text = to.ToString();
 
-            if (text == "Vigor") {
+            if (text == "{=BA_Mf0D9r}Vigor") {
                 return DefaultCharacterAttributes.Vigor;
-            } else if (text == "Control") {
+            } else if (text == "{=BA_yXzbqm}Control") {
                 return DefaultCharacterAttributes.Control;
-            } else if (text == "Endurance") {
+            } else if (text == "{=BA_3xcrKW}Endurance") {
                 return DefaultCharacterAttributes.Endurance;
-            } else if (text == "Cunning") {
+            } else if (text == "{=BA_v92Ex5}Cunning") {
                 return DefaultCharacterAttributes.Cunning;
-            } else if (text == "Social") {
+            } else if (text == "{=BA_YtXewV}Social") {
                 return DefaultCharacterAttributes.Social;
             } else {
                 return DefaultCharacterAttributes.Intelligence;
