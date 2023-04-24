@@ -34,7 +34,7 @@ namespace BetterAttributes.Patches {
 
                         if (partyLeader != null) {
                             HeroDeveloper plhd = (HeroDeveloper)hdFieldInfo.GetValue(partyLeader);
-                            float newXpAmount = (float)(xpAmount * Helper.GetAttributeEffect(Helper.settings.partyLeaderXPBonus, Helper.GetAttributeTypeFromText(Helper.settings.partyLeaderXPBonusAttribute), (CharacterObject)partyLeader.CharacterObject));
+                            float newXpAmount = (float)(xpAmount * Helper.GetAttributeEffect(Helper.settings.partyLeaderXPBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.partyLeaderXPBonusAttribute), (CharacterObject)partyLeader.CharacterObject));
                             plhd.AddSkillXp(skill, newXpAmount, true, true);
                         }
                     }

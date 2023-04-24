@@ -54,18 +54,17 @@ namespace BetterAttributes.Utils {
             return bonus * attributeLvl;
         }
 
-        public static CharacterAttribute GetAttributeTypeFromText(string text) {
-            TextObject to = new TextObject(text, null);
+        public static CharacterAttribute GetAttributeTypeFromIndex(int index) {
 
-            if (to == new TextObject("{=BA_Mf0D9r}Vigor", null)) {
+            if (index == 1) {
                 return DefaultCharacterAttributes.Vigor;
-            } else if (to == new TextObject("{=BA_yXzbqm}Control", null)) {
+            } else if (index == 2) {
                 return DefaultCharacterAttributes.Control;
-            } else if (to == new TextObject("{=BA_3xcrKW}Endurance", null)) {
+            } else if (index == 3) {
                 return DefaultCharacterAttributes.Endurance;
-            } else if (to == new TextObject("{=BA_v92Ex5}Cunning", null)) {
+            } else if (index == 4) {
                 return DefaultCharacterAttributes.Cunning;
-            } else if (to == new TextObject("{=BA_YtXewV}Social", null)) {
+            } else if (index == 5) {
                 return DefaultCharacterAttributes.Social;
             } else {
                 return DefaultCharacterAttributes.Intelligence;

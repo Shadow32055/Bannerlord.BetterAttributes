@@ -22,7 +22,7 @@ namespace BetterAttributes.Patches {
                     if (__result.ResultNumber <= 0)
                         return;
 
-                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthRegenBonus, Helper.GetAttributeTypeFromText(Helper.settings.healthRegenBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.healthRegenBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthRegenBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.healthRegenBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.healthRegenBonusAttribute).Name + " Bonus", null));
 
                 }
             } catch (Exception e) {

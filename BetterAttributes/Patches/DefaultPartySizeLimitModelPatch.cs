@@ -21,7 +21,7 @@ namespace BetterAttributes.Patches {
                     if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.partySizeBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partySizeBonus, Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partySizeBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.partySizeBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultPartySizeLimitModelPatch.GetPartyMemberSizeLimit postfix. Exception output: " + e);

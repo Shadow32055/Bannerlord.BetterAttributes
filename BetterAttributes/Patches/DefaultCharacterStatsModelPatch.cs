@@ -20,7 +20,7 @@ namespace BetterAttributes.Patches {
                     if (!character.IsPlayerCharacter && Helper.settings.healthBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthBonus, Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute), character), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.healthBonusAttribute), character), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.healthBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultCharacterStatsModelPatch.MaxHitpoints postfix. Exception output: " + e);

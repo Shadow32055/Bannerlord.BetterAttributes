@@ -19,7 +19,7 @@ namespace BetterAttributes.Patches {
                     if (!hero.IsHumanPlayerCharacter && Helper.settings.xpBonusPlayerOnly)
                         return;
 
-                    __result = __result * (1 + Helper.GetAttributeEffect(Helper.settings.xpBonus, Helper.GetAttributeTypeFromText(Helper.settings.xpBonusAttribute), hero.CharacterObject));
+                    __result = __result * (1 + Helper.GetAttributeEffect(Helper.settings.xpBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.xpBonusAttribute), hero.CharacterObject));
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultGenericXpModelPatch.GetXpMultiplier postfix. Exception output: " + e);

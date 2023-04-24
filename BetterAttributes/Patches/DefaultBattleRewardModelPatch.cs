@@ -21,7 +21,7 @@ namespace BetterAttributes.Patches {
                     if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.renownBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.renownBonus, Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.renownBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.renownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.renownBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultBattleRewardModelPatch.CalculateRenownGain Postfix. Exception output: " + e);
@@ -39,7 +39,7 @@ namespace BetterAttributes.Patches {
                     if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.moraleBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.moraleBonus, Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.moraleBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.moraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.moraleBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultBattleRewardModelPatch.CalculateMoraleGainVictory Postfix. Exception output: " + e);
@@ -57,7 +57,7 @@ namespace BetterAttributes.Patches {
                     if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.influenceBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.influenceBonus, Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.influenceBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.influenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.influenceBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultBattleRewardModelPatch.CalculateInfluenceGain Postfix. Exception output: " + e);

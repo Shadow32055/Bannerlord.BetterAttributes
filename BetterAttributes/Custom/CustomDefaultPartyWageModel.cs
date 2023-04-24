@@ -17,7 +17,7 @@ namespace BetterAttributes.Custom {
                     if (mobileParty is not null) {
                         if (mobileParty.LeaderHero is not null) {
                             if ((!mobileParty.LeaderHero.IsHumanPlayerCharacter && !Helper.settings.wageBonusPlayerOnly) || mobileParty.LeaderHero.IsHumanPlayerCharacter) {
-                                totalWage.AddFactor(-Helper.GetAttributeEffect(Helper.settings.wageBonus, Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                                totalWage.AddFactor(-Helper.GetAttributeEffect(Helper.settings.wageBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.wageBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
                             }
                         }
                     }

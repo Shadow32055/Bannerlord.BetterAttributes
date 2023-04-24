@@ -13,7 +13,7 @@ namespace BetterAttributes.Patches {
         public static void GetCompanionLimit(ref int __result, Clan clan) {
             try {
                 if (Helper.settings.companionBonusEnabled) {
-                    __result = __result + (int)Helper.GetAttributeEffect(Helper.settings.companionBonus, Helper.GetAttributeTypeFromText(Helper.settings.companionBonusAttribute), Hero.MainHero.CharacterObject);
+                    __result = __result + (int)Helper.GetAttributeEffect(Helper.settings.companionBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.companionBonusAttribute), Hero.MainHero.CharacterObject);
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultClanTierModelPatch.GetCompanionLimit postfix. Exception output: " + e);

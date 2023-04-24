@@ -554,185 +554,185 @@ namespace BetterAttributes.Settings {
         [SettingPropertyInteger("{=BA_S7nfeK}Max Focus Points Per Skill", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIutr}How many focus points that can be spent on a skill.")]
         public int maxFocusPointsPerSkill { get; set; } = 5;
 
-        public string melDmgBonusAttribute {
+        public int melDmgBonusAttribute {
             get {
-                return this.melDmgBonusAttributeDropdown.SelectedValue;
+                return this.melDmgBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.melDmgBonusAttributeDropdown.SelectedValue = value;
+                this.melDmgBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string rngDmgBonusAttribute {
+        public int rngDmgBonusAttribute {
             get {
-                return this.rngDmgBonusAttributeDropdown.SelectedValue;
+                return this.rngDmgBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.rngDmgBonusAttributeDropdown.SelectedValue = value;
+                this.rngDmgBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string healthBonusAttribute {
+        public int healthBonusAttribute {
             get {
-                return this.healthBonusAttributeDropdown.SelectedValue;
+                return this.healthBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.healthBonusAttributeDropdown.SelectedValue = value;
+                this.healthBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string healthRegenBonusAttribute {
+        public int healthRegenBonusAttribute {
             get {
-                return this.healthRegenBonusAttributeDropdown.SelectedValue;
+                return this.healthRegenBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.healthRegenBonusAttributeDropdown.SelectedValue = value;
+                this.healthRegenBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string staggerBonusAttribute {
+        public int staggerBonusAttribute {
             get {
-                return this.staggerBonusAttributeDropdown.SelectedValue;
+                return this.staggerBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.staggerBonusAttributeDropdown.SelectedValue = value;
+                this.staggerBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string simBonusAttribute {
+        public int simBonusAttribute {
             get {
-                return this.simBonusAttributeDropdown.SelectedValue;
+                return this.simBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.simBonusAttributeDropdown.SelectedValue = value;
+                this.simBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string persuasionBonusAttribute {
+        public int persuasionBonusAttribute {
             get {
-                return this.persuasionBonusAttributeDropdown.SelectedValue;
+                return this.persuasionBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.persuasionBonusAttributeDropdown.SelectedValue = value;
+                this.persuasionBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string renownBonusAttribute {
+        public int renownBonusAttribute {
             get {
-                return this.renownBonusAttributeDropdown.SelectedValue;
+                return this.renownBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.renownBonusAttributeDropdown.SelectedValue = value;
+                this.renownBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string moraleBonusAttribute {
+        public int moraleBonusAttribute {
             get {
-                return this.moraleBonusAttributeDropdown.SelectedValue;
+                return this.moraleBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.moraleBonusAttributeDropdown.SelectedValue = value;
+                this.moraleBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string partyMoraleBonusAttribute {
+        public int partyMoraleBonusAttribute {
             get {
-                return this.partyMoraleBonusAttributeDropdown.SelectedValue;
+                return this.partyMoraleBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.partyMoraleBonusAttributeDropdown.SelectedValue = value;
+                this.partyMoraleBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string wageBonusAttribute {
+        public int wageBonusAttribute {
             get {
-                return this.wageBonusAttributeDropdown.SelectedValue;
+                return this.wageBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.wageBonusAttributeDropdown.SelectedValue = value;
+                this.wageBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string partySizeBonusAttribute {
+        public int partySizeBonusAttribute {
             get {
-                return this.partySizeBonusAttributeDropdown.SelectedValue;
+                return this.partySizeBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.partySizeBonusAttributeDropdown.SelectedValue = value;
-            }
-        }
-
-
-        public string incomeBonusAttribute {
-            get {
-                return this.incomeBonusAttributeDropdown.SelectedValue;
-            }
-            set {
-                this.incomeBonusAttributeDropdown.SelectedValue = value;
+                this.partySizeBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
 
-        public string influenceBonusAttribute {
+        public int incomeBonusAttribute {
             get {
-                return this.influenceBonusAttributeDropdown.SelectedValue;
+                return this.incomeBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.influenceBonusAttributeDropdown.SelectedValue = value;
+                this.incomeBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string xpBonusAttribute {
+
+        public int influenceBonusAttribute {
             get {
-                return this.xpBonusAttributeDropdown.SelectedValue;
+                return this.influenceBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.xpBonusAttributeDropdown.SelectedValue = value;
+                this.influenceBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string partyLeaderXPBonusAttribute {
+        public int xpBonusAttribute {
             get {
-                return this.partyLeaderXPBonusAttributeDropdown.SelectedValue;
+                return this.xpBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.partyLeaderXPBonusAttributeDropdown.SelectedValue = value;
+                this.xpBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string companionBonusAttribute {
+        public int partyLeaderXPBonusAttribute {
             get {
-                return this.companionBonusAttributeDropdown.SelectedValue;
+                return this.partyLeaderXPBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.companionBonusAttributeDropdown.SelectedValue = value;
+                this.partyLeaderXPBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string reloadBonusAttribute {
+        public int companionBonusAttribute {
             get {
-                return this.reloadBonusAttributeDropdown.SelectedValue;
+                return this.companionBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.reloadBonusAttributeDropdown.SelectedValue = value;
+                this.companionBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string handlingBonusAttribute {
+        public int reloadBonusAttribute {
             get {
-                return this.handlingBonusAttributeDropdown.SelectedValue;
+                return this.reloadBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.handlingBonusAttributeDropdown.SelectedValue = value;
+                this.reloadBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public string movementBonusAttribute {
+        public int handlingBonusAttribute {
             get {
-                return this.movementBonusAttributeDropdown.SelectedValue;
+                return this.handlingBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.movementBonusAttributeDropdown.SelectedValue = value;
+                this.handlingBonusAttributeDropdown.SelectedIndex = value;
+            }
+        }
+
+        public int movementBonusAttribute {
+            get {
+                return this.movementBonusAttributeDropdown.SelectedIndex;
+            }
+            set {
+                this.movementBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 

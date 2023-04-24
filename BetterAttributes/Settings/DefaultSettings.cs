@@ -4,99 +4,99 @@ namespace BetterAttributes.Settings {
         public bool melDmgBonusEnabled { get; set; } = true;
         public bool melDmgBonusPlayerOnly { get; set; } = true;
         public float melDmgBonus { get; set; } = 0.02f;
-        public string melDmgBonusAttribute { get; set; } = "Vigor";
+        public int melDmgBonusAttribute { get; set; } = 1;
 
         public bool rngDmgBonusEnabled { get; set; } = true;
         public bool rngDmgBonusPlayerOnly { get; set; } = true;
         public float rngDmgBonus { get; set; } = 0.02f;
-        public string rngDmgBonusAttribute { get; set; } = "Control";
+        public int rngDmgBonusAttribute { get; set; } = 2;
 
         public bool healthBonusEnabled { get; set; } = true;
         public bool healthBonusPlayerOnly { get; set; } = true;
         public float healthBonus { get; set; } = 0.05f;
-        public string healthBonusAttribute { get; set; } = "Endurance";
+        public int healthBonusAttribute { get; set; } = 3;
 
         public bool healthRegenBonusEnabled { get; set; } = true;
         public bool healthRegenBonusPlayerOnly { get; set; } = true;
         public float healthRegenBonus { get; set; } = 0.05f;
-        public string healthRegenBonusAttribute { get; set; } = "Endurance";
+        public int healthRegenBonusAttribute { get; set; } = 3;
 
         public bool staggerBonusEnabled { get; set; } = true;
         public bool staggerBonusPlayerOnly { get; set; } = true;
         public float staggerBonus { get; set; } = 0.02f;
-        public string staggerBonusAttribute { get; set; } = "Control";
+        public int staggerBonusAttribute { get; set; } = 2;
 
         public bool simBonusEnabled { get; set; } = true;
         public bool simBonusPlayerOnly { get; set; } = true;
         public float simBonus { get; set; } = 0.02f;
-        public string simBonusAttribute { get; set; } = "Cunning";
+        public int simBonusAttribute { get; set; } = 4;
 
         public bool persuasionBonusEnabled { get; set; } = true;
         public float persuasionBonus { get; set; } = 0.02f;
-        public string persuasionBonusAttribute { get; set; } = "Cunning";
+        public int persuasionBonusAttribute { get; set; } = 4;
 
         public bool renownBonusEnabled { get; set; } = true;
         public bool renownBonusPlayerOnly { get; set; } = true;
         public float renownBonus { get; set; } = 0.02f;
-        public string renownBonusAttribute { get; set; } = "Cunning";
+        public int renownBonusAttribute { get; set; } = 4;
 
         public bool moraleBonusEnabled { get; set; } = true;
         public bool moraleBonusPlayerOnly { get; set; } = true;
         public float moraleBonus { get; set; } = 0.02f;
-        public string moraleBonusAttribute { get; set; } = "Cunning";
+        public int moraleBonusAttribute { get; set; } = 4;
 
         public bool partyMoraleBonusEnabled { get; set; } = true;
         public bool partyMoraleBonusPlayerOnly { get; set; } = true;
         public float partyMoraleBonus { get; set; } = 0.02f;
-        public string partyMoraleBonusAttribute { get; set; } = "Social";
+        public int partyMoraleBonusAttribute { get; set; } = 5;
 
         public bool wageBonusEnabled { get; set; } = true;
         public bool wageBonusPlayerOnly { get; set; } = true;
         public float wageBonus { get; set; } = 0.02f;
-        public string wageBonusAttribute { get; set; } = "Social";
+        public int wageBonusAttribute { get; set; } = 5;
 
         public bool partySizeBonusEnabled { get; set; } = true;
         public bool partySizeBonusPlayerOnly { get; set; } = true;
         public float partySizeBonus { get; set; } = 0.02f;
-        public string partySizeBonusAttribute { get; set; } = "Social";
+        public int partySizeBonusAttribute { get; set; } = 5;
 
         public bool incomeBonusEnabled { get; set; } = true;
         public bool incomeBonusPlayerOnly { get; set; } = true;
         public float incomeBonus { get; set; } = 0.02f;
-        public string incomeBonusAttribute { get; set; } = "Intelligence";
+        public int incomeBonusAttribute { get; set; } = 6;
 
         public bool influenceBonusEnabled { get; set; } = true;
         public bool influenceBonusPlayerOnly { get; set; } = true;
         public float influenceBonus { get; set; } = 0.02f;
-        public string influenceBonusAttribute { get; set; } = "Intelligence";
+        public int influenceBonusAttribute { get; set; } = 6;
 
         public bool xpBonusEnabled { get; set; } = true;
         public bool xpBonusPlayerOnly { get; set; } = true;
         public float xpBonus { get; set; } = 0.05f;
-        public string xpBonusAttribute { get; set; } = "Intelligence";
+        public int xpBonusAttribute { get; set; } = 6;
 
         public bool partyLeaderXPBonusEnabled { get; set; } = true;
         public float partyLeaderXPBonus { get; set; } = 0.033f;
-        public string partyLeaderXPBonusAttribute { get; set; } = "Intelligence";
+        public int partyLeaderXPBonusAttribute { get; set; } = 6;
 
         public bool companionBonusEnabled { get; set; } = true;
         public int companionBonus { get; set; } = 1;
-        public string companionBonusAttribute { get; set; } = "Social";
+        public int companionBonusAttribute { get; set; } = 5;
 
         public bool reloadBonusEnabled { get; set; } = true;
         public bool reloadBonusPlayerOnly { get; set; } = true;
         public float reloadBonus { get; set; } = 0.02f;
-        public string reloadBonusAttribute { get; set; } = "Vigor";
+        public int reloadBonusAttribute { get; set; } = 1;
 
         public bool handlingBonusEnabled { get; set; } = true;
         public bool handlingBonusPlayerOnly { get; set; } = true;
         public float handlingBonus { get; set; } = 0.02f;
-        public string handlingBonusAttribute { get; set; } = "Control";
+        public int handlingBonusAttribute { get; set; } = 2;
 
         public bool movementBonusEnabled { get; set; } = true;
         public bool movementBonusPlayerOnly { get; set; } = true;
         public float movementBonus { get; set; } = 0.02f;
-        public string movementBonusAttribute { get; set; } = "Vigor";
+        public int movementBonusAttribute { get; set; } = 1;
 
         public int levelsPerAttributePoint { get; set; } = 2;
         public int focusPointsPerLevel { get; set; } = 1;

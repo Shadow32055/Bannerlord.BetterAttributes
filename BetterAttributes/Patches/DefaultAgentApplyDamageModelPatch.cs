@@ -20,7 +20,7 @@ namespace BetterAttributes.Patches {
                     if (defenderAgent.IsAIControlled && Helper.settings.staggerBonusPlayerOnly)
                         return;
 
-                    __result = __result * (Helper.GetAttributeEffect(Helper.settings.staggerBonus, Helper.GetAttributeTypeFromText(Helper.settings.staggerBonusAttribute), (CharacterObject)defenderAgent.Character) + 1);
+                    __result = __result * (Helper.GetAttributeEffect(Helper.settings.staggerBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.staggerBonusAttribute), (CharacterObject)defenderAgent.Character) + 1);
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdMultiplier postfix. Exception output: " + e);

@@ -62,64 +62,64 @@ namespace BetterAttributes.Patches {
             TextObject movementText = new TextObject("{=BA_c11mlx}Increases movement speed by ", null);
 
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.melDmgBonusAttribute) == ca && Helper.settings.melDmgBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.melDmgBonusAttribute) == ca && Helper.settings.melDmgBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, melDmgText + (Helper.settings.melDmgBonus * lvl).ToString("P") + "", Helper.settings.melDmgBonusPlayerOnly));
             
-            if (Helper.GetAttributeTypeFromText(Helper.settings.rngDmgBonusAttribute) == ca && Helper.settings.rngDmgBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.rngDmgBonusAttribute) == ca && Helper.settings.rngDmgBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, rngDmgText + (Helper.settings.rngDmgBonus * lvl).ToString("P") + "", Helper.settings.rngDmgBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.healthBonusAttribute) == ca && Helper.settings.healthBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.healthBonusAttribute) == ca && Helper.settings.healthBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, healthText + (Helper.settings.healthBonus * lvl).ToString("P") + "", Helper.settings.healthBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.healthRegenBonusAttribute) == ca && Helper.settings.healthRegenBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.healthRegenBonusAttribute) == ca && Helper.settings.healthRegenBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, healthRegenText + (Helper.settings.healthRegenBonus * lvl).ToString("P") + "", Helper.settings.healthRegenBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.staggerBonusAttribute) == ca && Helper.settings.staggerBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.staggerBonusAttribute) == ca && Helper.settings.staggerBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, staggerText + (Helper.settings.staggerBonus * lvl).ToString("P") + "", Helper.settings.staggerBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.simBonusAttribute) == ca && Helper.settings.simBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.simBonusAttribute) == ca && Helper.settings.simBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, simText + (Helper.settings.simBonus * lvl).ToString("P") + "", Helper.settings.simBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.persuasionBonusAttribute) == ca && Helper.settings.persuasionBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.persuasionBonusAttribute) == ca && Helper.settings.persuasionBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, persuasionText + (Helper.settings.persuasionBonus * lvl).ToString("P") + "", true));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.renownBonusAttribute) == ca && Helper.settings.renownBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.renownBonusAttribute) == ca && Helper.settings.renownBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, renownText + (Helper.settings.renownBonus * lvl).ToString("P") + "", Helper.settings.renownBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.moraleBonusAttribute) == ca && Helper.settings.moraleBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.moraleBonusAttribute) == ca && Helper.settings.moraleBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, moraleText + (Helper.settings.moraleBonus * lvl).ToString("P") + "", Helper.settings.moraleBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.partyMoraleBonusAttribute) == ca && Helper.settings.partyMoraleBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.partyMoraleBonusAttribute) == ca && Helper.settings.partyMoraleBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, partyMoraleText + (Helper.settings.partyMoraleBonus * lvl).ToString("P") + "", Helper.settings.partyMoraleBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.wageBonusAttribute) == ca && Helper.settings.wageBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.wageBonusAttribute) == ca && Helper.settings.wageBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, wageText + (Helper.settings.wageBonus * lvl).ToString("P") + "", Helper.settings.wageBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.partySizeBonusAttribute) == ca && Helper.settings.partySizeBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.partySizeBonusAttribute) == ca && Helper.settings.partySizeBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, partySizeText + (Helper.settings.partySizeBonus * lvl).ToString("P") + "", Helper.settings.partySizeBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute) == ca && Helper.settings.incomeBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.incomeBonusAttribute) == ca && Helper.settings.incomeBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, incomeText + (Helper.settings.incomeBonus * lvl).ToString("P") + "", Helper.settings.incomeBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.influenceBonusAttribute) == ca && Helper.settings.influenceBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.influenceBonusAttribute) == ca && Helper.settings.influenceBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, influenceText + (Helper.settings.influenceBonus * lvl).ToString("P") + "", Helper.settings.influenceBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.xpBonusAttribute) == ca && Helper.settings.xpBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.xpBonusAttribute) == ca && Helper.settings.xpBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, xpText + (Helper.settings.xpBonus * lvl).ToString("P") + "", Helper.settings.xpBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.partyLeaderXPBonusAttribute) == ca && Helper.settings.partyLeaderXPBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.partyLeaderXPBonusAttribute) == ca && Helper.settings.partyLeaderXPBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, partyLeaderXPText + (Helper.settings.partyLeaderXPBonus * lvl).ToString("P") + "", true));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.companionBonusAttribute) == ca && Helper.settings.companionBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.companionBonusAttribute) == ca && Helper.settings.companionBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, companionText + (Helper.settings.companionBonus * lvl).ToString() + "", true));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.reloadBonusAttribute) == ca && Helper.settings.reloadBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.reloadBonusAttribute) == ca && Helper.settings.reloadBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, reloadText + (Helper.settings.reloadBonus * lvl).ToString("P") + "", Helper.settings.reloadBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.handlingBonusAttribute) == ca && Helper.settings.handlingBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.handlingBonusAttribute) == ca && Helper.settings.handlingBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, handlingText + (Helper.settings.handlingBonus * lvl).ToString("P") + "", Helper.settings.handlingBonusPlayerOnly));
 
-            if (Helper.GetAttributeTypeFromText(Helper.settings.movementBonusAttribute) == ca && Helper.settings.movementBonusEnabled)
+            if (Helper.GetAttributeTypeFromIndex(Helper.settings.movementBonusAttribute) == ca && Helper.settings.movementBonusEnabled)
                 aplicableBonuses.Add(new CustomAtrObject(ca, movementText + (Helper.settings.movementBonus * lvl).ToString("P") + "", Helper.settings.movementBonusPlayerOnly));
 
             return aplicableBonuses;

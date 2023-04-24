@@ -23,7 +23,7 @@ namespace BetterAttributes.Patches {
                     if (!clan.Leader.IsHumanPlayerCharacter && Helper.settings.incomeBonusPlayerOnly)
                         return;
 
-                    goldChange.Add(goldChange.ResultNumber * Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromText(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
+                    goldChange.Add(goldChange.ResultNumber * Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
                 Helper.WriteToLog("Issue with DefaultClanFinanceModelPatch.CalculateClanIncomeInternal postfix. Exception output: " + e);

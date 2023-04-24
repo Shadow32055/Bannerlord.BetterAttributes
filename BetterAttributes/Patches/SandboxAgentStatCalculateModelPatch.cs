@@ -27,21 +27,21 @@ namespace BetterAttributes.Patches {
                     if (!agent.IsMainAgent && Helper.settings.reloadBonusPlayerOnly)
                         return;
 
-                    agentDrivenProperties.ReloadSpeed *= 1 + Helper.GetAttributeEffect(Helper.settings.reloadBonus, Helper.GetAttributeTypeFromText(Helper.settings.reloadBonusAttribute), (CharacterObject)agent.Character);
+                    agentDrivenProperties.ReloadSpeed *= 1 + Helper.GetAttributeEffect(Helper.settings.reloadBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.reloadBonusAttribute), (CharacterObject)agent.Character);
                 }
 
                 if (Helper.settings.handlingBonusEnabled) {
                      if (!agent.IsMainAgent && Helper.settings.handlingBonusPlayerOnly)
                         return;
 
-                    agentDrivenProperties.HandlingMultiplier *= 1 + Helper.GetAttributeEffect(Helper.settings.handlingBonus, Helper.GetAttributeTypeFromText(Helper.settings.handlingBonusAttribute), (CharacterObject)agent.Character);
+                    agentDrivenProperties.HandlingMultiplier *= 1 + Helper.GetAttributeEffect(Helper.settings.handlingBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.handlingBonusAttribute), (CharacterObject)agent.Character);
                 }
 
                 if (Helper.settings.movementBonusEnabled) {
                      if (!agent.IsMainAgent && Helper.settings.movementBonusPlayerOnly)
                         return;
 
-                    agentDrivenProperties.MaxSpeedMultiplier *= 1 + Helper.GetAttributeEffect(Helper.settings.movementBonus, Helper.GetAttributeTypeFromText(Helper.settings.movementBonusAttribute), (CharacterObject)agent.Character);
+                    agentDrivenProperties.MaxSpeedMultiplier *= 1 + Helper.GetAttributeEffect(Helper.settings.movementBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.movementBonusAttribute), (CharacterObject)agent.Character);
                 }
 
             } catch (Exception e) {
