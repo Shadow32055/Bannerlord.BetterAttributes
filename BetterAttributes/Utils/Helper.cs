@@ -57,17 +57,15 @@ namespace BetterAttributes.Utils {
         public static CharacterAttribute GetAttributeTypeFromText(string text) {
             TextObject to = new TextObject(text, null);
 
-            text = to.ToString();
-
-            if (text == "{=BA_Mf0D9r}Vigor") {
+            if (to == new TextObject("{=BA_Mf0D9r}Vigor", null)) {
                 return DefaultCharacterAttributes.Vigor;
-            } else if (text == "{=BA_yXzbqm}Control") {
+            } else if (to == new TextObject("{=BA_yXzbqm}Control", null)) {
                 return DefaultCharacterAttributes.Control;
-            } else if (text == "{=BA_3xcrKW}Endurance") {
+            } else if (to == new TextObject("{=BA_3xcrKW}Endurance", null)) {
                 return DefaultCharacterAttributes.Endurance;
-            } else if (text == "{=BA_v92Ex5}Cunning") {
+            } else if (to == new TextObject("{=BA_v92Ex5}Cunning", null)) {
                 return DefaultCharacterAttributes.Cunning;
-            } else if (text == "{=BA_YtXewV}Social") {
+            } else if (to == new TextObject("{=BA_YtXewV}Social", null)) {
                 return DefaultCharacterAttributes.Social;
             } else {
                 return DefaultCharacterAttributes.Intelligence;
