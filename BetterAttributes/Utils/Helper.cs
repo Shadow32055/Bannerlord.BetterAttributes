@@ -56,15 +56,15 @@ namespace BetterAttributes.Utils {
 
         public static CharacterAttribute GetAttributeTypeFromIndex(int index) {
 
-            if (index == 1) {
+            if (index == 0) {
                 return DefaultCharacterAttributes.Vigor;
-            } else if (index == 2) {
+            } else if (index == 1) {
                 return DefaultCharacterAttributes.Control;
-            } else if (index == 3) {
+            } else if (index == 2) {
                 return DefaultCharacterAttributes.Endurance;
-            } else if (index == 4) {
+            } else if (index == 3) {
                 return DefaultCharacterAttributes.Cunning;
-            } else if (index == 5) {
+            } else if (index == 4) {
                 return DefaultCharacterAttributes.Social;
             } else {
                 return DefaultCharacterAttributes.Intelligence;
