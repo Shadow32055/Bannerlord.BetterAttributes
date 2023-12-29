@@ -17,6 +17,9 @@ namespace BetterAttributes.Patches {
                 if (!attackInformation.AttackerAgentCharacter.IsHero)
                     return;
 
+                if (attackerWeapon == null)
+                    return;
+
                 if (Helper.settings.melDmgBonusEnabled && attackerWeapon.IsMeleeWeapon) {
 
                     if (attackInformation.IsAttackerAIControlled && Helper.settings.melDmgBonusPlayerOnly)

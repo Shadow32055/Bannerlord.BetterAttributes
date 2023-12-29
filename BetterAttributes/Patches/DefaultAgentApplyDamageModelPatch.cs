@@ -11,7 +11,7 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateStaggerThresholdDamage))]
-        public static void CalculateStaggerThresholdDamage(Agent defenderAgent, ref float __result) {
+        public static void CalculateStaggerThresholdDamage(Agent defenderAgent, in Blow blow, ref float __result) {
             try {
                 if (Helper.settings.staggerBonusEnabled) {
                     if (!defenderAgent.IsHero)
