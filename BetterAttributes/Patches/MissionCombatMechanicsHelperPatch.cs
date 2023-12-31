@@ -14,6 +14,9 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(MissionCombatMechanicsHelper), "ComputeBlowDamage")]
         public static void ComputeBlowDamage(ref AttackInformation attackInformation, ref AttackCollisionData attackCollisionData, WeaponComponentData attackerWeapon, DamageTypes damageType, float magnitude, int speedBonus, bool cancelDamage, ref int inflictedDamage, ref int absorbedByArmor) {
             try {
+                if (attackInformation.AttackerAgentCharacter == null)
+                    return;
+
                 if (!attackInformation.AttackerAgentCharacter.IsHero)
                     return;
 
@@ -36,6 +39,9 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(MissionCombatMechanicsHelper), "ComputeBlowMagnitude")]
         public static void ComputeBlowMagnitude(ref AttackCollisionData acd, ref AttackInformation attackInformation, MissionWeapon weapon, float momentumRemaining, bool cancelDamage, bool hitWithAnotherBone, Vec2 attackerVelocity, Vec2 victimVelocity, ref float baseMagnitude, ref float specialMagnitude, ref float movementSpeedDamageModifier, ref int speedBonusInt) {
             try {
+                if (attackInformation.AttackerAgentCharacter == null) 
+                    return;
+
                 if (!attackInformation.AttackerAgentCharacter.IsHero)
                     return;
 
