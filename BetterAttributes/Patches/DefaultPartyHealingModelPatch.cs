@@ -1,4 +1,4 @@
-﻿using BetterAttributes.Utils;
+﻿using BetterCore.Utils;
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
@@ -14,7 +14,7 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultPartyHealingModel), nameof(DefaultPartyHealingModel.GetDailyHealingHpForHeroes))]
         public static void GetDailyHealingHpForHeroes(ref ExplainedNumber __result, MobileParty party, bool includeDescriptions = false) {
             try {
-                if (Helper.settings.healthRegenBonusEnabled) {
+                if (SubModule._settings.healthRegenBonusEnabled) {
 
                     if (party.LeaderHero is null)
                         return;
@@ -22,11 +22,11 @@ namespace BetterAttributes.Patches {
                     if (__result.ResultNumber <= 0)
                         return;
 
-                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.healthRegenBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.healthRegenBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.healthRegenBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.healthRegenBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.healthRegenBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.healthRegenBonusAttribute).Name + " Bonus", null));
 
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with DefaultPartyHealingModelPatch.GetDailyHealingHpForHeroes postfix. Exception output: " + e);
+                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
             }
         }
     }

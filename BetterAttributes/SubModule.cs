@@ -1,22 +1,19 @@
-﻿using HarmonyLib;
-using BetterAttributes.Utils;
+﻿using BetterAttributes.Custom;
 using BetterAttributes.Settings;
+using BetterCore.Utils;
+using HarmonyLib;
 using TaleWorlds.CampaignSystem;
-using BetterAttributes.Custom;
-
 using TaleWorlds.Core;
-using TaleWorlds.Engine;
-using TaleWorlds.Library;
-using TaleWorlds.ModuleManager;
 using TaleWorlds.MountAndBlade;
 
 namespace BetterAttributes {
-	public class SubModule : MBSubModuleBase {
+    public class SubModule : MBSubModuleBase {
 
+		public static MCMSettings _settings;
 		protected override void OnSubModuleLoad() {
 			base.OnSubModuleLoad();
 
-			Harmony h = new Harmony("Bannerlord.Shadow.BetterAttributes");
+			Harmony h = new("Bannerlord.Shadow.BetterAttributes");
 
             //*** Manual patching reference
             //MethodInfo original = typeof(Hero).GetProperty("AddSkillXp").GetGetMethod();
@@ -44,7 +41,11 @@ namespace BetterAttributes {
 			string modName = base.GetType().Assembly.GetName().Name;
 
 			Helper.SetModName(modName);
-			Helper.settings = SettingsManager.Instance;
+			if (MCMSettings.Instance is not null) {
+				_settings = MCMSettings.Instance;
+			} else {
+				Logger.SendMessage("Failed to find settings instance!", Severity.High);
+			}
 		}
     }
 }

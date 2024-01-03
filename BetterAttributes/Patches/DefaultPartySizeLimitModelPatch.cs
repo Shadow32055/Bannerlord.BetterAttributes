@@ -1,4 +1,4 @@
-﻿using BetterAttributes.Utils;
+﻿using BetterCore.Utils;
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
@@ -14,17 +14,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultPartySizeLimitModel), nameof(DefaultPartySizeLimitModel.GetPartyMemberSizeLimit))]
         public static void GetPartyMemberSizeLimit(ref ExplainedNumber __result, PartyBase party) {
             try {
-                if (Helper.settings.partySizeBonusEnabled) {
+                if (SubModule._settings.partySizeBonusEnabled) {
                     if (party.LeaderHero is null)
                         return;
 
-                    if (!party.LeaderHero.IsHumanPlayerCharacter && Helper.settings.partySizeBonusPlayerOnly)
+                    if (!party.LeaderHero.IsHumanPlayerCharacter && SubModule._settings.partySizeBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(Helper.GetAttributeEffect(Helper.settings.partySizeBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.partySizeBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.partySizeBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.partySizeBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with DefaultPartySizeLimitModelPatch.GetPartyMemberSizeLimit postfix. Exception output: " + e);
+                Logger.SendMessage("DefaultPartySizeLimitModelPatch.GetPartyMemberSizeLimit postfix threw exception: " + e, Severity.High);
             }
         }
     }

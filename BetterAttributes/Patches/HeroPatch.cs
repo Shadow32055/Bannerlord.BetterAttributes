@@ -1,4 +1,4 @@
-﻿using BetterAttributes.Utils;
+﻿using BetterCore.Utils;
 using HarmonyLib;
 using System;
 using System.Reflection;
@@ -12,7 +12,7 @@ namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(Hero))]
     class HeroPatch {
         
-        private static FieldInfo hdFieldInfo = null;
+        private static FieldInfo? hdFieldInfo = null;
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(Hero), "AddSkillXp")]
@@ -30,18 +30,18 @@ namespace BetterAttributes.Patches {
 
                         if (hdFieldInfo == null) GetFieldInfo();
 
-                        Hero partyLeader = party.LeaderHero ?? null;
+                        Hero? partyLeader = party.LeaderHero ?? null;
 
-                        if (partyLeader != null) {
+                        if (partyLeader != null && hdFieldInfo != null) {
                             HeroDeveloper plhd = (HeroDeveloper)hdFieldInfo.GetValue(partyLeader);
-                            float newXpAmount = (float)(xpAmount * Helper.GetAttributeEffect(Helper.settings.partyLeaderXPBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.partyLeaderXPBonusAttribute), (CharacterObject)partyLeader.CharacterObject));
+                            float newXpAmount = (float)(xpAmount * AttributeHelper.GetAttributeEffect(SubModule._settings.partyLeaderXPBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.partyLeaderXPBonusAttribute), (CharacterObject)partyLeader.CharacterObject));
                             plhd.AddSkillXp(skill, newXpAmount, true, true);
                         }
                     }
                 }
 
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with HeroPatch.AddSkillXp postfix. Exception output: " + e);
+                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
             }
         }
 

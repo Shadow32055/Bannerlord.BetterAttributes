@@ -1,7 +1,5 @@
-﻿using BetterAttributes.Utils;
-
+﻿using BetterCore.Utils;
 using System;
-
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
@@ -13,17 +11,17 @@ namespace BetterAttributes.Custom {
         public override ExplainedNumber GetTotalWage(MobileParty mobileParty, bool includeDescriptions = false) {
             ExplainedNumber totalWage = base.GetTotalWage(mobileParty, includeDescriptions);
             try {
-                if (Helper.settings.wageBonusEnabled) {
+                if (SubModule._settings.wageBonusEnabled) {
                     if (mobileParty is not null) {
                         if (mobileParty.LeaderHero is not null) {
-                            if ((!mobileParty.LeaderHero.IsHumanPlayerCharacter && !Helper.settings.wageBonusPlayerOnly) || mobileParty.LeaderHero.IsHumanPlayerCharacter) {
-                                totalWage.AddFactor(-Helper.GetAttributeEffect(Helper.settings.wageBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.wageBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.wageBonusAttribute).Name + " Bonus", null));
+                            if ((!mobileParty.LeaderHero.IsHumanPlayerCharacter && !SubModule._settings.wageBonusPlayerOnly) || mobileParty.LeaderHero.IsHumanPlayerCharacter) {
+                                totalWage.AddFactor(-AttributeHelper.GetAttributeEffect(SubModule._settings.wageBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.wageBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.wageBonusAttribute).Name + " Bonus", null));
                             }
                         }
                     }
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with CustomDefaultPartyWageModel.GetTotalWage. Exception output: " + e);
+                Logger.SendMessage("CustomDefaultPartyWageModel.GetTotalWage threw exception: " + e, Severity.High);
             }
 
             return totalWage;

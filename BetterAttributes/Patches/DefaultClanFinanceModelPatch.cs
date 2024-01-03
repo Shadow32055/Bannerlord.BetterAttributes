@@ -1,4 +1,4 @@
-﻿using BetterAttributes.Utils;
+﻿using BetterCore.Utils;
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
@@ -13,20 +13,20 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncomeInternal")]
         public static void CalculateClanIncomeInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) {
             try {
-                if (Helper.settings.incomeBonusEnabled) {
+                if (SubModule._settings.incomeBonusEnabled) {
                     if (clan.IsEliminated)
                         return;
 
                     if (clan.Leader is null)
                         return;
 
-                    if (!clan.Leader.IsHumanPlayerCharacter && Helper.settings.incomeBonusPlayerOnly)
+                    if (!clan.Leader.IsHumanPlayerCharacter && SubModule._settings.incomeBonusPlayerOnly)
                         return;
 
-                    goldChange.Add(goldChange.ResultNumber * Helper.GetAttributeEffect(Helper.settings.incomeBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(Helper.GetAttributeTypeFromIndex(Helper.settings.incomeBonusAttribute).Name + " Bonus", null));
+                    goldChange.Add(goldChange.ResultNumber * AttributeHelper.GetAttributeEffect(SubModule._settings.incomeBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.incomeBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with DefaultClanFinanceModelPatch.CalculateClanIncomeInternal postfix. Exception output: " + e);
+                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿using BetterAttributes.Utils;
+﻿using BetterCore.Utils;
 using HarmonyLib;
 using SandBox.GameComponents;
 using System;
@@ -8,7 +8,6 @@ using TaleWorlds.MountAndBlade;
 namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(SandboxAgentStatCalculateModel))]
     class SandboxAgentStatCalculateModelPatch {
-
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(SandboxAgentStatCalculateModel), nameof(SandboxAgentStatCalculateModel.UpdateAgentStats))]
@@ -23,29 +22,87 @@ namespace BetterAttributes.Patches {
                 if (!agent.IsHero)
                     return;
 
-                if (Helper.settings.reloadBonusEnabled) {
-                    if (!agent.IsMainAgent && Helper.settings.reloadBonusPlayerOnly)
-                        return;
+                bool applyBonus = false;
 
-                    agentDrivenProperties.ReloadSpeed *= 1 + Helper.GetAttributeEffect(Helper.settings.reloadBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.reloadBonusAttribute), (CharacterObject)agent.Character);
+                if (SubModule._settings.reloadBonusEnabled) {
+                    if (!SubModule._settings.reloadBonusPlayerOnly) {
+                        //Should be all heroes
+                        applyBonus = true;
+                    } else if (agent.IsMainAgent) {
+                        applyBonus = true;
+                    }
+
+                    if (applyBonus)
+                        agentDrivenProperties.ReloadSpeed *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.reloadBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.reloadBonusAttribute), (CharacterObject)agent.Character);
                 }
 
-                if (Helper.settings.handlingBonusEnabled) {
-                     if (!agent.IsMainAgent && Helper.settings.handlingBonusPlayerOnly)
-                        return;
+                applyBonus = false;
 
-                    agentDrivenProperties.HandlingMultiplier *= 1 + Helper.GetAttributeEffect(Helper.settings.handlingBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.handlingBonusAttribute), (CharacterObject)agent.Character);
+                if (SubModule._settings.handlingBonusEnabled) {
+                    if (!SubModule._settings.handlingBonusPlayerOnly) {
+                        applyBonus = true;
+                    } else if (agent.IsMainAgent) {
+                        applyBonus = true;
+                    }
+
+                    if (applyBonus)
+                        agentDrivenProperties.HandlingMultiplier *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.handlingBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.handlingBonusAttribute), (CharacterObject)agent.Character);
                 }
 
-                if (Helper.settings.movementBonusEnabled) {
-                     if (!agent.IsMainAgent && Helper.settings.movementBonusPlayerOnly)
-                        return;
+                applyBonus = false;
 
-                    agentDrivenProperties.MaxSpeedMultiplier *= 1 + Helper.GetAttributeEffect(Helper.settings.movementBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.movementBonusAttribute), (CharacterObject)agent.Character);
+                if (SubModule._settings.movementBonusEnabled) {
+                    if (!SubModule._settings.movementBonusPlayerOnly) {
+                        applyBonus = true;
+                    } else if (agent.IsMainAgent) {
+                        applyBonus = true;
+                    }
+
+                    if (applyBonus)
+                        agentDrivenProperties.MaxSpeedMultiplier *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.movementBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.movementBonusAttribute), (CharacterObject)agent.Character);
+                }
+
+                applyBonus = false;
+
+                if (SubModule._settings.accuracyBonusEnabled) {
+                    if (!SubModule._settings.accuracyBonusPlayerOnly) {
+                        applyBonus = true;
+                    } else if (agent.IsMainAgent) {
+                        applyBonus = true;
+                    }
+
+                    if (applyBonus)
+                        agentDrivenProperties.WeaponInaccuracy /= AttributeHelper.GetAttributeEffect(SubModule._settings.accuracyBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.accuracyBonusAttribute), (CharacterObject)agent.Character);
+                }
+
+                applyBonus = false;
+
+                if (SubModule._settings.drawBonusEnabled) {
+                    if (!SubModule._settings.drawBonusPlayerOnly) {
+                        applyBonus = true;
+                    } else if (agent.IsMainAgent) {
+                        applyBonus = true;
+                    }
+
+                    if (applyBonus)
+                        agentDrivenProperties.ThrustOrRangedReadySpeedMultiplier *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.drawBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.drawBonusAttribute), (CharacterObject)agent.Character);
+                }
+
+                applyBonus = false;
+
+                if (SubModule._settings.stabilityBonusEnabled) {
+                    if (!SubModule._settings.stabilityBonusPlayerOnly) {
+                        applyBonus = true;
+                    } else if (agent.IsMainAgent) {
+                        applyBonus = true;
+                    }
+
+                    if (applyBonus)
+                        agentDrivenProperties.WeaponUnsteadyBeginTime *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.stabilityBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.stabilityBonusAttribute), (CharacterObject)agent.Character);
                 }
 
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with SandboxAgentStatCalculateModelPatch.UpdateAgentStats postfix. Exception output: " + e);
+                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
             }
         }
     }

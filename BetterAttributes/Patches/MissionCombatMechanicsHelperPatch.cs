@@ -1,9 +1,8 @@
-﻿using BetterAttributes.Utils;
+﻿using BetterCore.Utils;
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
 namespace BetterAttributes.Patches {
@@ -23,21 +22,21 @@ namespace BetterAttributes.Patches {
                 if (attackerWeapon == null)
                     return;
 
-                if (Helper.settings.melDmgBonusEnabled && attackerWeapon.IsMeleeWeapon) {
+                if (SubModule._settings.melDmgBonusEnabled && attackerWeapon.IsMeleeWeapon) {
 
-                    if (attackInformation.IsAttackerAIControlled && Helper.settings.melDmgBonusPlayerOnly)
+                    if (attackInformation.IsAttackerAIControlled && SubModule._settings.melDmgBonusPlayerOnly)
                         return;
 
-                    inflictedDamage = inflictedDamage * (int)( Helper.GetAttributeEffect(Helper.settings.melDmgBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.melDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1 );
+                    inflictedDamage = inflictedDamage * (int)(AttributeHelper.GetAttributeEffect(SubModule._settings.melDmgBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.melDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1 );
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with MissionCombatMechanicsHelperPatch.ComputeBlowDamage postfix. Exception output: " + e);
+                Logger.SendMessage("MissionCombatMechanicsHelperPatch.ComputeBlowDamage threw exception: " + e, Severity.High);
             }
         }
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(MissionCombatMechanicsHelper), "ComputeBlowMagnitude")]
-        public static void ComputeBlowMagnitude(ref AttackCollisionData acd, ref AttackInformation attackInformation, MissionWeapon weapon, float momentumRemaining, bool cancelDamage, bool hitWithAnotherBone, Vec2 attackerVelocity, Vec2 victimVelocity, ref float baseMagnitude, ref float specialMagnitude, ref float movementSpeedDamageModifier, ref int speedBonusInt) {
+        public static void ComputeBlowMagnitude(ref AttackCollisionData acd, ref AttackInformation attackInformation, MissionWeapon weapon, float momentumRemaining, bool cancelDamage, bool hitWithAnotherBone, TaleWorlds.Library.Vec2 attackerVelocity, TaleWorlds.Library.Vec2 victimVelocity, ref float baseMagnitude, ref float specialMagnitude, ref float movementSpeedDamageModifier, ref int speedBonusInt) {
             try {
                 if (attackInformation.AttackerAgentCharacter == null) 
                     return;
@@ -45,16 +44,16 @@ namespace BetterAttributes.Patches {
                 if (!attackInformation.AttackerAgentCharacter.IsHero)
                     return;
 
-                if (Helper.settings.rngDmgBonusEnabled) {
+                if (SubModule._settings.rngDmgBonusEnabled) {
 
-                    if (attackInformation.IsAttackerAIControlled && Helper.settings.rngDmgBonusPlayerOnly)
+                    if (attackInformation.IsAttackerAIControlled && SubModule._settings.rngDmgBonusPlayerOnly)
                         return;
 
-                    float val = Helper.GetAttributeEffect(Helper.settings.rngDmgBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.rngDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1;
+                    float val = AttributeHelper.GetAttributeEffect(SubModule._settings.rngDmgBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.rngDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1;
                     specialMagnitude *= val;
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with MissionCombatMechanicsHelperPatch.ComputeBlowMagnitude postfix. Exception output: " + e);
+                Logger.SendMessage("MissionCombatMechanicsHelperPatch.ComputeBlowMagnitude threw exception: " + e, Severity.High);
             }
         }
     }

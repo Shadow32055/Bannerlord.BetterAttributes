@@ -1,4 +1,4 @@
-﻿using BetterAttributes.Utils;
+﻿using BetterCore.Utils;
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
@@ -14,18 +14,18 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultCombatSimulationModel), nameof(DefaultCombatSimulationModel.SimulateHit))]
         public static void SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, ref int __result) {
             try {
-                if (Helper.settings.simBonusEnabled) {
+                if (SubModule._settings.simBonusEnabled) {
                     if (!strikerTroop.IsHero)
                         return;
 
-                    if (!strikerTroop.IsPlayerCharacter && Helper.settings.simBonusPlayerOnly)
+                    if (!strikerTroop.IsPlayerCharacter && SubModule._settings.simBonusPlayerOnly)
                         return;
 
 
-                    __result = __result * (int)(Helper.GetAttributeEffect(Helper.settings.simBonus, Helper.GetAttributeTypeFromIndex(Helper.settings.simBonusAttribute), strikerTroop.HeroObject.CharacterObject) + 1);
+                    __result = __result * (int)(AttributeHelper.GetAttributeEffect(SubModule._settings.simBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.simBonusAttribute), strikerTroop.HeroObject.CharacterObject) + 1);
                 }
             } catch (Exception e) {
-                Helper.WriteToLog("Issue with DefaultCombatSimulationModelPatch.SimulateHit postfix. Exception output: " + e);
+                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
             }
         }
     }

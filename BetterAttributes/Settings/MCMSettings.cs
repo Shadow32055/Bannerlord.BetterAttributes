@@ -5,7 +5,7 @@ using MCM.Common;
 
 namespace BetterAttributes.Settings {
 
-    internal class MCMSettings : AttributeGlobalSettings<MCMSettings>, ISettings {
+    public class MCMSettings : AttributeGlobalSettings<MCMSettings> {
 
         const string bonusesText = "{=BA_oPw9hh}Bonuses";
 
@@ -538,21 +538,101 @@ namespace BetterAttributes.Settings {
         }, selectedIndex: 1);
 
 
-        [SettingPropertyGroup(attributeText)]
-        [SettingPropertyInteger("{=BA_GU6Ibm}Levels Per Attribute Point", 1, 10, "0", Order = 0, RequireRestart = false, HintText = "{=BA_VhEAx3}How many levels you need to gain to get an attribute point.")]
-        public int levelsPerAttributePoint { get; set; } = 3;
+        const string smithingText = "{=BA_hasd0f}Smithing Stamina Bonus";
 
-        [SettingPropertyGroup(attributeText)]
-        [SettingPropertyInteger("{=BA_KAggxW}Max Attribute Level", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_TAtfSS}Maximum level for attributes.")]
-        public int maxAttributeLevel { get; set; } = 10;
+        [SettingPropertyGroup(bonusesText + "/" + smithingText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool smithingBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup("Focus")]
-        [SettingPropertyInteger("{=BA_S7nfeK}Focus Points Per Level", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIuji}How many focus points per level.")]
-        public int focusPointsPerLevel { get; set; } = 1;
+        [SettingPropertyGroup(bonusesText + "/" + smithingText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 250f, "0", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public int smithingBonus { get; set; } = 10;
 
-        [SettingPropertyGroup("Focus")]
-        [SettingPropertyInteger("{=BA_S7nfeK}Max Focus Points Per Skill", 0, 100, "0", Order = 0, RequireRestart = false, HintText = "{=BA_GtIutr}How many focus points that can be spent on a skill.")]
-        public int maxFocusPointsPerSkill { get; set; } = 5;
+        [SettingPropertyGroup(bonusesText + "/" + smithingText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public Dropdown<string> smithingBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 2);
+
+        const string accuracyText = "{=BA_as48wd}Accuracy Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + accuracyText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool accuracyBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + accuracyText)]
+        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
+        public bool accuracyBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + accuracyText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float accuracyBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(bonusesText + "/" + accuracyText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public Dropdown<string> accuracyBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 1);
+
+        const string drawText = "{=BA_hetS0f}Draw Speed Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + drawText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool drawBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + drawText)]
+        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
+        public bool drawBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + drawText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float drawBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(bonusesText + "/" + drawText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public Dropdown<string> drawBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 0);
+
+        const string stabilityText = "{=BA_hetS0f}Aim Stability Bonus";
+
+        [SettingPropertyGroup(bonusesText + "/" + stabilityText)]
+        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
+        public bool stabilityBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + stabilityText)]
+        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
+        public bool stabilityBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(bonusesText + "/" + stabilityText)]
+        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
+        public float stabilityBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(bonusesText + "/" + stabilityText)]
+        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
+        public Dropdown<string> stabilityBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            vigorText,
+            controlText,
+            enduranceText,
+            cunningText,
+            socialText,
+            intelligenceText
+        }, selectedIndex: 2);
 
         public int melDmgBonusAttribute {
             get {
@@ -736,6 +816,41 @@ namespace BetterAttributes.Settings {
             }
         }
 
+        public int smithingBonusAttribute {
+            get {
+                return this.smithingBonusAttributeDropdown.SelectedIndex;
+            }
+            set {
+                this.smithingBonusAttributeDropdown.SelectedIndex = value;
+            }
+        }
+
+        public int accuracyBonusAttribute {
+            get {
+                return this.accuracyBonusAttributeDropdown.SelectedIndex;
+            }
+            set {
+                this.accuracyBonusAttributeDropdown.SelectedIndex = value;
+            }
+        }
+
+        public int drawBonusAttribute {
+            get {
+                return this.drawBonusAttributeDropdown.SelectedIndex;
+            }
+            set {
+                this.drawBonusAttributeDropdown.SelectedIndex = value;
+            }
+        }
+
+        public int stabilityBonusAttribute {
+            get {
+                return this.stabilityBonusAttributeDropdown.SelectedIndex;
+            }
+            set {
+                this.stabilityBonusAttributeDropdown.SelectedIndex = value;
+            }
+        }
 
 
         public override string Id { get { return base.GetType().Assembly.GetName().Name; } }
