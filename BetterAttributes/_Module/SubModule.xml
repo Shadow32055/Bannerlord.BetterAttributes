@@ -11,11 +11,11 @@
 	<DependedModule Id="Bannerlord.UIExtenderEx" DependentVersion="v2.8.1" />
 	<DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.9.1" />
 	<DependedModule Id="BetterCore" DependentVersion="v1.0.0" />
-    <DependedModule Id="Native" DependentVersion="v1.2.8"/>
-    <DependedModule Id="SandBoxCore" DependentVersion="v1.2.8"/>
-    <DependedModule Id="Sandbox" DependentVersion="v1.2.8"/>
-    <DependedModule Id="CustomBattle" DependentVersion="v1.2.8"/>
-    <DependedModule Id="StoryMode" DependentVersion="v1.2.8"/>
+    <DependedModule Id="Native" />
+    <DependedModule Id="SandBoxCore" />
+    <DependedModule Id="Sandbox" />
+    <DependedModule Id="CustomBattle" />
+    <DependedModule Id="StoryMode" />
   </DependedModules>
   <SubModules>
     <SubModule>
