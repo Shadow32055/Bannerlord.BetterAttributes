@@ -1,10 +1,10 @@
 <Module>
-  <Name value="BetterAttributes" />
+  <Name value="Better Attributes" />
   <Id value="BetterAttributes" />
   <Version value="d0.0.0" />
   <ModuleType value="Community" />
   <ModuleCategory value="Singleplayer" />
-  <Url value="https://www.nexusmods.com/mountandblade2bannerlord/mods/6269" />
+  <Url value="https://www.nexusmods.com/mountandblade2bannerlord/mods/3434" />
   <DependedModules>
     <DependedModule Id="Bannerlord.Harmony" DependentVersion="v2.3.0" />
 	<DependedModule Id="Bannerlord.ButterLib" DependentVersion="v2.8.15" />
