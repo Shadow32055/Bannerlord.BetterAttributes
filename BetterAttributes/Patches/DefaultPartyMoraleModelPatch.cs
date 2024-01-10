@@ -14,17 +14,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultPartyMoraleModel), nameof(DefaultPartyMoraleModel.GetEffectivePartyMorale))]
         public static void GetEffectivePartyMorale(ref ExplainedNumber __result, MobileParty mobileParty) {
             try {
-                if (SubModule._settings.partyMoraleBonusEnabled) {
+                if (BetterAttributes.Settings.PartyMoraleBonusEnabled) {
                     if (mobileParty.LeaderHero is null)
                         return;
 
-                    if (!mobileParty.LeaderHero.IsHumanPlayerCharacter && SubModule._settings.partyMoraleBonusPlayerOnly)
+                    if (!mobileParty.LeaderHero.IsHumanPlayerCharacter && BetterAttributes.Settings.PartyMoraleBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.partyMoraleBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.partyMoraleBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.partyMoraleBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.PartyMoraleBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartyMoraleBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartyMoraleBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

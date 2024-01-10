@@ -34,14 +34,14 @@ namespace BetterAttributes.Patches {
 
                         if (partyLeader != null && hdFieldInfo != null) {
                             HeroDeveloper plhd = (HeroDeveloper)hdFieldInfo.GetValue(partyLeader);
-                            float newXpAmount = (float)(xpAmount * AttributeHelper.GetAttributeEffect(SubModule._settings.partyLeaderXPBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.partyLeaderXPBonusAttribute), (CharacterObject)partyLeader.CharacterObject));
+                            float newXpAmount = (float)(xpAmount * AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.PartyLeaderXPBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartyLeaderXPBonusAttribute), (CharacterObject)partyLeader.CharacterObject));
                             plhd.AddSkillXp(skill, newXpAmount, true, true);
                         }
                     }
                 }
 
             } catch (Exception e) {
-                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
 

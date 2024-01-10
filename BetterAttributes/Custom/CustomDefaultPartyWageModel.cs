@@ -11,17 +11,17 @@ namespace BetterAttributes.Custom {
         public override ExplainedNumber GetTotalWage(MobileParty mobileParty, bool includeDescriptions = false) {
             ExplainedNumber totalWage = base.GetTotalWage(mobileParty, includeDescriptions);
             try {
-                if (SubModule._settings.wageBonusEnabled) {
+                if (BetterAttributes.Settings.WageBonusEnabled) {
                     if (mobileParty is not null) {
                         if (mobileParty.LeaderHero is not null) {
-                            if ((!mobileParty.LeaderHero.IsHumanPlayerCharacter && !SubModule._settings.wageBonusPlayerOnly) || mobileParty.LeaderHero.IsHumanPlayerCharacter) {
-                                totalWage.AddFactor(-AttributeHelper.GetAttributeEffect(SubModule._settings.wageBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.wageBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.wageBonusAttribute).Name + " Bonus", null));
+                            if ((!mobileParty.LeaderHero.IsHumanPlayerCharacter && !BetterAttributes.Settings.WageBonusPlayerOnly) || mobileParty.LeaderHero.IsHumanPlayerCharacter) {
+                                totalWage.AddFactor(-AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.WageBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.WageBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.WageBonusAttribute).Name + " Bonus", null));
                             }
                         }
                     }
                 }
             } catch (Exception e) {
-                Logger.SendMessage("CustomDefaultPartyWageModel.GetTotalWage threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "CustomDefaultPartyWageModel.GetTotalWage threw exception: " + e);
             }
 
             return totalWage;

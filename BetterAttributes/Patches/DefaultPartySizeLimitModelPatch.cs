@@ -14,17 +14,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultPartySizeLimitModel), nameof(DefaultPartySizeLimitModel.GetPartyMemberSizeLimit))]
         public static void GetPartyMemberSizeLimit(ref ExplainedNumber __result, PartyBase party) {
             try {
-                if (SubModule._settings.partySizeBonusEnabled) {
+                if (BetterAttributes.Settings.PartySizeBonusEnabled) {
                     if (party.LeaderHero is null)
                         return;
 
-                    if (!party.LeaderHero.IsHumanPlayerCharacter && SubModule._settings.partySizeBonusPlayerOnly)
+                    if (!party.LeaderHero.IsHumanPlayerCharacter && BetterAttributes.Settings.PartySizeBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.partySizeBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.partySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.partySizeBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.PartySizeBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartySizeBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultPartySizeLimitModelPatch.GetPartyMemberSizeLimit postfix threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultPartySizeLimitModelPatch.GetPartyMemberSizeLimit postfix threw exception: " + e);
             }
         }
     }

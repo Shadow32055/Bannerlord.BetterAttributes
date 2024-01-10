@@ -15,17 +15,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultBattleRewardModel), nameof(DefaultBattleRewardModel.CalculateRenownGain))]
         public static void CalculateRenownGain(PartyBase party, float renownValueOfBattle, float contributionShare, ref ExplainedNumber __result) {
             try {
-                if (SubModule._settings.renownBonusEnabled) {
+                if (BetterAttributes.Settings.RenownBonusEnabled) {
                     if (party.LeaderHero is null)
                         return;
 
-                    if (!party.LeaderHero.IsHumanPlayerCharacter && SubModule._settings.renownBonusPlayerOnly)
+                    if (!party.LeaderHero.IsHumanPlayerCharacter && BetterAttributes.Settings.RenownBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.renownBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.renownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.renownBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.RenownBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.RenownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.RenownBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultBattleRewardModelPatch.CalculateRenownGain threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultBattleRewardModelPatch.CalculateRenownGain threw exception: " + e);
             }
         }
 
@@ -33,17 +33,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultBattleRewardModel), nameof(DefaultBattleRewardModel.CalculateMoraleGainVictory))]
         public static void CalculateMoraleGainVictory(PartyBase party, float renownValueOfBattle, float contributionShare, ref ExplainedNumber __result) {
             try {
-                if (SubModule._settings.moraleBonusEnabled) {
+                if (BetterAttributes.Settings.MoraleBonusEnabled) {
                     if (party.LeaderHero is null)
                         return;
 
-                    if (!party.LeaderHero.IsHumanPlayerCharacter && SubModule._settings.moraleBonusPlayerOnly)
+                    if (!party.LeaderHero.IsHumanPlayerCharacter && BetterAttributes.Settings.MoraleBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.moraleBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.moraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.moraleBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.MoraleBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MoraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MoraleBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultBattleRewardModelPatch.CalculateMoraleGainVictory threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultBattleRewardModelPatch.CalculateMoraleGainVictory threw exception: " + e);
             }
         }
 
@@ -51,17 +51,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultBattleRewardModel), nameof(DefaultBattleRewardModel.CalculateInfluenceGain))]
         public static void CalculateInfluenceGain(PartyBase party, float influenceValueOfBattle, float contributionShare, ref ExplainedNumber __result) {
             try {
-                if (SubModule._settings.influenceBonusEnabled) {
+                if (BetterAttributes.Settings.InfluenceBonusEnabled) {
                     if (party.LeaderHero is null)
                         return;
 
-                    if (!party.LeaderHero.IsHumanPlayerCharacter && SubModule._settings.influenceBonusPlayerOnly)
+                    if (!party.LeaderHero.IsHumanPlayerCharacter && BetterAttributes.Settings.InfluenceBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.influenceBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.influenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.influenceBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.InfluenceBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.InfluenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.InfluenceBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e);
             }
         }
     }

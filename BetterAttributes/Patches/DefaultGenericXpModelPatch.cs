@@ -12,17 +12,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultGenericXpModel), nameof(DefaultGenericXpModel.GetXpMultiplier))]
         public static void GetXpMultiplier(ref float __result, Hero hero) {
             try {
-                if (SubModule._settings.xpBonusEnabled) {
+                if (BetterAttributes.Settings.XpBonusEnabled) {
                     if (hero is null)
                         return;
 
-                    if (!hero.IsHumanPlayerCharacter && SubModule._settings.xpBonusPlayerOnly)
+                    if (!hero.IsHumanPlayerCharacter && BetterAttributes.Settings.XpBonusPlayerOnly)
                         return;
 
-                    __result = __result * (1 + AttributeHelper.GetAttributeEffect(SubModule._settings.xpBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.xpBonusAttribute), hero.CharacterObject));
+                    __result = __result * (1 + AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.XpBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.XpBonusAttribute), hero.CharacterObject));
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

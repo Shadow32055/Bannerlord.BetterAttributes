@@ -13,17 +13,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultCharacterStatsModel), nameof(DefaultCharacterStatsModel.MaxHitpoints))]
         public static void MaxHitpoints(ref ExplainedNumber __result, CharacterObject character, bool includeDescriptions = false) {
             try {
-                if (SubModule._settings.healthBonusEnabled) {
+                if (BetterAttributes.Settings.HealthBonusEnabled) {
                     if (!character.IsHero)
                         return;
 
-                    if (!character.IsPlayerCharacter && SubModule._settings.healthBonusPlayerOnly)
+                    if (!character.IsPlayerCharacter && BetterAttributes.Settings.HealthBonusPlayerOnly)
                         return;
 
-                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.healthBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.healthBonusAttribute), character), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.healthBonusAttribute).Name + " Bonus", null));
+                    __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.HealthBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthBonusAttribute), character), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultCharacterStatsModelPatch.MaxHitpoints threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultCharacterStatsModelPatch.MaxHitpoints threw exception: " + e);
             }
         }
     }

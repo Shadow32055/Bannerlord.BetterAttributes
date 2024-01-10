@@ -1,31 +1,39 @@
 <Module>
-  <Name value="Better Attributes" />
-  <Id value="BetterAttributes" />
-  <Version value="d0.0.0" />
-  <ModuleType value="Community" />
-  <ModuleCategory value="Singleplayer" />
-  <Url value="https://www.nexusmods.com/mountandblade2bannerlord/mods/3434" />
-  <DependedModules>
-    <DependedModule Id="Bannerlord.Harmony" DependentVersion="v2.3.0" />
-	<DependedModule Id="Bannerlord.ButterLib" DependentVersion="v2.8.15" />
-	<DependedModule Id="Bannerlord.UIExtenderEx" DependentVersion="v2.8.1" />
-	<DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.9.1" />
-	<DependedModule Id="BetterCore" DependentVersion="v1.0.0" />
-    <DependedModule Id="Native" />
-    <DependedModule Id="SandBoxCore" />
-    <DependedModule Id="Sandbox" />
-    <DependedModule Id="CustomBattle" />
-    <DependedModule Id="StoryMode" />
-  </DependedModules>
-  <SubModules>
-    <SubModule>
-      <Name value="BetterAttributes" />
-      <DLLName value="BetterAttributes.dll" />
-      <SubModuleClassType value="BetterAttributes.SubModule" />
-      <Tags>
-        <Tag key="DedicatedServerType" value="none" />
-        <Tag key="IsNoRenderModeElement" value="false" />
-      </Tags>
-    </SubModule>
-  </SubModules>
+	<Name value="Better Attributes"/>
+	<Id value="BetterAttributes"/>
+	<Version value="d0.0.0"/>
+	<SingleplayerModule value="true"/>
+	<MultiplayerModule value="false"/>
+	<Url value="https://www.nexusmods.com/mountandblade2bannerlord/mods/3434"/>
+	<DependedModules>
+		<DependedModule Id="BetterCore"/>
+		<DependedModule Id="Bannerlord.Harmony"/>
+		<DependedModule Id="Bannerlord.MBOptionScreen"/>
+		<DependedModule Id="Native"/>
+		<DependedModule Id="SandBoxCore"/>
+		<DependedModule Id="Sandbox"/>
+		<DependedModule Id="StoryMode"/>
+	</DependedModules>
+	<DependedModuleMetadata>
+		<DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="Bannerlord.MBOptionScreen" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="Native" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="Sandbox" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="StoryMode" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="BetterCore" order="LoadBeforeThis"/>
+	</DependedModuleMetadata>
+	<SubModules>
+		<SubModule>
+			<Name value="BetterAttributes"/>
+			<DLLName value="BetterAttributes.dll"/>
+			<SubModuleClassType value="BetterAttributes.BetterAttributes"/>
+			<Tags>
+				<Tag key="DedicatedServerType" value="none"/>
+				<Tag key="IsNoRenderModeElement" value="false"/>
+			</Tags>
+		</SubModule>
+	</SubModules>
+	<Xmls>
+	</Xmls>
 </Module>

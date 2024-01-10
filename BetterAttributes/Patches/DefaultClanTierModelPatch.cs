@@ -12,11 +12,11 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultClanTierModel), nameof(DefaultClanTierModel.GetCompanionLimit))]
         public static void GetCompanionLimit(ref int __result, Clan clan) {
             try {
-                if (SubModule._settings.companionBonusEnabled) {
-                    __result = __result + (int)AttributeHelper.GetAttributeEffect(SubModule._settings.companionBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.companionBonusAttribute), Hero.MainHero.CharacterObject);
+                if (BetterAttributes.Settings.CompanionBonusEnabled) {
+                    __result = __result + (int)AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.CompanionBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.CompanionBonusAttribute), Hero.MainHero.CharacterObject);
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultClanTierModelPatch.GetCompanionLimit threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanTierModelPatch.GetCompanionLimit threw exception: " + e);
             }
         }
     }

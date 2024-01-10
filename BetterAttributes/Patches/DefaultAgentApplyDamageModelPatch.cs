@@ -13,17 +13,17 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateStaggerThresholdDamage))]
         public static void CalculateStaggerThresholdDamage(Agent defenderAgent, in Blow blow, ref float __result) {
             try {
-                if (SubModule._settings.staggerBonusEnabled) {
+                if (BetterAttributes.Settings.StaggerBonusEnabled) {
                     if (!defenderAgent.IsHero)
                         return;
 
-                    if (defenderAgent.IsAIControlled && SubModule._settings.staggerBonusPlayerOnly)
+                    if (defenderAgent.IsAIControlled && BetterAttributes.Settings.StaggerBonusPlayerOnly)
                         return;
 
-                    __result = __result * (AttributeHelper.GetAttributeEffect(SubModule._settings.staggerBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.staggerBonusAttribute), (CharacterObject)defenderAgent.Character) + 1);
+                    __result = __result * (AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.StaggerBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.StaggerBonusAttribute), (CharacterObject)defenderAgent.Character) + 1);
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e);
             }
         }
     }

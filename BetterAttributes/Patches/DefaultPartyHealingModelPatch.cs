@@ -14,7 +14,7 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultPartyHealingModel), nameof(DefaultPartyHealingModel.GetDailyHealingHpForHeroes))]
         public static void GetDailyHealingHpForHeroes(ref ExplainedNumber __result, MobileParty party, bool includeDescriptions = false) {
             try {
-                if (SubModule._settings.healthRegenBonusEnabled) {
+                if (BetterAttributes.Settings.HealthRegenBonusEnabled) {
 
                     if (party.LeaderHero is null)
                         return;
@@ -22,11 +22,12 @@ namespace BetterAttributes.Patches {
                     if (__result.ResultNumber <= 0)
                         return;
 
-                    __result.AddFactor(AttributeHelper.GetAttributeEffect(SubModule._settings.healthRegenBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.healthRegenBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.healthRegenBonusAttribute).Name + " Bonus", null));
-
+                    if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute) != AttributeHelper.None) {
+                        __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.HealthRegenBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute).Name + " Bonus", null));
+                    }
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultPartyHealingModel.GetDailyHealingHpForHeroes threw exception: " + e);
             }
         }
     }

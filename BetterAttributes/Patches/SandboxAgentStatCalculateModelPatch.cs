@@ -24,8 +24,8 @@ namespace BetterAttributes.Patches {
 
                 bool applyBonus = false;
 
-                if (SubModule._settings.reloadBonusEnabled) {
-                    if (!SubModule._settings.reloadBonusPlayerOnly) {
+                if (BetterAttributes.Settings.ReloadBonusEnabled) {
+                    if (!BetterAttributes.Settings.ReloadBonusPlayerOnly) {
                         //Should be all heroes
                         applyBonus = true;
                     } else if (agent.IsMainAgent) {
@@ -33,76 +33,76 @@ namespace BetterAttributes.Patches {
                     }
 
                     if (applyBonus)
-                        agentDrivenProperties.ReloadSpeed *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.reloadBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.reloadBonusAttribute), (CharacterObject)agent.Character);
+                        agentDrivenProperties.ReloadSpeed *= 1 + AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.ReloadBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.ReloadBonusAttribute), (CharacterObject)agent.Character);
                 }
 
                 applyBonus = false;
 
-                if (SubModule._settings.handlingBonusEnabled) {
-                    if (!SubModule._settings.handlingBonusPlayerOnly) {
+                if (BetterAttributes.Settings.HandlingBonusEnabled) {
+                    if (!BetterAttributes.Settings.HandlingBonusPlayerOnly) {
                         applyBonus = true;
                     } else if (agent.IsMainAgent) {
                         applyBonus = true;
                     }
 
                     if (applyBonus)
-                        agentDrivenProperties.HandlingMultiplier *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.handlingBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.handlingBonusAttribute), (CharacterObject)agent.Character);
+                        agentDrivenProperties.HandlingMultiplier *= 1 + AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.HandlingBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HandlingBonusAttribute), (CharacterObject)agent.Character);
                 }
 
                 applyBonus = false;
 
-                if (SubModule._settings.movementBonusEnabled) {
-                    if (!SubModule._settings.movementBonusPlayerOnly) {
+                if (BetterAttributes.Settings.MovementBonusEnabled) {
+                    if (!BetterAttributes.Settings.MovementBonusPlayerOnly) {
                         applyBonus = true;
                     } else if (agent.IsMainAgent) {
                         applyBonus = true;
                     }
 
                     if (applyBonus)
-                        agentDrivenProperties.MaxSpeedMultiplier *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.movementBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.movementBonusAttribute), (CharacterObject)agent.Character);
+                        agentDrivenProperties.MaxSpeedMultiplier *= 1 + AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.MovementBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MovementBonusAttribute), (CharacterObject)agent.Character);
                 }
 
                 applyBonus = false;
 
-                if (SubModule._settings.accuracyBonusEnabled) {
-                    if (!SubModule._settings.accuracyBonusPlayerOnly) {
+                if (BetterAttributes.Settings.AccuracyBonusEnabled) {
+                    if (!BetterAttributes.Settings.AccuracyBonusPlayerOnly) {
                         applyBonus = true;
                     } else if (agent.IsMainAgent) {
                         applyBonus = true;
                     }
 
                     if (applyBonus)
-                        agentDrivenProperties.WeaponInaccuracy /= AttributeHelper.GetAttributeEffect(SubModule._settings.accuracyBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.accuracyBonusAttribute), (CharacterObject)agent.Character);
+                        agentDrivenProperties.WeaponInaccuracy /= AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.AccuracyBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.AccuracyBonusAttribute), (CharacterObject)agent.Character);
                 }
 
                 applyBonus = false;
 
-                if (SubModule._settings.drawBonusEnabled) {
-                    if (!SubModule._settings.drawBonusPlayerOnly) {
+                if (BetterAttributes.Settings.DrawBonusEnabled) {
+                    if (!BetterAttributes.Settings.DrawBonusPlayerOnly) {
                         applyBonus = true;
                     } else if (agent.IsMainAgent) {
                         applyBonus = true;
                     }
 
                     if (applyBonus)
-                        agentDrivenProperties.ThrustOrRangedReadySpeedMultiplier *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.drawBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.drawBonusAttribute), (CharacterObject)agent.Character);
+                        agentDrivenProperties.ThrustOrRangedReadySpeedMultiplier *= 1 + AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.DrawBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.DrawBonusAttribute), (CharacterObject)agent.Character);
                 }
 
                 applyBonus = false;
 
-                if (SubModule._settings.stabilityBonusEnabled) {
-                    if (!SubModule._settings.stabilityBonusPlayerOnly) {
+                if (BetterAttributes.Settings.StabilityBonusEnabled) {
+                    if (!BetterAttributes.Settings.StabilityBonusPlayerOnly) {
                         applyBonus = true;
                     } else if (agent.IsMainAgent) {
                         applyBonus = true;
                     }
 
                     if (applyBonus)
-                        agentDrivenProperties.WeaponUnsteadyBeginTime *= 1 + AttributeHelper.GetAttributeEffect(SubModule._settings.stabilityBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.stabilityBonusAttribute), (CharacterObject)agent.Character);
+                        agentDrivenProperties.WeaponUnsteadyBeginTime *= 1 + AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.StabilityBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.StabilityBonusAttribute), (CharacterObject)agent.Character);
                 }
 
             } catch (Exception e) {
-                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

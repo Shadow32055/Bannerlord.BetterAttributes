@@ -13,20 +13,20 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncomeInternal")]
         public static void CalculateClanIncomeInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) {
             try {
-                if (SubModule._settings.incomeBonusEnabled) {
+                if (BetterAttributes.Settings.IncomeBonusEnabled) {
                     if (clan.IsEliminated)
                         return;
 
                     if (clan.Leader is null)
                         return;
 
-                    if (!clan.Leader.IsHumanPlayerCharacter && SubModule._settings.incomeBonusPlayerOnly)
+                    if (!clan.Leader.IsHumanPlayerCharacter && BetterAttributes.Settings.IncomeBonusPlayerOnly)
                         return;
 
-                    goldChange.Add(goldChange.ResultNumber * AttributeHelper.GetAttributeEffect(SubModule._settings.incomeBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.incomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.incomeBonusAttribute).Name + " Bonus", null));
+                    goldChange.Add(goldChange.ResultNumber * AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.IncomeBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.IncomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.IncomeBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

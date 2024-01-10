@@ -1,4 +1,5 @@
-﻿using MCM.Abstractions.Attributes;
+﻿using BetterAttributes.Localizations;
+using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using MCM.Abstractions.Base.Global;
 using MCM.Common;
@@ -7,854 +8,893 @@ namespace BetterAttributes.Settings {
 
     public class MCMSettings : AttributeGlobalSettings<MCMSettings> {
 
-        const string bonusesText = "{=BA_oPw9hh}Bonuses";
 
-        const string enabledText = "{=BA_V8krxN}Enable";
-        const string enabledDesText = "{=BA_sVRwEA}Should this bonus be applied.";
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MeleeText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool MelDmgBonusEnabled { get; set; } = true;
 
-        const string playerOnlyText = "{=BA_vBH4P5}Player Only";
-        const string playerOnlyDesText = "{=BA_5AKRK0}Should this bonus apply to all heroes, not just the player.";
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MeleeText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool MelDmgBonusPlayerOnly { get; set; } = true;
 
-        const string bonusText = "{=BA_8g0U40}Bonus";
-        const string genericBonusText = "{=BA_3F0Jal}An increase multiplied by attribute level. (For example, a 2% (.02) bonus will be 20% at attribute level 10)";
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MeleeText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float MelDmgBonus { get; set; } = .02f;
 
-        const string attributeText = "{BA_OUkZom}Attribute";
-        const string genericAtrSelectText = "{=BA_N7DNB0}Select the attribute that this bonus should use";
-
-        const string vigorText = "{=BA_Mf0D9r}Vigor";
-        const string controlText = "{=BA_yXzbqm}Control";
-        const string enduranceText = "{=BA_3xcrKW}Endurance";
-        const string cunningText = "{=BA_v92Ex5}Cunning";
-        const string socialText = "{=BA_YtXewV}Social";
-        const string intelligenceText = "{=BA_i0FVps}Intelligence";
-
-
-        const string meleeText = "{=BA_YdzGi4}Melee Damage Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + meleeText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool melDmgBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + meleeText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool melDmgBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + meleeText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float melDmgBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + meleeText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> melDmgBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 0);
-
-
-        const string rangeText = "{=BA_qDobnE}Ranged Damage Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + rangeText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool rngDmgBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + rangeText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool rngDmgBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + rangeText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float rngDmgBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + rangeText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> rngDmgBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MeleeText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> MelDmgBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 1);
 
 
-        const string healthText = "{=BA_naGmUB}Health (HP) Bonus";
 
-        [SettingPropertyGroup(bonusesText + "/" + healthText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool healthBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + healthText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool healthBonusPlayerOnly { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RangeText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool RngDmgBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + healthText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float healthBonus { get; set; } = .02f;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RangeText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool RngDmgBonusPlayerOnly { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + healthText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> healthBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RangeText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float RngDmgBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RangeText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> RngDmgBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 2);
 
 
-        const string healthRegenText = "{=BA_naGmUg}Healing Rate Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool healthRegenBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool healthRegenBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float healthRegenBonus { get; set; } = .05f;
-
-        [SettingPropertyGroup(bonusesText + "/" + healthRegenText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> healthRegenBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 0);
 
 
-        const string staggerText = "{=BA_ZYM5T1}Stagger Interrupt Bonus";
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool HealthBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + staggerText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool staggerBonusEnabled { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool HealthBonusPlayerOnly { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + staggerText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool staggerBonusPlayerOnly { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float HealthBonus { get; set; } = .02f;
 
-        [SettingPropertyGroup(bonusesText + "/" + staggerText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float staggerBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + staggerText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> staggerBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 2);
-
-
-        const string simText = "{=BA_7yzj1P}Simulation Advantage Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + simText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool simBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + simText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool simBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + simText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float simBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + simText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> simBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> HealthBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 3);
 
 
-        const string persuasionText = "{=BA_zH5MWH}Persuasion Chance Bonus";
 
-        [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool persuasionBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float persuasionBonus { get; set; } = .02f;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthRegenText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool HealthRegenBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + persuasionText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> persuasionBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthRegenText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool HealthRegenBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthRegenText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float HealthRegenBonus { get; set; } = .05f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthRegenText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> HealthRegenBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 1);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StaggerText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool StaggerBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StaggerText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool StaggerBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StaggerText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float StaggerBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StaggerText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> StaggerBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 3);
 
 
-        const string renownText = "{=BA_z99bZB}Renown Bonus From Victories";
-
-        [SettingPropertyGroup(bonusesText + "/" + renownText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool renownBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + renownText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool renownBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + renownText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float renownBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + renownText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> renownBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 3);
 
 
-        const string moralText = "{=BA_GaAeaG}Morale Bonus From Victories";
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SimText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool SimBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + moralText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool moraleBonusEnabled { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SimText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool SimBonusPlayerOnly { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + moralText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool moraleBonusPlayerOnly { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SimText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float SimBonus { get; set; } = .02f;
 
-        [SettingPropertyGroup(bonusesText + "/" + moralText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float moraleBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + moralText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> moraleBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 3);
-
-
-        const string partyMoralText = "{=BA_WODJA5}Party Morale Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool partyMoraleBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool partyMoraleBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float partyMoraleBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + partyMoralText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> partyMoraleBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 4);
-
-
-        const string wageText = "{=BA_6Eyxyw}Party Wage Reduction Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + wageText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool wageBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + wageText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool wageBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + wageText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float wageBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + wageText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> wageBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 4);
-
-
-        const string sizeText = "{=BA_dka4CP}Party Size Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + sizeText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool partySizeBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + sizeText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool partySizeBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + sizeText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float partySizeBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + sizeText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> partySizeBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SimText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> SimBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 4);
 
 
 
-        const string incomeText = "{=BA_GINfAP}Gross Clan Income Bonus";
 
-        [SettingPropertyGroup(bonusesText + "/" + incomeText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool incomeBonusEnabled { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PersuasionText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool PersuasionBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + incomeText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool incomeBonusPlayerOnly { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PersuasionText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float PersuasionBonus { get; set; } = .02f;
 
-        [SettingPropertyGroup(bonusesText + "/" + incomeText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float incomeBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + incomeText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> incomeBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 5);
-
-
-        const string influenceText = "{=BA_5bULNj}Influence Bonus From Victories";
-
-        [SettingPropertyGroup(bonusesText + "/" + influenceText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool influenceBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + influenceText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool influenceBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + influenceText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float influenceBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + influenceText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> influenceBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 5);
-
-
-        const string xpText = "{=BA_35dS0f}XP Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + xpText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool xpBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + xpText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool xpBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + xpText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float xpBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + xpText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> xpBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 5);
-
-
-        const string partyLeaderXPText = "{=BA_354j0g}Party Leader XP From Assigned Party Roles";
-
-        [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = "{=BA_346heg}Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader.")]
-        public bool partyLeaderXPBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float partyLeaderXPBonus { get; set; } = .025f;
-
-        [SettingPropertyGroup(bonusesText + "/" + partyLeaderXPText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> partyLeaderXPBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 5);
-
-
-        const string companionText = "{=BA_354j0f}Companion Limit Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + companionText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool companionBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + companionText)]
-        [SettingPropertyInteger(bonusText, 0, 100, "0", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public int companionBonus { get; set; } = 1;
-
-        [SettingPropertyGroup(bonusesText + "/" + companionText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> companionBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PersuasionText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> PersuasionBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 4);
 
 
-        const string reloadText = "{=BA_35dS78}Reload Speed Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + reloadText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool reloadBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + reloadText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool reloadBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + reloadText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float reloadBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + reloadText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> reloadBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 0);
 
 
-        const string handlingText = "{=BA_35d5rt}Weapon Handling Bonus";
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RenownText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool RenownBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + handlingText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool handlingBonusEnabled { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RenownText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool RenownBonusPlayerOnly { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + handlingText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool handlingBonusPlayerOnly { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RenownText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float RenownBonus { get; set; } = .02f;
 
-        [SettingPropertyGroup(bonusesText + "/" + handlingText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float handlingBonus { get; set; } = .02f;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RenownText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> RenownBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 4);
 
-        [SettingPropertyGroup(bonusesText + "/" + handlingText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> handlingBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MoralText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool MoraleBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MoralText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool MoraleBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MoralText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float MoraleBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MoralText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> MoraleBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 4);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyMoralText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool PartyMoraleBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyMoralText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool PartyMoraleBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyMoralText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float PartyMoraleBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyMoralText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> PartyMoraleBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 5);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.WageText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool WageBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.WageText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool WageBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.WageText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float WageBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.WageText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> WageBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 5);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SizeText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool PartySizeBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SizeText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool PartySizeBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SizeText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float PartySizeBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SizeText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> PartySizeBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 5);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.IncomeText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool IncomeBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.IncomeText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool IncomeBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.IncomeText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float IncomeBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.IncomeText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> IncomeBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 6);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.InfluenceText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool InfluenceBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.InfluenceText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool InfluenceBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.InfluenceText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float InfluenceBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.InfluenceText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> InfluenceBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 6);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.XpText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool XpBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.XpText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool XpBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.XpText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float XpBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.XpText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> XpBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 6);
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyLeaderXPText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.partyLeaderXPHint)]
+        public bool PartyLeaderXPBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyLeaderXPText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float PartyLeaderXPBonus { get; set; } = .025f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyLeaderXPText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> PartyLeaderXPBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 6);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.CompanionText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool CompanionBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.CompanionText)]
+        [SettingPropertyInteger(RefValues.BonusText, 0, 100, "0", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public int CompanionBonus { get; set; } = 1;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.CompanionText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> CompanionBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 5);
+
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.ReloadText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool ReloadBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.ReloadText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool ReloadBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.ReloadText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float ReloadBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.ReloadText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> ReloadBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 1);
 
 
-        const string movementText = "{=BA_hetS0f}Movement Speed Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + movementText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool movementBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + movementText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool movementBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + movementText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float movementBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + movementText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> movementBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 1);
 
 
-        const string smithingText = "{=BA_hasd0f}Smithing Stamina Bonus";
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HandlingText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool HandlingBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + smithingText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool smithingBonusEnabled { get; set; } = true;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HandlingText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool HandlingBonusPlayerOnly { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + smithingText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 250f, "0", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public int smithingBonus { get; set; } = 10;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HandlingText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float HandlingBonus { get; set; } = .02f;
 
-        [SettingPropertyGroup(bonusesText + "/" + smithingText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> smithingBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HandlingText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> HandlingBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 2);
 
-        const string accuracyText = "{=BA_as48wd}Accuracy Bonus";
 
-        [SettingPropertyGroup(bonusesText + "/" + accuracyText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool accuracyBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + accuracyText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool accuracyBonusPlayerOnly { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + accuracyText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float accuracyBonus { get; set; } = .02f;
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MovementText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool MovementBonusEnabled { get; set; } = true;
 
-        [SettingPropertyGroup(bonusesText + "/" + accuracyText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> accuracyBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 1);
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MovementText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool MovementBonusPlayerOnly { get; set; } = true;
 
-        const string drawText = "{=BA_hetS0f}Draw Speed Bonus";
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MovementText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float MovementBonus { get; set; } = .02f;
 
-        [SettingPropertyGroup(bonusesText + "/" + drawText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool drawBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + drawText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool drawBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + drawText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float drawBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + drawText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> drawBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
-        }, selectedIndex: 0);
-
-        const string stabilityText = "{=BA_hetS0f}Aim Stability Bonus";
-
-        [SettingPropertyGroup(bonusesText + "/" + stabilityText)]
-        [SettingPropertyBool(enabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = enabledDesText)]
-        public bool stabilityBonusEnabled { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + stabilityText)]
-        [SettingPropertyBool(playerOnlyText, Order = 0, RequireRestart = false, HintText = playerOnlyDesText)]
-        public bool stabilityBonusPlayerOnly { get; set; } = true;
-
-        [SettingPropertyGroup(bonusesText + "/" + stabilityText)]
-        [SettingPropertyFloatingInteger(bonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = genericBonusText)]
-        public float stabilityBonus { get; set; } = .02f;
-
-        [SettingPropertyGroup(bonusesText + "/" + stabilityText)]
-        [SettingPropertyDropdown(attributeText, Order = 0, RequireRestart = false, HintText = genericAtrSelectText)]
-        public Dropdown<string> stabilityBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            vigorText,
-            controlText,
-            enduranceText,
-            cunningText,
-            socialText,
-            intelligenceText
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MovementText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> MovementBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
         }, selectedIndex: 2);
 
-        public int melDmgBonusAttribute {
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SmithingText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool SmithingBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SmithingText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 250f, "0", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public int SmithingBonus { get; set; } = 10;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SmithingText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> SmithingBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 3);
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.AccuracyText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool AccuracyBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.AccuracyText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool AccuracyBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.AccuracyText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float AccuracyBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.AccuracyText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> AccuracyBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 2);
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.DrawText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool DrawBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.DrawText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool DrawBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.DrawText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float DrawBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.DrawText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> DrawBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 1);
+
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StabilityText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool StabilityBonusEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StabilityText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool StabilityBonusPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StabilityText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 10f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float StabilityBonus { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StabilityText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> StabilityBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 3);
+
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SliceText)]
+        [SettingPropertyBool(RefValues.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = RefValues.EnabledHint)]
+        public bool SliceChanceEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SliceText)]
+        [SettingPropertyBool(RefValues.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = RefValues.PlayerOnlyHint)]
+        public bool SliceChancePlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SliceText)]
+        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 1f, "0.00%", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        public float SliceChance { get; set; } = .02f;
+
+        [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SliceText)]
+        [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
+        public Dropdown<string> SliceChanceAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            RefValues.NoneText,
+            RefValues.VigorText,
+            RefValues.ControlText,
+            RefValues.EnduranceText,
+            RefValues.CunningText,
+            RefValues.SocialText,
+            RefValues.IntelligenceText
+        }, selectedIndex: 1);
+
+
+
+        [SettingPropertyGroup(RefValues.MiscText)]
+        [SettingPropertyBool(RefValues.MoreBonusText, Order = 0, RequireRestart = false, HintText = RefValues.MoreBonusHint)]
+        public bool MoreBonusRoom { get; set; } = false;
+
+        public int MelDmgBonusAttribute {
             get {
-                return this.melDmgBonusAttributeDropdown.SelectedIndex;
+                return this.MelDmgBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.melDmgBonusAttributeDropdown.SelectedIndex = value;
+                this.MelDmgBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int rngDmgBonusAttribute {
+        public int RngDmgBonusAttribute {
             get {
-                return this.rngDmgBonusAttributeDropdown.SelectedIndex;
+                return this.RngDmgBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.rngDmgBonusAttributeDropdown.SelectedIndex = value;
+                this.RngDmgBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int healthBonusAttribute {
+        public int HealthBonusAttribute {
             get {
-                return this.healthBonusAttributeDropdown.SelectedIndex;
+                return this.HealthBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.healthBonusAttributeDropdown.SelectedIndex = value;
+                this.HealthBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int healthRegenBonusAttribute {
+        public int HealthRegenBonusAttribute {
             get {
-                return this.healthRegenBonusAttributeDropdown.SelectedIndex;
+                return this.HealthRegenBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.healthRegenBonusAttributeDropdown.SelectedIndex = value;
+                this.HealthRegenBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int staggerBonusAttribute {
+        public int StaggerBonusAttribute {
             get {
-                return this.staggerBonusAttributeDropdown.SelectedIndex;
+                return this.StaggerBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.staggerBonusAttributeDropdown.SelectedIndex = value;
+                this.StaggerBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int simBonusAttribute {
+        public int SimBonusAttribute {
             get {
-                return this.simBonusAttributeDropdown.SelectedIndex;
+                return this.SimBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.simBonusAttributeDropdown.SelectedIndex = value;
+                this.SimBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int persuasionBonusAttribute {
+        public int PersuasionBonusAttribute {
             get {
-                return this.persuasionBonusAttributeDropdown.SelectedIndex;
+                return this.PersuasionBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.persuasionBonusAttributeDropdown.SelectedIndex = value;
+                this.PersuasionBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int renownBonusAttribute {
+        public int RenownBonusAttribute {
             get {
-                return this.renownBonusAttributeDropdown.SelectedIndex;
+                return this.RenownBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.renownBonusAttributeDropdown.SelectedIndex = value;
+                this.RenownBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int moraleBonusAttribute {
+        public int MoraleBonusAttribute {
             get {
-                return this.moraleBonusAttributeDropdown.SelectedIndex;
+                return this.MoraleBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.moraleBonusAttributeDropdown.SelectedIndex = value;
+                this.MoraleBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int partyMoraleBonusAttribute {
+        public int PartyMoraleBonusAttribute {
             get {
-                return this.partyMoraleBonusAttributeDropdown.SelectedIndex;
+                return this.PartyMoraleBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.partyMoraleBonusAttributeDropdown.SelectedIndex = value;
+                this.PartyMoraleBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int wageBonusAttribute {
+        public int WageBonusAttribute {
             get {
-                return this.wageBonusAttributeDropdown.SelectedIndex;
+                return this.WageBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.wageBonusAttributeDropdown.SelectedIndex = value;
+                this.WageBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int partySizeBonusAttribute {
+        public int PartySizeBonusAttribute {
             get {
-                return this.partySizeBonusAttributeDropdown.SelectedIndex;
+                return this.PartySizeBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.partySizeBonusAttributeDropdown.SelectedIndex = value;
-            }
-        }
-
-
-        public int incomeBonusAttribute {
-            get {
-                return this.incomeBonusAttributeDropdown.SelectedIndex;
-            }
-            set {
-                this.incomeBonusAttributeDropdown.SelectedIndex = value;
+                this.PartySizeBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
 
-        public int influenceBonusAttribute {
+        public int IncomeBonusAttribute {
             get {
-                return this.influenceBonusAttributeDropdown.SelectedIndex;
+                return this.IncomeBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.influenceBonusAttributeDropdown.SelectedIndex = value;
+                this.IncomeBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int xpBonusAttribute {
+
+        public int InfluenceBonusAttribute {
             get {
-                return this.xpBonusAttributeDropdown.SelectedIndex;
+                return this.InfluenceBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.xpBonusAttributeDropdown.SelectedIndex = value;
+                this.InfluenceBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int partyLeaderXPBonusAttribute {
+        public int XpBonusAttribute {
             get {
-                return this.partyLeaderXPBonusAttributeDropdown.SelectedIndex;
+                return this.XpBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.partyLeaderXPBonusAttributeDropdown.SelectedIndex = value;
+                this.XpBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int companionBonusAttribute {
+        public int PartyLeaderXPBonusAttribute {
             get {
-                return this.companionBonusAttributeDropdown.SelectedIndex;
+                return this.PartyLeaderXPBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.companionBonusAttributeDropdown.SelectedIndex = value;
+                this.PartyLeaderXPBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int reloadBonusAttribute {
+        public int CompanionBonusAttribute {
             get {
-                return this.reloadBonusAttributeDropdown.SelectedIndex;
+                return this.CompanionBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.reloadBonusAttributeDropdown.SelectedIndex = value;
+                this.CompanionBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int handlingBonusAttribute {
+        public int ReloadBonusAttribute {
             get {
-                return this.handlingBonusAttributeDropdown.SelectedIndex;
+                return this.ReloadBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.handlingBonusAttributeDropdown.SelectedIndex = value;
+                this.ReloadBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int movementBonusAttribute {
+        public int HandlingBonusAttribute {
             get {
-                return this.movementBonusAttributeDropdown.SelectedIndex;
+                return this.HandlingBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.movementBonusAttributeDropdown.SelectedIndex = value;
+                this.HandlingBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int smithingBonusAttribute {
+        public int MovementBonusAttribute {
             get {
-                return this.smithingBonusAttributeDropdown.SelectedIndex;
+                return this.MovementBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.smithingBonusAttributeDropdown.SelectedIndex = value;
+                this.MovementBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int accuracyBonusAttribute {
+        public int SmithingBonusAttribute {
             get {
-                return this.accuracyBonusAttributeDropdown.SelectedIndex;
+                return this.SmithingBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.accuracyBonusAttributeDropdown.SelectedIndex = value;
+                this.SmithingBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int drawBonusAttribute {
+        public int AccuracyBonusAttribute {
             get {
-                return this.drawBonusAttributeDropdown.SelectedIndex;
+                return this.AccuracyBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.drawBonusAttributeDropdown.SelectedIndex = value;
+                this.AccuracyBonusAttributeDropdown.SelectedIndex = value;
             }
         }
 
-        public int stabilityBonusAttribute {
+        public int DrawBonusAttribute {
             get {
-                return this.stabilityBonusAttributeDropdown.SelectedIndex;
+                return this.DrawBonusAttributeDropdown.SelectedIndex;
             }
             set {
-                this.stabilityBonusAttributeDropdown.SelectedIndex = value;
+                this.DrawBonusAttributeDropdown.SelectedIndex = value;
+            }
+        }
+
+        public int StabilityBonusAttribute {
+            get {
+                return this.StabilityBonusAttributeDropdown.SelectedIndex;
+            }
+            set {
+                this.StabilityBonusAttributeDropdown.SelectedIndex = value;
+            }
+        }
+
+        public int SliceChanceAttribute {
+            get {
+                return this.SliceChanceAttributeDropdown.SelectedIndex;
+            }
+            set {
+                this.SliceChanceAttributeDropdown.SelectedIndex = value;
             }
         }
 
 
         public override string Id { get { return base.GetType().Assembly.GetName().Name; } }
-        public override string DisplayName { get; } = "Better Attributes";
+        public override string DisplayName { get { return base.GetType().Assembly.GetName().Name; } }
         public override string FolderName { get { return base.GetType().Assembly.GetName().Name; } }
         public override string FormatType { get; } = "xml";
         public bool LoadMCMConfigFile { get; set; } = true;

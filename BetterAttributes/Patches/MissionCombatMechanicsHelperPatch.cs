@@ -22,15 +22,15 @@ namespace BetterAttributes.Patches {
                 if (attackerWeapon == null)
                     return;
 
-                if (SubModule._settings.melDmgBonusEnabled && attackerWeapon.IsMeleeWeapon) {
+                if (BetterAttributes.Settings.MelDmgBonusEnabled && attackerWeapon.IsMeleeWeapon) {
 
-                    if (attackInformation.IsAttackerAIControlled && SubModule._settings.melDmgBonusPlayerOnly)
+                    if (attackInformation.IsAttackerAIControlled && BetterAttributes.Settings.MelDmgBonusPlayerOnly)
                         return;
 
-                    inflictedDamage = inflictedDamage * (int)(AttributeHelper.GetAttributeEffect(SubModule._settings.melDmgBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.melDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1 );
+                    inflictedDamage = inflictedDamage * (int)(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.MelDmgBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MelDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1 );
                 }
             } catch (Exception e) {
-                Logger.SendMessage("MissionCombatMechanicsHelperPatch.ComputeBlowDamage threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "MissionCombatMechanicsHelperPatch.ComputeBlowDamage threw exception: " + e);
             }
         }
 
@@ -44,16 +44,16 @@ namespace BetterAttributes.Patches {
                 if (!attackInformation.AttackerAgentCharacter.IsHero)
                     return;
 
-                if (SubModule._settings.rngDmgBonusEnabled) {
+                if (BetterAttributes.Settings.RngDmgBonusEnabled) {
 
-                    if (attackInformation.IsAttackerAIControlled && SubModule._settings.rngDmgBonusPlayerOnly)
+                    if (attackInformation.IsAttackerAIControlled && BetterAttributes.Settings.RngDmgBonusPlayerOnly)
                         return;
 
-                    float val = AttributeHelper.GetAttributeEffect(SubModule._settings.rngDmgBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.rngDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1;
+                    float val = AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.RngDmgBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.RngDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1;
                     specialMagnitude *= val;
                 }
             } catch (Exception e) {
-                Logger.SendMessage("MissionCombatMechanicsHelperPatch.ComputeBlowMagnitude threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "MissionCombatMechanicsHelperPatch.ComputeBlowMagnitude threw exception: " + e);
             }
         }
     }

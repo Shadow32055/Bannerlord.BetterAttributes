@@ -14,18 +14,18 @@ namespace BetterAttributes.Patches {
         [HarmonyPatch(typeof(DefaultCombatSimulationModel), nameof(DefaultCombatSimulationModel.SimulateHit))]
         public static void SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, ref int __result) {
             try {
-                if (SubModule._settings.simBonusEnabled) {
+                if (BetterAttributes.Settings.SimBonusEnabled) {
                     if (!strikerTroop.IsHero)
                         return;
 
-                    if (!strikerTroop.IsPlayerCharacter && SubModule._settings.simBonusPlayerOnly)
+                    if (!strikerTroop.IsPlayerCharacter && BetterAttributes.Settings.SimBonusPlayerOnly)
                         return;
 
 
-                    __result = __result * (int)(AttributeHelper.GetAttributeEffect(SubModule._settings.simBonus, AttributeHelper.GetAttributeTypeFromIndex(SubModule._settings.simBonusAttribute), strikerTroop.HeroObject.CharacterObject) + 1);
+                    __result = __result * (int)(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.SimBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.SimBonusAttribute), strikerTroop.HeroObject.CharacterObject) + 1);
                 }
             } catch (Exception e) {
-                Logger.SendMessage("DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e, Severity.High);
+                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }
