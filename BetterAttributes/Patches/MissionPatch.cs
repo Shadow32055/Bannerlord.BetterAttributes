@@ -13,7 +13,7 @@ namespace BetterAttributes.Patches {
         private static bool UpdateMomentumRemaining(ref float momentumRemaining, Blow b, in AttackCollisionData collisionData, Agent attacker, Agent victim, in MissionWeapon attackerWeapon, ref bool isCrushThrough) {
             try {
 
-                if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.SliceChanceAttribute) == AttributeHelper.None) {
+                if (!BetterAttributes.Settings.SliceChanceEnabled) {
                     //cut through not enabled, let TW method run
                     return true;
                 }

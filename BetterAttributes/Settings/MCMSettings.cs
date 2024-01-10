@@ -24,14 +24,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MeleeText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> MelDmgBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 1);
+        }, selectedIndex: 0);
 
 
 
@@ -51,14 +50,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RangeText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> RngDmgBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 2);
+        }, selectedIndex: 1);
 
 
 
@@ -78,14 +76,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> HealthBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 3);
+        }, selectedIndex: 2);
 
 
 
@@ -105,14 +102,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HealthRegenText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> HealthRegenBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 1);
+        }, selectedIndex: 0);
 
 
 
@@ -132,14 +128,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StaggerText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> StaggerBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 3);
+        }, selectedIndex: 2);
 
 
 
@@ -159,14 +154,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SimText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> SimBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 4);
+        }, selectedIndex: 3);
 
 
 
@@ -182,14 +176,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PersuasionText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> PersuasionBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 4);
+        }, selectedIndex: 3);
 
 
 
@@ -209,14 +202,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.RenownText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> RenownBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 4);
+        }, selectedIndex: 3);
 
 
 
@@ -236,14 +228,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MoralText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> MoraleBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 4);
+        }, selectedIndex: 3);
 
 
 
@@ -263,14 +254,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyMoralText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> PartyMoraleBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 5);
+        }, selectedIndex: 4);
 
 
 
@@ -290,14 +280,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.WageText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> WageBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 5);
+        }, selectedIndex: 4);
 
 
 
@@ -317,14 +306,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SizeText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> PartySizeBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 5);
+        }, selectedIndex: 4);
 
 
 
@@ -344,14 +332,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.IncomeText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> IncomeBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 6);
+        }, selectedIndex: 5);
 
 
 
@@ -371,14 +358,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.InfluenceText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> InfluenceBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 6);
+        }, selectedIndex: 5);
 
 
 
@@ -398,14 +384,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.XpText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> XpBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 6);
+        }, selectedIndex: 5);
 
 
 
@@ -420,14 +405,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.PartyLeaderXPText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> PartyLeaderXPBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 6);
+        }, selectedIndex: 5);
 
 
 
@@ -443,14 +427,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.CompanionText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> CompanionBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 5);
+        }, selectedIndex: 4);
 
 
 
@@ -470,14 +453,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.ReloadText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> ReloadBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 1);
+        }, selectedIndex: 0);
 
 
 
@@ -497,14 +479,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.HandlingText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> HandlingBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 2);
+        }, selectedIndex: 1);
 
 
 
@@ -524,14 +505,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.MovementText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> MovementBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 2);
+        }, selectedIndex: 1);
 
 
 
@@ -547,14 +527,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SmithingText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> SmithingBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 3);
+        }, selectedIndex: 2);
 
 
 
@@ -573,14 +552,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.AccuracyText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> AccuracyBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 2);
+        }, selectedIndex: 1);
 
 
 
@@ -599,14 +577,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.DrawText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> DrawBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 1);
+        }, selectedIndex: 0);
 
 
 
@@ -625,14 +602,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.StabilityText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> StabilityBonusAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 3);
+        }, selectedIndex: 2);
 
 
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SliceText)]
@@ -650,14 +626,13 @@ namespace BetterAttributes.Settings {
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SliceText)]
         [SettingPropertyDropdown(RefValues.AttributeText, Order = 0, RequireRestart = false, HintText = RefValues.AttributeHint)]
         public Dropdown<string> SliceChanceAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
-            RefValues.NoneText,
             RefValues.VigorText,
             RefValues.ControlText,
             RefValues.EnduranceText,
             RefValues.CunningText,
             RefValues.SocialText,
             RefValues.IntelligenceText
-        }, selectedIndex: 1);
+        }, selectedIndex: 0);
 
 
 

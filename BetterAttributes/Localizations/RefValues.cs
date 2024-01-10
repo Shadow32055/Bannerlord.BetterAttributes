@@ -16,7 +16,6 @@ namespace BetterAttributes.Localizations {
         public const string AttributeText = "{BA_OUkZom}Attribute";
         public const string AttributeHint = "{=BA_N7DNB0}Select the attribute that this bonus should use";
 
-        public const string NoneText = "{=BA_M6j29r}None";
         public const string VigorText = "{=BA_Mf0D9r}Vigor";
         public const string ControlText = "{=BA_yXzbqm}Control";
         public const string EnduranceText = "{=BA_3xcrKW}Endurance";
