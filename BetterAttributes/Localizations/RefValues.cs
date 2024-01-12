@@ -1,6 +1,4 @@
-﻿using TaleWorlds.Localization;
-
-namespace BetterAttributes.Localizations {
+﻿namespace BetterAttributes.Localizations {
     public class RefValues {
         public const string BonusesText = "{=BA_oPw9hh}Bonuses";
 
@@ -75,10 +73,10 @@ namespace BetterAttributes.Localizations {
         public const string ReloadBonusText = "{=BA_jxqf6p}Increases reload speed by ";
         public const string HandlingBonusText = "{=BA_203Gjf}Increases weapon handling by ";
         public const string MovementBonusText = "{=BA_c11mlx}Increases movement speed by ";
-        public const string SmithingBonusText = "{=BA_capoto}Increases smithing stamina by ";
-        public const string AccuracyBonusText = "{=BA_capoto}Increases accuracy by ";
-        public const string DrawBonusText = "{=BA_capoto}Increases draw speed by ";
-        public const string StabilityBonusText = "{=BA_capoto}Increases stability by ";
+        public const string SmithingBonusText = "{=BA_OpKSII}Increases smithing stamina by ";
+        public const string AccuracyBonusText = "{=BA_3dclGJ}Increases accuracy by ";
+        public const string DrawBonusText = "{=BA_X0m4Om}Increases draw speed by ";
+        public const string StabilityBonusText = "{=BA_r5Y7lw}Increases stability by ";
         public const string SliceBonusText = "{=BA_capoto}Slice through chance ";
     }
 }
