@@ -13,7 +13,7 @@ namespace BetterAttributes {
 		public static MCMSettings Settings { get; private set; }
 		public static CustomDefaultPartyWageModel CustomDefaultPartyWageModel { get; private set; }
 
-		public static string ModName { get; private set; } = "ForgotToSet";
+		public static string ModName { get; private set; } = "BetterAttributes";
 
         private bool isInitialized = false;
         private bool isLoaded = false;
