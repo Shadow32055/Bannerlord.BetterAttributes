@@ -521,7 +521,7 @@ namespace BetterAttributes.Settings {
         public bool SmithingBonusEnabled { get; set; } = true;
 
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SmithingText)]
-        [SettingPropertyFloatingInteger(RefValues.BonusText, 0f, 250f, "0", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
+        [SettingPropertyInteger(RefValues.BonusText, 0, 250, "0", Order = 0, RequireRestart = false, HintText = RefValues.BonusHint)]
         public int SmithingBonus { get; set; } = 10;
 
         [SettingPropertyGroup(RefValues.BonusesText + "/" + RefValues.SmithingText)]
