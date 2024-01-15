@@ -1,28 +1,20 @@
 <Module>
-	<Name value="Better Attributes"/>
+	<Name value="BetterAttributes"/>
 	<Id value="BetterAttributes"/>
 	<Version value="d0.0.0"/>
 	<SingleplayerModule value="true"/>
 	<MultiplayerModule value="false"/>
-	<Url value="https://www.nexusmods.com/mountandblade2bannerlord/mods/3434"/>
+	<Url value="https://www.nexusmods.com/mountandblade2bannerlord/users/19304654?tab=user+files"/>
 	<DependedModules>
-		<DependedModule Id="BetterCore"/>
-		<DependedModule Id="Bannerlord.Harmony"/>
-		<DependedModule Id="Bannerlord.MBOptionScreen"/>
-		<DependedModule Id="Native"/>
-		<DependedModule Id="SandBoxCore"/>
-		<DependedModule Id="Sandbox"/>
-		<DependedModule Id="StoryMode"/>
+		<DependedModule Id="Bannerlord.Harmony" DependentVersion="v1.0.0"/>
+		<DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v1.0.0"/>
+		<DependedModule Id="Native" DependentVersion="v1.0.0"/>
+		<DependedModule Id="SandBoxCore" DependentVersion="v1.0.0"/>
+		<DependedModule Id="Sandbox" DependentVersion="v1.0.0"/>
+		<DependedModule Id="StoryMode" DependentVersion="v1.0.0"/>
+		<DependedModule Id="CustomBattle" DependentVersion="v1.0.0"/>
+		<DependedModule Id="BetterCore" DependentVersion="v1.0.0"/>
 	</DependedModules>
-	<DependedModuleMetadata>
-		<DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis"/>
-		<DependedModuleMetadata id="Bannerlord.MBOptionScreen" order="LoadBeforeThis"/>
-		<DependedModuleMetadata id="Native" order="LoadBeforeThis"/>
-		<DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis"/>
-		<DependedModuleMetadata id="Sandbox" order="LoadBeforeThis"/>
-		<DependedModuleMetadata id="StoryMode" order="LoadBeforeThis"/>
-		<DependedModuleMetadata id="BetterCore" order="LoadBeforeThis"/>
-	</DependedModuleMetadata>
 	<SubModules>
 		<SubModule>
 			<Name value="BetterAttributes"/>
