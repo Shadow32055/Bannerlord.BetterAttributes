@@ -32,7 +32,7 @@ namespace BetterAttributes.Patches {
                 
 
                     if (attacker.IsMainAgent) {
-						NotifyHelper.ChatMessage("cut through!", MsgType.Good);
+						NotifyHelper.ChatMessage("Cut through!", MsgType.Good);
 					}
 
                     return false;

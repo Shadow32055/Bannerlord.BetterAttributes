@@ -72,7 +72,7 @@ namespace BetterAttributes.Patches {
                     }
 
                     if (applyBonus)
-                        agentDrivenProperties.WeaponInaccuracy /= AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.AccuracyBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.AccuracyBonusAttribute), (CharacterObject)agent.Character);
+                        agentDrivenProperties.WeaponInaccuracy /= 1 + AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.AccuracyBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.AccuracyBonusAttribute), (CharacterObject)agent.Character);
                 }
 
                 applyBonus = false;
