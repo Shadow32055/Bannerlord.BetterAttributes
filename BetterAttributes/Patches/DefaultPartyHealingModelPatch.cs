@@ -26,7 +26,7 @@ namespace BetterAttributes.Patches {
                 __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.HealthRegenBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute).Name + " Bonus", null));
 
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultPartyHealingModel.GetDailyHealingHpForHeroes threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultPartyHealingModel.GetDailyHealingHpForHeroes threw exception: " + e);
             }
         }
     }

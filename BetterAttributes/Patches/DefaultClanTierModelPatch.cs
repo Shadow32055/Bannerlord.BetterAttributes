@@ -16,7 +16,7 @@ namespace BetterAttributes.Patches {
                     __result = __result + (int)AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.CompanionBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.CompanionBonusAttribute), Hero.MainHero.CharacterObject);
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanTierModelPatch.GetCompanionLimit threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultClanTierModelPatch.GetCompanionLimit threw exception: " + e);
             }
         }
     }

@@ -24,7 +24,7 @@ namespace BetterAttributes.Patches {
                     __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.PartySizeBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartySizeBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartySizeBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultPartySizeLimitModelPatch.GetPartyMemberSizeLimit postfix threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultPartySizeLimitModelPatch.GetPartyMemberSizeLimit postfix threw exception: " + e);
             }
         }
     }

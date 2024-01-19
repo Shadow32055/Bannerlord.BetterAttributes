@@ -26,7 +26,7 @@ namespace BetterAttributes.Patches {
                     goldChange.Add(goldChange.ResultNumber * AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.IncomeBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.IncomeBonusAttribute), clan.Leader.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.IncomeBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

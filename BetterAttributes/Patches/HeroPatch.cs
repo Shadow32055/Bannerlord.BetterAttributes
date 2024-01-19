@@ -41,7 +41,7 @@ namespace BetterAttributes.Patches {
                 }
 
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
 

@@ -11,7 +11,6 @@ namespace BetterAttributes {
     public class BetterAttributes : MBSubModuleBase {
 
 		public static MCMSettings Settings { get; private set; }
-		public static CustomDefaultPartyWageModel CustomDefaultPartyWageModel { get; private set; }
 
 		public static string ModName { get; private set; } = "BetterAttributes";
 
@@ -32,7 +31,7 @@ namespace BetterAttributes {
 
                 isInitialized = true;
             } catch (Exception e) {
-                NotifyHelper.ReportError(ModName, "OnSubModuleLoad threw exception " + e);
+                NotifyHelper.WriteError(ModName, "OnSubModuleLoad threw exception " + e);
             }
         }
 
@@ -48,12 +47,12 @@ namespace BetterAttributes {
 
                 Settings = MCMSettings.Instance ?? throw new NullReferenceException("Settings are null");
 
-                NotifyHelper.ChatMessage(ModName + " Loaded.", MsgType.Good);
-                Integrations.BetterHealthLoaded = true;
+                NotifyHelper.WriteMessage(ModName + " Loaded.", MsgType.Good);
+                Integrations.BetterAttributesLoaded = true;
 
                 isLoaded = true;
             } catch (Exception e) {
-                NotifyHelper.ReportError(ModName, "OnBeforeInitialModuleScreenSetAsRoot threw exception " + e);
+                NotifyHelper.WriteError(ModName, "OnBeforeInitialModuleScreenSetAsRoot threw exception " + e);
             }
         }
 
@@ -66,12 +65,11 @@ namespace BetterAttributes {
                     CampaignGameStarter campaignGameStarter = (CampaignGameStarter)gameStarter;
 
 					if (campaignGameStarter != null) {
-						CustomDefaultPartyWageModel = new CustomDefaultPartyWageModel();
-                        campaignGameStarter.AddModel(CustomDefaultPartyWageModel);
+                        campaignGameStarter.AddModel(new CustomDefaultPartyWageModel());
 					}
 				}
 			} catch (Exception e) {
-				NotifyHelper.ReportError(ModName, "OnGameStart threw exception " + e);
+				NotifyHelper.WriteError(ModName, "OnGameStart threw exception " + e);
 			}
 		}
 	}

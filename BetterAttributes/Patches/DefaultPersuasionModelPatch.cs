@@ -17,7 +17,7 @@ namespace BetterAttributes.Patches {
                     __result = __result * (AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.PersuasionBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PersuasionBonusAttribute), Hero.MainHero.CharacterObject) + 1);
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

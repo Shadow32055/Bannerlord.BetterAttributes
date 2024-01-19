@@ -1,5 +1,6 @@
-﻿namespace BetterAttributes.Localizations {
-    public class RefValues {
+﻿namespace BetterAttributes {
+    public class Strings
+    {
         public const string BonusesText = "{=BA_oPw9hh}Bonuses";
 
         public const string EnabledText = "{=BA_V8krxN}Enable";
@@ -11,7 +12,7 @@
         public const string BonusText = "{=BA_8g0U40}Bonus";
         public const string BonusHint = "{=BA_3F0Jal}An increase multiplied by attribute level. (For example, a 2% (.02) bonus will be 20% at attribute level 10)";
 
-        public const string AttributeText = "{BA_OUkZom}Attribute";
+        public const string AttributeText = "{=BA_OUkZom}Attribute";
         public const string AttributeHint = "{=BA_N7DNB0}Select the attribute that this bonus should use";
 
         public const string VigorText = "{=BA_Mf0D9r}Vigor";

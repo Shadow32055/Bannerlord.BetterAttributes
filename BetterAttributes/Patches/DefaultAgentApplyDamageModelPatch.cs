@@ -23,7 +23,7 @@ namespace BetterAttributes.Patches {
                     __result = __result * (AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.StaggerBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.StaggerBonusAttribute), (CharacterObject)defenderAgent.Character) + 1);
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e);
             }
         }
     }

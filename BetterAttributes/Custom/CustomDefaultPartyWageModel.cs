@@ -21,7 +21,7 @@ namespace BetterAttributes.Custom {
                     }
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "CustomDefaultPartyWageModel.GetTotalWage threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "CustomDefaultPartyWageModel.GetTotalWage threw exception: " + e);
             }
 
             return totalWage;

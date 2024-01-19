@@ -24,7 +24,7 @@ namespace BetterAttributes.Patches {
                     __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.PartyMoraleBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartyMoraleBonusAttribute), mobileParty.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.PartyMoraleBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

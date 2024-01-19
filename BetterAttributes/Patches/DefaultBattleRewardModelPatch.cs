@@ -25,7 +25,7 @@ namespace BetterAttributes.Patches {
                     __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.RenownBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.RenownBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.RenownBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultBattleRewardModelPatch.CalculateRenownGain threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultBattleRewardModelPatch.CalculateRenownGain threw exception: " + e);
             }
         }
 
@@ -43,7 +43,7 @@ namespace BetterAttributes.Patches {
                     __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.MoraleBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MoraleBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MoraleBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultBattleRewardModelPatch.CalculateMoraleGainVictory threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultBattleRewardModelPatch.CalculateMoraleGainVictory threw exception: " + e);
             }
         }
 
@@ -61,7 +61,7 @@ namespace BetterAttributes.Patches {
                     __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.InfluenceBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.InfluenceBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.InfluenceBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e);
             }
         }
     }

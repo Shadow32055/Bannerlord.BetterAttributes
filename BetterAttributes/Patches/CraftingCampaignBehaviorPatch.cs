@@ -18,7 +18,7 @@ namespace BetterAttributes.Patches {
                         __result = __result + (int)(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.SmithingBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.SmithingBonusAttribute), (CharacterObject)hero.CharacterObject) + 1);
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "CraftingCampaignBehaviorPatch.GetMaxHeroCraftingStamina threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "CraftingCampaignBehaviorPatch.GetMaxHeroCraftingStamina threw exception: " + e);
             }
         }
     }

@@ -30,7 +30,7 @@ namespace BetterAttributes.Patches {
                     inflictedDamage = inflictedDamage * (int)(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.MelDmgBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MelDmgBonusAttribute), (CharacterObject)attackInformation.AttackerAgentCharacter) + 1 );
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "MissionCombatMechanicsHelperPatch.ComputeBlowDamage threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "MissionCombatMechanicsHelperPatch.ComputeBlowDamage threw exception: " + e);
             }
         }
 
@@ -53,7 +53,7 @@ namespace BetterAttributes.Patches {
                     specialMagnitude *= val;
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "MissionCombatMechanicsHelperPatch.ComputeBlowMagnitude threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "MissionCombatMechanicsHelperPatch.ComputeBlowMagnitude threw exception: " + e);
             }
         }
     }

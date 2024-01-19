@@ -22,7 +22,7 @@ namespace BetterAttributes.Patches {
                     __result = __result * (1 + AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.XpBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.XpBonusAttribute), hero.CharacterObject));
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

@@ -32,14 +32,14 @@ namespace BetterAttributes.Patches {
                 
 
                     if (attacker.IsMainAgent) {
-						NotifyHelper.ChatMessage("Cut through!", MsgType.Good);
+						NotifyHelper.WriteMessage("Cut through!", MsgType.Good);
 					}
 
                     return false;
                 }
 
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "Mission.UpdateMomentumRemaining threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "Mission.UpdateMomentumRemaining threw exception: " + e);
             }
 
             return true;

@@ -25,7 +25,7 @@ namespace BetterAttributes.Patches {
                     __result = __result * (int)(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.SimBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.SimBonusAttribute), strikerTroop.HeroObject.CharacterObject) + 1);
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultClanFinanceModelPatch.CalculateClanIncomeInternal threw exception: " + e);
             }
         }
     }

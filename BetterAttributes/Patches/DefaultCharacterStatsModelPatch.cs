@@ -23,7 +23,7 @@ namespace BetterAttributes.Patches {
                     __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.HealthBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthBonusAttribute), character), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthBonusAttribute).Name + " Bonus", null));
                 }
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "DefaultCharacterStatsModelPatch.MaxHitpoints threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultCharacterStatsModelPatch.MaxHitpoints threw exception: " + e);
             }
         }
     }

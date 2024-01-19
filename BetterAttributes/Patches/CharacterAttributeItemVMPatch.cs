@@ -1,5 +1,4 @@
-﻿using BetterAttributes.Localizations;
-using BetterCore.Utils;
+﻿using BetterCore.Utils;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,8 @@ using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
-namespace BetterAttributes.Patches {
+namespace BetterAttributes.Patches
+{
     [HarmonyPatch(typeof(CharacterAttributeItemVM), MethodType.Constructor)]
     [HarmonyPatch(new Type[] { typeof(Hero), typeof(CharacterAttribute), typeof(CharacterVM), typeof(Action<CharacterAttributeItemVM>), typeof(Action<CharacterAttributeItemVM>) })]
     class CharacterAttributeItemVMPatch {
@@ -35,7 +35,7 @@ namespace BetterAttributes.Patches {
                 }
 
             } catch (Exception e) {
-                NotifyHelper.ReportError(BetterAttributes.ModName, "CharacterAttributeItemVMPatch.CharacterAttributeItemVM threw exception: " + e);
+                NotifyHelper.WriteError(BetterAttributes.ModName, "CharacterAttributeItemVMPatch.CharacterAttributeItemVM threw exception: " + e);
             }
         }
 
@@ -43,31 +43,31 @@ namespace BetterAttributes.Patches {
 
             List<CustomAtrObject> applicableBonuses = new List<CustomAtrObject>();
 
-            TextObject melDmgText = new TextObject(RefValues.MelBonusText);
-            TextObject rngDmgText = new TextObject(RefValues.RngBonusText);
-            TextObject healthText = new TextObject(RefValues.HealthBonusText);
-            TextObject healthRegenText = new TextObject(RefValues.HealthRegenBonusText);
-            TextObject staggerText = new TextObject(RefValues.StabilityBonusText);
-            TextObject simText = new TextObject(RefValues.SimBonusText);
-            TextObject persuasionText = new TextObject(RefValues.PersuasionBonusText);
-            TextObject renownText = new TextObject(RefValues.RenownBonusText);
-            TextObject moraleText = new TextObject(RefValues.MoraleBonusText);
-            TextObject partyMoraleText = new TextObject(RefValues.PartyMoraleBonusText);
-            TextObject wageText = new TextObject(RefValues.WageBonusText);
-            TextObject partySizeText = new TextObject(RefValues.PartySizeBonusText);
-            TextObject incomeText = new TextObject(RefValues.IncomeBonusText);
-            TextObject influenceText = new TextObject(RefValues.InfluenceBonusText);
-            TextObject xpText = new TextObject(RefValues.XpBonusText);
-            TextObject partyLeaderXPText = new TextObject(RefValues.PartyLeaderXPBonusText);
-            TextObject companionText = new TextObject(RefValues.CompanionBonusText);
-            TextObject reloadText = new TextObject(RefValues.ReloadBonusText);
-            TextObject handlingText = new TextObject(RefValues.HandlingBonusText);
-            TextObject movementText = new TextObject(RefValues.MovementBonusText);
-            TextObject smithingText = new TextObject(RefValues.SmithingBonusText);
-            TextObject accuracyText = new TextObject(RefValues.AccuracyBonusText);
-            TextObject drawText = new TextObject(RefValues.DrawBonusText);
-            TextObject stabilityText = new TextObject(RefValues.StabilityBonusText);
-            TextObject sliceText = new TextObject(RefValues.SliceBonusText);
+            TextObject melDmgText = new TextObject(Strings.MelBonusText);
+            TextObject rngDmgText = new TextObject(Strings.RngBonusText);
+            TextObject healthText = new TextObject(Strings.HealthBonusText);
+            TextObject healthRegenText = new TextObject(Strings.HealthRegenBonusText);
+            TextObject staggerText = new TextObject(Strings.StabilityBonusText);
+            TextObject simText = new TextObject(Strings.SimBonusText);
+            TextObject persuasionText = new TextObject(Strings.PersuasionBonusText);
+            TextObject renownText = new TextObject(Strings.RenownBonusText);
+            TextObject moraleText = new TextObject(Strings.MoraleBonusText);
+            TextObject partyMoraleText = new TextObject(Strings.PartyMoraleBonusText);
+            TextObject wageText = new TextObject(Strings.WageBonusText);
+            TextObject partySizeText = new TextObject(Strings.PartySizeBonusText);
+            TextObject incomeText = new TextObject(Strings.IncomeBonusText);
+            TextObject influenceText = new TextObject(Strings.InfluenceBonusText);
+            TextObject xpText = new TextObject(Strings.XpBonusText);
+            TextObject partyLeaderXPText = new TextObject(Strings.PartyLeaderXPBonusText);
+            TextObject companionText = new TextObject(Strings.CompanionBonusText);
+            TextObject reloadText = new TextObject(Strings.ReloadBonusText);
+            TextObject handlingText = new TextObject(Strings.HandlingBonusText);
+            TextObject movementText = new TextObject(Strings.MovementBonusText);
+            TextObject smithingText = new TextObject(Strings.SmithingBonusText);
+            TextObject accuracyText = new TextObject(Strings.AccuracyBonusText);
+            TextObject drawText = new TextObject(Strings.DrawBonusText);
+            TextObject stabilityText = new TextObject(Strings.StabilityBonusText);
+            TextObject sliceText = new TextObject(Strings.SliceBonusText);
 
 
             if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MelDmgBonusAttribute) == ca && BetterAttributes.Settings.MelDmgBonusEnabled)
