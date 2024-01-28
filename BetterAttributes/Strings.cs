@@ -47,6 +47,7 @@
         public const string DrawText = "{=BA_em1a0r}Draw Speed Bonus";
         public const string StabilityText = "{=BA_gh3y7a}Aim Stability Bonus";
         public const string SliceText = "{=BA_2h95na}Slice Through Chance";
+        public const string CrushText = "{=BA_aln3r9}Crush Through Chance";
 
         public const string MiscText = "{=BA_dl59ac}Misc";
         public const string MoreBonusText = "{=BA_3jf8sn}Support for more Bonuses";
@@ -79,5 +80,6 @@
         public const string DrawBonusText = "{=BA_X0m4Om}Increases draw speed by ";
         public const string StabilityBonusText = "{=BA_r5Y7lw}Increases stability by ";
         public const string SliceBonusText = "{=BA_capoto}Slice through chance ";
+        public const string CrushBonusText = "{=BA_gn38sf}Crush through chance ";
     }
 }

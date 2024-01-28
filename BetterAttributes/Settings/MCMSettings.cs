@@ -613,11 +613,11 @@ namespace BetterAttributes.Settings
 
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
         [SettingPropertyBool(Strings.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = Strings.EnabledHint)]
-        public bool SliceChanceEnabled { get; set; } = true;
+        public bool SliceEnabled { get; set; } = true;
 
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
         [SettingPropertyBool(Strings.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = Strings.PlayerOnlyHint)]
-        public bool SliceChancePlayerOnly { get; set; } = true;
+        public bool SlicePlayerOnly { get; set; } = true;
 
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
         [SettingPropertyFloatingInteger(Strings.BonusText, 0f, 1f, "0.00%", Order = 0, RequireRestart = false, HintText = Strings.BonusHint)]
@@ -625,7 +625,7 @@ namespace BetterAttributes.Settings
 
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
         [SettingPropertyDropdown(Strings.AttributeText, Order = 0, RequireRestart = false, HintText = Strings.AttributeHint)]
-        public Dropdown<string> SliceChanceAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+        public Dropdown<string> SliceAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             Strings.VigorText,
             Strings.ControlText,
             Strings.EnduranceText,
@@ -633,6 +633,36 @@ namespace BetterAttributes.Settings
             Strings.SocialText,
             Strings.IntelligenceText
         }, selectedIndex: 0);
+
+
+
+
+
+        [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.CrushText)]
+        [SettingPropertyBool(Strings.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = Strings.EnabledHint)]
+        public bool CrushEnabled { get; set; } = true;
+
+        [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.CrushText)]
+        [SettingPropertyBool(Strings.PlayerOnlyText, Order = 0, RequireRestart = false, HintText = Strings.PlayerOnlyHint)]
+        public bool CrushPlayerOnly { get; set; } = true;
+
+        [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.CrushText)]
+        [SettingPropertyFloatingInteger(Strings.BonusText, 0f, 1f, "0.00%", Order = 0, RequireRestart = false, HintText = Strings.BonusHint)]
+        public float CrushChance { get; set; } = .02f;
+
+        [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.CrushText)]
+        [SettingPropertyDropdown(Strings.AttributeText, Order = 0, RequireRestart = false, HintText = Strings.AttributeHint)]
+        public Dropdown<string> CrushAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
+            Strings.VigorText,
+            Strings.ControlText,
+            Strings.EnduranceText,
+            Strings.CunningText,
+            Strings.SocialText,
+            Strings.IntelligenceText
+        }, selectedIndex: 0);
+
+
+
 
 
 
@@ -860,10 +890,19 @@ namespace BetterAttributes.Settings
 
         public int SliceChanceAttribute {
             get {
-                return this.SliceChanceAttributeDropdown.SelectedIndex;
+                return this.SliceAttributeDropdown.SelectedIndex;
             }
             set {
-                this.SliceChanceAttributeDropdown.SelectedIndex = value;
+                this.SliceAttributeDropdown.SelectedIndex = value;
+            }
+        }
+
+        public int CrushChanceAttribute {
+            get {
+                return this.CrushAttributeDropdown.SelectedIndex;
+            }
+            set {
+                this.CrushAttributeDropdown.SelectedIndex = value;
             }
         }
 

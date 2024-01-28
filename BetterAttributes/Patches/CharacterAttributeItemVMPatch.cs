@@ -7,8 +7,7 @@ using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
-namespace BetterAttributes.Patches
-{
+namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(CharacterAttributeItemVM), MethodType.Constructor)]
     [HarmonyPatch(new Type[] { typeof(Hero), typeof(CharacterAttribute), typeof(CharacterVM), typeof(Action<CharacterAttributeItemVM>), typeof(Action<CharacterAttributeItemVM>) })]
     class CharacterAttributeItemVMPatch {
@@ -68,6 +67,7 @@ namespace BetterAttributes.Patches
             TextObject drawText = new TextObject(Strings.DrawBonusText);
             TextObject stabilityText = new TextObject(Strings.StabilityBonusText);
             TextObject sliceText = new TextObject(Strings.SliceBonusText);
+            TextObject crushText = new TextObject(Strings.CrushBonusText);
 
 
             if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MelDmgBonusAttribute) == ca && BetterAttributes.Settings.MelDmgBonusEnabled)
@@ -142,8 +142,11 @@ namespace BetterAttributes.Patches
             if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.StabilityBonusAttribute) == ca && BetterAttributes.Settings.StabilityBonusEnabled)
                 applicableBonuses.Add(new CustomAtrObject(ca, stabilityText + (BetterAttributes.Settings.StabilityBonus * lvl).ToString("P") + "", BetterAttributes.Settings.StabilityBonusPlayerOnly));
 
-            if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.SliceChanceAttribute) == ca && BetterAttributes.Settings.SliceChanceEnabled)
-                applicableBonuses.Add(new CustomAtrObject(ca, sliceText + (BetterAttributes.Settings.SliceChance * lvl).ToString("P") + "", BetterAttributes.Settings.SliceChancePlayerOnly));
+            if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.SliceChanceAttribute) == ca && BetterAttributes.Settings.SliceEnabled)
+                applicableBonuses.Add(new CustomAtrObject(ca, sliceText + (BetterAttributes.Settings.SliceChance * lvl).ToString("P") + "", BetterAttributes.Settings.SlicePlayerOnly));
+
+            if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.CrushChanceAttribute) == ca && BetterAttributes.Settings.CrushEnabled)
+                applicableBonuses.Add(new CustomAtrObject(ca, crushText + (BetterAttributes.Settings.CrushChance * lvl).ToString("P") + "", BetterAttributes.Settings.CrushPlayerOnly));
 
             return applicableBonuses;
         }

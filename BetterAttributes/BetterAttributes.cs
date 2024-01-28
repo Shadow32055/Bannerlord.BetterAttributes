@@ -10,7 +10,7 @@ using TaleWorlds.MountAndBlade;
 namespace BetterAttributes {
     public class BetterAttributes : MBSubModuleBase {
 
-		public static MCMSettings Settings { get; private set; }
+		public static MCMSettings Settings { get; private set; } = new MCMSettings();
 
 		public static string ModName { get; private set; } = "BetterAttributes";
 
