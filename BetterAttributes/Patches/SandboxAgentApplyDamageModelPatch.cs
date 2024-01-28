@@ -43,6 +43,9 @@ namespace BetterAttributes.Patches {
                 if (attackerAgent == null)
                     return;
 
+                if (!attackerAgent.IsHero)
+                    return;
+
                 if (!attackerAgent.IsPlayerControlled && BetterAttributes.Settings.CrushPlayerOnly)
                     return;
 
