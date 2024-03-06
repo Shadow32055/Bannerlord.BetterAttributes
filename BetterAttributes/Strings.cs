@@ -81,5 +81,8 @@
         public const string StabilityBonusText = "{=BA_r5Y7lw}Increases stability by ";
         public const string SliceBonusText = "{=BA_capoto}Slice through chance ";
         public const string CrushBonusText = "{=BA_gn38sf}Crush through chance ";
+
+        public const string SliceNotifyText = "{=BA_2qt9ua}Notify Slice Through";
+        public const string SliceNotifyHint = "{=BA_ga0s3h}Should a message be sent every time a slice through occurs";
     }
 }

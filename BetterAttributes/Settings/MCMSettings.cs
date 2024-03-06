@@ -624,6 +624,10 @@ namespace BetterAttributes.Settings
         public float SliceChance { get; set; } = .02f;
 
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
+        [SettingPropertyBool(Strings.SliceNotifyText, Order = 0, RequireRestart = false, IsToggle = true, HintText = Strings.SliceNotifyHint)]
+        public bool SliceNotify { get; set; } = true;
+
+        [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
         [SettingPropertyDropdown(Strings.AttributeText, Order = 0, RequireRestart = false, HintText = Strings.AttributeHint)]
         public Dropdown<string> SliceAttributeDropdown { get; set; } = new Dropdown<string>(new string[] {
             Strings.VigorText,

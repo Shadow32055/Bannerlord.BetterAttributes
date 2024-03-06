@@ -29,11 +29,10 @@ namespace BetterAttributes.Patches {
                 double random = MBRandom.RandomFloat;
 
                 if (MathHelper.RandomChance (AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.SliceChance, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.SliceChanceAttribute), (CharacterObject)attacker.Character))) {
-                
-
-                    if (attacker.IsMainAgent) {
-						NotifyHelper.WriteMessage("Cut through!", MsgType.Good);
-					}
+                    if (attacker.IsMainAgent)
+                        if (BetterAttributes.Settings.SliceNotify)
+                            NotifyHelper.WriteMessage("Cut through!", MsgType.Good);
+					
 
                     return false;
                 }

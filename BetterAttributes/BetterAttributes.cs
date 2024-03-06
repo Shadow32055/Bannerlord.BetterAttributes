@@ -1,14 +1,14 @@
-﻿using BetterAttributes.Custom;
+﻿using Bannerlord.ButterLib.MBSubModuleBaseExtended;
+using BetterAttributes.Custom;
 using BetterAttributes.Settings;
 using BetterCore.Utils;
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
-using TaleWorlds.MountAndBlade;
 
 namespace BetterAttributes {
-    public class BetterAttributes : MBSubModuleBase {
+    public class BetterAttributes : MBSubModuleBaseEx {
 
 		public static MCMSettings Settings { get; private set; } = new MCMSettings();
 
