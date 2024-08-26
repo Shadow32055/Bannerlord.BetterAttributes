@@ -51,7 +51,7 @@
 
         public const string MiscText = "{=BA_dl59ac}Misc";
         public const string MoreBonusText = "{=BA_3jf8sn}Support for more Bonuses";
-        public const string MoreBonusHint = "{=BA_53ksnq}Removes some hint text fomr attribute pop-up to all for more space to display attribute bonuses.";
+        public const string MoreBonusHint = "{=BA_53ksnq}Removes some hint text from attribute pop-up to all for more space to display attribute bonuses.";
 
         public const string partyLeaderXPHint = "{=BA_346heg}Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader.";
 
