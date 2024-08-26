@@ -46,7 +46,7 @@ namespace BetterAttributes.Patches {
             TextObject rngDmgText = new TextObject(Strings.RngBonusText);
             TextObject healthText = new TextObject(Strings.HealthBonusText);
             TextObject healthRegenText = new TextObject(Strings.HealthRegenBonusText);
-            TextObject staggerText = new TextObject(Strings.StabilityBonusText);
+            TextObject staggerText = new TextObject(Strings.StaggerBonusText);
             TextObject simText = new TextObject(Strings.SimBonusText);
             TextObject persuasionText = new TextObject(Strings.PersuasionBonusText);
             TextObject renownText = new TextObject(Strings.RenownBonusText);
