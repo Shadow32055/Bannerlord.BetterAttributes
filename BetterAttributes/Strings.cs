@@ -78,7 +78,7 @@
         public const string SmithingBonusText = "{=BA_OpKSII}Increases smithing stamina by ";
         public const string AccuracyBonusText = "{=BA_3dclGJ}Increases accuracy by ";
         public const string DrawBonusText = "{=BA_X0m4Om}Increases draw speed by ";
-        public const string StabilityBonusText = "{=BA_r5Y7lw}Increases stability by ";
+        public const string StabilityBonusText = "{=BA_r5Y7lw}Increases aim stability by ";
         public const string SliceBonusText = "{=BA_capoto}Slice through chance ";
         public const string CrushBonusText = "{=BA_gn38sf}Crush through chance ";
 
