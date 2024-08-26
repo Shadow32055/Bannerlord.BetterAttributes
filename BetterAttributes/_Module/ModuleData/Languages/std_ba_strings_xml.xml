@@ -80,7 +80,7 @@
 		<string id="BA_OpKSII" text="Increases smithing stamina by "/>
 		<string id="BA_3dclGJ" text="Increases accuracy by "/>
 		<string id="BA_X0m4Om" text="Increases draw speed by "/>
-		<string id="BA_r5Y7lw" text="Increases stability by "/>
+		<string id="BA_r5Y7lw" text="Increases aim stability by "/>
 		<string id="BA_capoto" text="Slice through chance "/>
 	</strings>
 </base>
