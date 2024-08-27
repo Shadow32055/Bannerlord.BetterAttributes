@@ -53,7 +53,7 @@
 
 		<string id="BA_dl59ac" text="Misc"/>
 		<string id="BA_3jf8sn" text="Support for more Bonuses"/>
-		<string id="BA_53ksnq" text="Removes some hint text fomr attribute pop-up to all for more space to display attribute bonuses."/>
+		<string id="BA_53ksnq" text="Removes some hint text fomr attribute pop-up to allow for more space to display attribute bonuses."/>
 
 		<string id="BA_346heg" text="Should the party leader be granted bonus xp from assigned party roles. For example, if your scout gains some xp in scouting how much of the xp should be granted to the party leader."/>
 
