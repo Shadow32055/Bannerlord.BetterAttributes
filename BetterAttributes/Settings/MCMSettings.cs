@@ -394,6 +394,7 @@ namespace BetterAttributes.Settings
 
 
 
+
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.PartyLeaderXPText)]
         [SettingPropertyBool(Strings.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = Strings.partyLeaderXPHint)]
         public bool PartyLeaderXPBonusEnabled { get; set; } = true;
@@ -537,6 +538,7 @@ namespace BetterAttributes.Settings
 
 
 
+
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.AccuracyText)]
         [SettingPropertyBool(Strings.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = Strings.EnabledHint)]
         public bool AccuracyBonusEnabled { get; set; } = true;
@@ -559,6 +561,7 @@ namespace BetterAttributes.Settings
             Strings.SocialText,
             Strings.IntelligenceText
         }, selectedIndex: 1);
+
 
 
 
@@ -587,6 +590,7 @@ namespace BetterAttributes.Settings
 
 
 
+
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.StabilityText)]
         [SettingPropertyBool(Strings.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = Strings.EnabledHint)]
         public bool StabilityBonusEnabled { get; set; } = true;
@@ -611,6 +615,8 @@ namespace BetterAttributes.Settings
         }, selectedIndex: 2);
 
 
+
+
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
         [SettingPropertyBool(Strings.EnabledText, Order = 0, RequireRestart = false, IsToggle = true, HintText = Strings.EnabledHint)]
         public bool SliceEnabled { get; set; } = true;
@@ -624,7 +630,7 @@ namespace BetterAttributes.Settings
         public float SliceChance { get; set; } = .02f;
 
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
-        [SettingPropertyBool(Strings.SliceNotifyText, Order = 0, RequireRestart = false, IsToggle = true, HintText = Strings.SliceNotifyHint)]
+        [SettingPropertyBool(Strings.SliceNotifyText, Order = 0, RequireRestart = false, HintText = Strings.SliceNotifyHint)]
         public bool SliceNotify { get; set; } = true;
 
         [SettingPropertyGroup(Strings.BonusesText + "/" + Strings.SliceText)]
@@ -637,7 +643,6 @@ namespace BetterAttributes.Settings
             Strings.SocialText,
             Strings.IntelligenceText
         }, selectedIndex: 0);
-
 
 
 
@@ -668,11 +673,11 @@ namespace BetterAttributes.Settings
 
 
 
-
-
         [SettingPropertyGroup(Strings.MiscText)]
         [SettingPropertyBool(Strings.MoreBonusText, Order = 0, RequireRestart = false, HintText = Strings.MoreBonusHint)]
         public bool MoreBonusRoom { get; set; } = false;
+
+
 
         public int MelDmgBonusAttribute {
             get {
