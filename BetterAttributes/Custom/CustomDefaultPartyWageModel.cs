@@ -3,13 +3,14 @@ using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Localization;
 
 namespace BetterAttributes.Custom {
 
     public class CustomDefaultPartyWageModel : DefaultPartyWageModel {
-        public override ExplainedNumber GetTotalWage(MobileParty mobileParty, bool includeDescriptions = false) {
-            ExplainedNumber totalWage = base.GetTotalWage(mobileParty, includeDescriptions);
+        public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false) {
+            ExplainedNumber totalWage = base.GetTotalWage(mobileParty, troopRoster, includeDescriptions);
             try {
                 if (BetterAttributes.Settings.WageBonusEnabled) {
                     if (mobileParty is not null) {

@@ -4,6 +4,7 @@ using System;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
+using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
@@ -15,7 +16,7 @@ namespace BetterAttributes.Patches {
         private static FieldInfo? hdFieldInfo = null;
 
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(Hero), "AddSkillXp")]
+        [HarmonyPatch(typeof(Hero), nameof(Hero.AddSkillXp))]
         public static void AddSkillXp(ref Hero __instance, SkillObject skill, float xpAmount) {
             try {
 

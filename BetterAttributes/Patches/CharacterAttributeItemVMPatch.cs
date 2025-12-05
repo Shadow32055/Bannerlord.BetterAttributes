@@ -9,10 +9,18 @@ using TaleWorlds.Localization;
 
 namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(CharacterAttributeItemVM), MethodType.Constructor)]
-    [HarmonyPatch(new Type[] { typeof(Hero), typeof(CharacterAttribute), typeof(CharacterVM), typeof(Action<CharacterAttributeItemVM>), typeof(Action<CharacterAttributeItemVM>) })]
+    [HarmonyPatch(new Type[]
+    {
+        typeof(Hero),
+        typeof(CharacterAttribute),
+        typeof(CharacterDeveloperHeroItemVM),
+        typeof(Action<CharacterAttributeItemVM>),
+        typeof(Action<CharacterAttributeItemVM>)
+    })]
     class CharacterAttributeItemVMPatch {
 
-        public static void Postfix(ref CharacterAttributeItemVM __instance, Hero hero, CharacterAttribute currAtt, CharacterVM developerVM, Action<CharacterAttributeItemVM> onInpectAttribute, Action<CharacterAttributeItemVM> onAddAttributePoint) {
+        public static void Postfix(ref CharacterAttributeItemVM __instance, Hero hero, CharacterAttribute currAtt, CharacterDeveloperHeroItemVM developerVM, Action<CharacterAttributeItemVM> onInpectAttribute, Action<CharacterAttributeItemVM> onAddAttributePoint)
+        {
             try {
                 string text = "";
 

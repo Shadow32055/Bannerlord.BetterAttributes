@@ -12,20 +12,41 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultPartyHealingModel), nameof(DefaultPartyHealingModel.GetDailyHealingHpForHeroes))]
-        public static void GetDailyHealingHpForHeroes(ref ExplainedNumber __result, MobileParty party, bool includeDescriptions = false) {
-            try {
+        public static void GetDailyHealingHpForHeroes(ref ExplainedNumber __result, PartyBase party, bool isPrisoners, bool includeDescriptions) {
+            try
+            {
                 if (!BetterAttributes.Settings.HealthRegenBonusEnabled)
                     return;
 
-                if (party.LeaderHero is null)
+                if (party is null)
                     return;
+
+                if (!party.IsMobile)
+                    return;
+
+                var leader = party.LeaderHero;
+
+                if (party.LeaderHero is null)
+                {
+                    return;
+                }
 
                 if (__result.ResultNumber <= 0)
                     return;
 
-                __result.AddFactor(AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.HealthRegenBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute), party.LeaderHero.CharacterObject), new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute).Name + " Bonus", null));
+                float factor = AttributeHelper.GetAttributeEffect(
+                    BetterAttributes.Settings.HealthRegenBonus,
+                    AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute),
+                    leader.CharacterObject
+                );
 
-            } catch (Exception e) {
+                __result.AddFactor(factor, new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute).Name + " Bonus", null));
+#if DEBUG
+                NotifyHelper.WriteMessage($"Daily Healing: {__result.ResultNumber}", MsgType.Notify);
+#endif
+            }
+            catch (Exception e)
+            {
                 NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultPartyHealingModel.GetDailyHealingHpForHeroes threw exception: " + e);
             }
         }

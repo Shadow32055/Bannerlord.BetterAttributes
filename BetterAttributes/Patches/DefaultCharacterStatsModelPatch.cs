@@ -11,7 +11,7 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultCharacterStatsModel), nameof(DefaultCharacterStatsModel.MaxHitpoints))]
-        public static void MaxHitpoints(ref ExplainedNumber __result, CharacterObject character, bool includeDescriptions = false) {
+        public static void MaxHitpoints(ref ExplainedNumber __result, CharacterObject character, bool includeDescriptions) {
             try {
                 if (BetterAttributes.Settings.HealthBonusEnabled) {
                     if (!character.IsHero)
