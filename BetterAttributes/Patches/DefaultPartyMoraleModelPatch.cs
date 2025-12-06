@@ -12,7 +12,7 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultPartyMoraleModel), nameof(DefaultPartyMoraleModel.GetEffectivePartyMorale))]
-        public static void GetEffectivePartyMorale(ref ExplainedNumber __result, MobileParty mobileParty) {
+        public static void GetEffectivePartyMorale(ref ExplainedNumber __result, MobileParty mobileParty, bool includeDescription) {
             try {
                 if (BetterAttributes.Settings.PartyMoraleBonusEnabled) {
                     if (mobileParty.LeaderHero is null)

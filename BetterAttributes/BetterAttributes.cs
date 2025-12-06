@@ -6,10 +6,11 @@ using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
 
 namespace BetterAttributes {
-    public class BetterAttributes : MBSubModuleBaseEx {
-
+    public class BetterAttributes : MBSubModuleBaseEx
+    {
 		public static MCMSettings Settings { get; private set; } = new MCMSettings();
 
 		public static string ModName { get; private set; } = "BetterAttributes";
@@ -18,19 +19,20 @@ namespace BetterAttributes {
         private bool isLoaded = false;
 
         //FIRST
-        protected override void OnSubModuleLoad() {
-            try {
-                base.OnSubModuleLoad();
+        protected override void OnSubModuleLoad()
+        {
+            base.OnSubModuleLoad();
 
+            try {
                 if (isInitialized)
                     return;
 
                 Harmony h = new("Bannerlord.Shadow." + ModName);
-
                 h.PatchAll();
 
                 isInitialized = true;
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 NotifyHelper.WriteError(ModName, "OnSubModuleLoad threw exception " + e);
             }
         }
@@ -47,7 +49,11 @@ namespace BetterAttributes {
 
                 Settings = MCMSettings.Instance ?? throw new NullReferenceException("Settings are null");
 
-                NotifyHelper.WriteMessage(ModName + " Loaded.", MsgType.Good);
+                if(isInitialized)
+                    NotifyHelper.WriteMessage(ModName + " Loaded.", MsgType.Good);
+                else
+                    NotifyHelper.WriteMessage(ModName + " failed to load.", MsgType.Warning);
+
                 Integrations.BetterAttributesLoaded = true;
 
                 isLoaded = true;
@@ -60,8 +66,11 @@ namespace BetterAttributes {
         protected override void OnGameStart(Game game, IGameStarter gameStarter) {
 			try {
 				base.OnGameStart(game, gameStarter);
+#if DEBUG
+                NotifyHelper.WriteMessage($"{ModName}: game start", MsgType.Good);
+#endif
 
-				if (game.GameType is Campaign) {
+                if (game.GameType is Campaign) {
                     CampaignGameStarter campaignGameStarter = (CampaignGameStarter)gameStarter;
 
 					if (campaignGameStarter != null) {

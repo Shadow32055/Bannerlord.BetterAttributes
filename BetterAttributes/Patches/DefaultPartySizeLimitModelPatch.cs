@@ -12,7 +12,7 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultPartySizeLimitModel), nameof(DefaultPartySizeLimitModel.GetPartyMemberSizeLimit))]
-        public static void GetPartyMemberSizeLimit(ref ExplainedNumber __result, PartyBase party) {
+        public static void GetPartyMemberSizeLimit(ref ExplainedNumber __result, PartyBase party, bool includeDescriptions) {
             try {
                 if (BetterAttributes.Settings.PartySizeBonusEnabled) {
                     if (party.LeaderHero is null)

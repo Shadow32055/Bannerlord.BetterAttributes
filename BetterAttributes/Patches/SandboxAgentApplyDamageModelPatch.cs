@@ -26,8 +26,8 @@ namespace BetterAttributes.Patches {
                     return;
 
                 __result = __result * (AttributeHelper.GetAttributeEffect(BetterAttributes.Settings.StaggerBonus, AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.StaggerBonusAttribute), (CharacterObject)defenderAgent.Character) + 1);
-                
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 NotifyHelper.WriteError(BetterAttributes.ModName, "SandboxAgentApplyDamageModelPatch.CalculateStaggerThresholdDamage threw exception: " + e);
             }
         }
