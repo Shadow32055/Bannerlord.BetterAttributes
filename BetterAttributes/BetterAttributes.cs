@@ -9,21 +9,19 @@ using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
 namespace BetterAttributes {
-    public class BetterAttributes : MBSubModuleBaseEx
-    {
-		public static MCMSettings Settings { get; private set; } = new MCMSettings();
+    public class BetterAttributes : MBSubModuleBaseEx {
+        public static MCMSettings Settings { get; private set; } = new MCMSettings();
 
-		public static string ModName { get; private set; } = "BetterAttributes";
+        public static string ModName { get; private set; } = "BetterAttributes";
 
         private bool isInitialized = false;
         private bool isLoaded = false;
 
         //FIRST
-        protected override void OnSubModuleLoad()
-        {
-            base.OnSubModuleLoad();
-
+        protected override void OnSubModuleLoad() {
             try {
+                base.OnSubModuleLoad();
+
                 if (isInitialized)
                     return;
 
@@ -31,8 +29,7 @@ namespace BetterAttributes {
                 h.PatchAll();
 
                 isInitialized = true;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 NotifyHelper.WriteError(ModName, "OnSubModuleLoad threw exception " + e);
             }
         }
@@ -49,7 +46,7 @@ namespace BetterAttributes {
 
                 Settings = MCMSettings.Instance ?? throw new NullReferenceException("Settings are null");
 
-                if(isInitialized)
+                if (isInitialized)
                     NotifyHelper.WriteMessage(ModName + " Loaded.", MsgType.Good);
                 else
                     NotifyHelper.WriteMessage(ModName + " failed to load.", MsgType.Warning);
@@ -64,8 +61,8 @@ namespace BetterAttributes {
 
         //THIRD
         protected override void OnGameStart(Game game, IGameStarter gameStarter) {
-			try {
-				base.OnGameStart(game, gameStarter);
+            try {
+                base.OnGameStart(game, gameStarter);
 #if DEBUG
                 NotifyHelper.WriteMessage($"{ModName}: game start", MsgType.Good);
 #endif
@@ -73,13 +70,13 @@ namespace BetterAttributes {
                 if (game.GameType is Campaign) {
                     CampaignGameStarter campaignGameStarter = (CampaignGameStarter)gameStarter;
 
-					if (campaignGameStarter != null) {
+                    if (campaignGameStarter != null) {
                         campaignGameStarter.AddModel(new CustomDefaultPartyWageModel());
-					}
-				}
-			} catch (Exception e) {
-				NotifyHelper.WriteError(ModName, "OnGameStart threw exception " + e);
-			}
-		}
-	}
+                    }
+                }
+            } catch (Exception e) {
+                NotifyHelper.WriteError(ModName, "OnGameStart threw exception " + e);
+            }
+        }
+    }
 }

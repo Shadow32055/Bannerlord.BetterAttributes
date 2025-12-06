@@ -4,7 +4,6 @@ using System;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
-using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
@@ -12,7 +11,7 @@ using TaleWorlds.Localization;
 namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(Hero))]
     class HeroPatch {
-        
+
         private static FieldInfo? hdFieldInfo = null;
 
         [HarmonyPostfix]

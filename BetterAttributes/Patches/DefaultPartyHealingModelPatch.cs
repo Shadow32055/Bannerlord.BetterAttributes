@@ -13,8 +13,7 @@ namespace BetterAttributes.Patches {
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultPartyHealingModel), nameof(DefaultPartyHealingModel.GetDailyHealingHpForHeroes))]
         public static void GetDailyHealingHpForHeroes(ref ExplainedNumber __result, PartyBase party, bool isPrisoners, bool includeDescriptions) {
-            try
-            {
+            try {
                 if (!BetterAttributes.Settings.HealthRegenBonusEnabled)
                     return;
 
@@ -24,12 +23,8 @@ namespace BetterAttributes.Patches {
                 if (!party.IsMobile)
                     return;
 
-                var leader = party.LeaderHero;
-
                 if (party.LeaderHero is null)
-                {
                     return;
-                }
 
                 if (__result.ResultNumber <= 0)
                     return;
@@ -37,16 +32,14 @@ namespace BetterAttributes.Patches {
                 float factor = AttributeHelper.GetAttributeEffect(
                     BetterAttributes.Settings.HealthRegenBonus,
                     AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute),
-                    leader.CharacterObject
+                    party.LeaderHero.CharacterObject
                 );
 
                 __result.AddFactor(factor, new TextObject(AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.HealthRegenBonusAttribute).Name + " Bonus", null));
 #if DEBUG
                 NotifyHelper.WriteMessage($"Daily Healing: {__result.ResultNumber}", MsgType.Notify);
 #endif
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 NotifyHelper.WriteError(BetterAttributes.ModName, "DefaultPartyHealingModel.GetDailyHealingHpForHeroes threw exception: " + e);
             }
         }
