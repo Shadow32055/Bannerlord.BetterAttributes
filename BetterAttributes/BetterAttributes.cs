@@ -6,13 +6,13 @@ using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
 
 namespace BetterAttributes {
     public class BetterAttributes : MBSubModuleBaseEx {
+        public static MCMSettings Settings { get; private set; } = new MCMSettings();
 
-		public static MCMSettings Settings { get; private set; } = new MCMSettings();
-
-		public static string ModName { get; private set; } = "BetterAttributes";
+        public static string ModName { get; private set; } = "BetterAttributes";
 
         private bool isInitialized = false;
         private bool isLoaded = false;
@@ -26,7 +26,6 @@ namespace BetterAttributes {
                     return;
 
                 Harmony h = new("Bannerlord.Shadow." + ModName);
-
                 h.PatchAll();
 
                 isInitialized = true;
@@ -47,7 +46,11 @@ namespace BetterAttributes {
 
                 Settings = MCMSettings.Instance ?? throw new NullReferenceException("Settings are null");
 
-                NotifyHelper.WriteMessage(ModName + " Loaded.", MsgType.Good);
+                if (isInitialized)
+                    NotifyHelper.WriteMessage(ModName + " Loaded.", MsgType.Good);
+                else
+                    NotifyHelper.WriteMessage(ModName + " failed to load.", MsgType.Warning);
+
                 Integrations.BetterAttributesLoaded = true;
 
                 isLoaded = true;
@@ -58,19 +61,22 @@ namespace BetterAttributes {
 
         //THIRD
         protected override void OnGameStart(Game game, IGameStarter gameStarter) {
-			try {
-				base.OnGameStart(game, gameStarter);
+            try {
+                base.OnGameStart(game, gameStarter);
+#if DEBUG
+                NotifyHelper.WriteMessage($"{ModName}: game start", MsgType.Good);
+#endif
 
-				if (game.GameType is Campaign) {
+                if (game.GameType is Campaign) {
                     CampaignGameStarter campaignGameStarter = (CampaignGameStarter)gameStarter;
 
-					if (campaignGameStarter != null) {
+                    if (campaignGameStarter != null) {
                         campaignGameStarter.AddModel(new CustomDefaultPartyWageModel());
-					}
-				}
-			} catch (Exception e) {
-				NotifyHelper.WriteError(ModName, "OnGameStart threw exception " + e);
-			}
-		}
-	}
+                    }
+                }
+            } catch (Exception e) {
+                NotifyHelper.WriteError(ModName, "OnGameStart threw exception " + e);
+            }
+        }
+    }
 }

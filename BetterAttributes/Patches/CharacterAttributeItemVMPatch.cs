@@ -9,10 +9,16 @@ using TaleWorlds.Localization;
 
 namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(CharacterAttributeItemVM), MethodType.Constructor)]
-    [HarmonyPatch(new Type[] { typeof(Hero), typeof(CharacterAttribute), typeof(CharacterVM), typeof(Action<CharacterAttributeItemVM>), typeof(Action<CharacterAttributeItemVM>) })]
+    [HarmonyPatch(new Type[] {
+        typeof(Hero),
+        typeof(CharacterAttribute),
+        typeof(CharacterDeveloperHeroItemVM),
+        typeof(Action<CharacterAttributeItemVM>),
+        typeof(Action<CharacterAttributeItemVM>)
+    })]
     class CharacterAttributeItemVMPatch {
 
-        public static void Postfix(ref CharacterAttributeItemVM __instance, Hero hero, CharacterAttribute currAtt, CharacterVM developerVM, Action<CharacterAttributeItemVM> onInpectAttribute, Action<CharacterAttributeItemVM> onAddAttributePoint) {
+        public static void Postfix(ref CharacterAttributeItemVM __instance, Hero hero, CharacterAttribute currAtt, CharacterDeveloperHeroItemVM developerVM, Action<CharacterAttributeItemVM> onInpectAttribute, Action<CharacterAttributeItemVM> onAddAttributePoint) {
             try {
                 string text = "";
 
@@ -26,7 +32,7 @@ namespace BetterAttributes.Patches {
 
                     text += co.displayString + "\n";
                 }
-                
+
                 if (BetterAttributes.Settings.MoreBonusRoom) {
                     __instance.IncreaseHelpText = text;
                 } else {
@@ -72,7 +78,7 @@ namespace BetterAttributes.Patches {
 
             if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.MelDmgBonusAttribute) == ca && BetterAttributes.Settings.MelDmgBonusEnabled)
                 applicableBonuses.Add(new CustomAtrObject(ca, melDmgText + (BetterAttributes.Settings.MelDmgBonus * lvl).ToString("P") + "", BetterAttributes.Settings.MelDmgBonusPlayerOnly));
-            
+
             if (AttributeHelper.GetAttributeTypeFromIndex(BetterAttributes.Settings.RngDmgBonusAttribute) == ca && BetterAttributes.Settings.RngDmgBonusEnabled)
                 applicableBonuses.Add(new CustomAtrObject(ca, rngDmgText + (BetterAttributes.Settings.RngDmgBonus * lvl).ToString("P") + "", BetterAttributes.Settings.RngDmgBonusPlayerOnly));
 

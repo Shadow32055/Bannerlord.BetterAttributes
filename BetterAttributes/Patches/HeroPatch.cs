@@ -11,11 +11,11 @@ using TaleWorlds.Localization;
 namespace BetterAttributes.Patches {
     [HarmonyPatch(typeof(Hero))]
     class HeroPatch {
-        
+
         private static FieldInfo? hdFieldInfo = null;
 
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(Hero), "AddSkillXp")]
+        [HarmonyPatch(typeof(Hero), nameof(Hero.AddSkillXp))]
         public static void AddSkillXp(ref Hero __instance, SkillObject skill, float xpAmount) {
             try {
 

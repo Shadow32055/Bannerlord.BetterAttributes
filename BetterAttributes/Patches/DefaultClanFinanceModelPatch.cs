@@ -11,7 +11,7 @@ namespace BetterAttributes.Patches {
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(DefaultClanFinanceModel), "CalculateClanIncomeInternal")]
-        public static void CalculateClanIncomeInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false) {
+        public static void CalculateClanIncomeInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false, bool includeDetails = false) {
             try {
                 if (BetterAttributes.Settings.IncomeBonusEnabled) {
                     if (clan.IsEliminated)

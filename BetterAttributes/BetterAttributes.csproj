@@ -11,39 +11,61 @@
 
     <ModuleId>$(MSBuildProjectName)</ModuleId>
     <ModuleName>$(MSBuildProjectName)</ModuleName>
-	<GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
-	<NugetFolder>$(NUGET_PACKAGES_DIR)</NugetFolder>
-	<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+
+    <!-- Environment variables -->
+    <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
+    <NugetFolder>$(NUGET_PACKAGES_DIR)</NugetFolder>
+
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <BaseOutputPath>$(MSBuildProjectDirectory)\bin\</BaseOutputPath>
   </PropertyGroup>
-	
-  <ItemGroup>
-    <PackageReference Include="Bannerlord.ButterLib" Version="2.9.18" IncludeAssets="compile" />
-    <PackageReference Include="Bannerlord.MCM" Version="5.10.2" />
-    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.2.12.54620" />
-    <PackageReference Include="Bannerlord.UIExtenderEx" Version="2.12.0" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
-    <PackageReference Include="Lib.Harmony" Version="2.3.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
 
   <ItemGroup>
-	<Reference Include="BetterCore">
-	  <HintPath>..\..\Bannerlord.BetterCore\BetterCore\bin\x64\Debug\netstandard2.0\BetterCore.dll</HintPath>
-	</Reference>
+    <PackageReference Include="Bannerlord.ButterLib" Version="2.10.3" IncludeAssets="compile" />
+    <PackageReference Include="Bannerlord.MCM" Version="5.11.3" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies" Version="1.3.9.103334" />
+    <PackageReference Include="Bannerlord.UIExtenderEx" Version="2.13.2" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
-	
+
+  <!-- Project dependency -->
+  <ItemGroup>
+    <Reference Include="BetterCore">
+      <HintPath>..\..\Bannerlord.BetterCore\BetterCore\bin\x64\Debug\netstandard2.0\BetterCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
   <ItemGroup>
     <None Update="_Module\SubModule.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
+  <!-- PRE BUILD CLEANUP -->
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="RMDIR /Q /S &quot;$(GameFolder)\Modules\$(MSBuildProjectName)&quot;" />
+    <Message Text="Removing old module folder: $(GameFolder)\Modules\$(MSBuildProjectName)" Importance="high" />
+    <Exec Command="IF EXIST &quot;$(GameFolder)\Modules\$(MSBuildProjectName)&quot; RMDIR /Q /S &quot;$(GameFolder)\Modules\$(MSBuildProjectName)&quot;" />
   </Target>
 
+  <!-- POST BUILD DEPLOY -->
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY /Y /E /H /C /I &quot;$(MSBuildProjectDirectory)\_Module&quot; &quot;%25GameFolder%25\Modules\$(MSBuildProjectName)\&quot;&#xD;&#xA;XCOPY /Y &quot;$(MSBuildProjectDirectory)\bin\x64\Debug\netstandard2.0\$(MSBuildProjectName).dll&quot; &quot;%25GameFolder%25\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y &quot;$(MSBuildProjectDirectory)\bin\x64\Debug\netstandard2.0\$(MSBuildProjectName).dll&quot; &quot;%25GameFolder%25\Modules\$(MSBuildProjectName)\bin\Gaming.Desktop.x64_Shipping_Client\&quot;&#xD;&#xA;XCOPY /Y /S &quot;$(MSBuildProjectDirectory)\_Module\*&quot; &quot;%25GameFolder%25\Modules\$(MSBuildProjectName)\&quot;" />
+
+    <!-- Create folder structure -->
+    <Exec Command="MKDIR &quot;$(GameFolder)\Modules\$(MSBuildProjectName)&quot;" />
+    <Exec Command="MKDIR &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client&quot;" />
+    <Exec Command="MKDIR &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Gaming.Desktop.x64_Shipping_Client&quot;" />
+
+    <!-- Copy module XML, assets, etc -->
+    <Exec Command="XCOPY /Y /E /H /C /I &quot;$(MSBuildProjectDirectory)\_Module&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;" />
+
+    <!-- Always copy DLL -->
+    <Exec Command="XCOPY /Y &quot;$(TargetPath)&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Win64_Shipping_Client\&quot;" />
+    <Exec Command="XCOPY /Y &quot;$(TargetPath)&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\bin\Gaming.Desktop.x64_Shipping_Client\&quot;" />
+
+    <!-- Copy extra module files -->
+    <Exec Command="XCOPY /Y /E /H /C /I &quot;$(MSBuildProjectDirectory)\_Module\*&quot; &quot;$(GameFolder)\Modules\$(MSBuildProjectName)\&quot;" />
+
   </Target>
 
 </Project>
