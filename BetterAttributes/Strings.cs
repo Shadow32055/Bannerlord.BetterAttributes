@@ -7,7 +7,7 @@
         public const string EnabledHint = "{=BA_sVRwEA}Should this bonus be applied.";
 
         public const string PlayerOnlyText = "{=BA_vBH4P5}Player Only";
-        public const string PlayerOnlyHint = "{=BA_5AKRK0}Should this bonus apply to all heroes, not just the player.";
+        public const string PlayerOnlyHint = "{=BA_5AKRK0}If checked, only the player receives this bonus. If unchecked, all heroes receive it.";
 
         public const string BonusText = "{=BA_8g0U40}Bonus";
         public const string BonusHint = "{=BA_3F0Jal}An increase multiplied by attribute level. (For example, a 2% (.02) bonus will be 20% at attribute level 10)";
